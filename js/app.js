@@ -273,38 +273,53 @@
   // Mobile menu
   const mobileBtn = document.querySelector('.mobile-menu-btn');
   const nav = document.querySelector('.nav');
+  var menuOpen = false;
+
   function closeMenu() {
+    if (!menuOpen) return;
+    menuOpen = false;
     nav.classList.remove('mobile-open');
+  }
+
+  function openMenu() {
+    menuOpen = true;
+    nav.classList.add('mobile-open');
   }
 
   if (mobileBtn && nav) {
     mobileBtn.addEventListener('click', function (e) {
+      e.preventDefault();
       e.stopPropagation();
-      nav.classList.toggle('mobile-open');
-    });
-
-    // Boş yere dokunma
-    document.addEventListener('touchstart', function (e) {
-      if (nav.classList.contains('mobile-open') && !e.target.closest('.nav') && !e.target.closest('.mobile-menu-btn')) {
-        closeMenu();
-      }
-    });
-    document.addEventListener('click', function (e) {
-      if (nav.classList.contains('mobile-open') && !e.target.closest('.nav') && !e.target.closest('.mobile-menu-btn')) {
-        closeMenu();
-      }
+      if (menuOpen) { closeMenu(); } else { openMenu(); }
     });
 
     // Menüden link seçilince
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', closeMenu);
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        closeMenu();
+      }
+    });
+
+    // Boş yere dokunma veya tıklama
+    document.addEventListener('touchstart', function (e) {
+      if (menuOpen && !e.target.closest('.nav') && !e.target.closest('.mobile-menu-btn')) {
+        closeMenu();
+      }
+    }, { passive: true });
+
+    document.addEventListener('click', function (e) {
+      if (menuOpen && !e.target.closest('.nav') && !e.target.closest('.mobile-menu-btn')) {
+        closeMenu();
+      }
     });
 
     // Scroll yapınca
+    var lastScrollY = window.scrollY;
     window.addEventListener('scroll', function () {
-      if (nav.classList.contains('mobile-open')) {
+      if (menuOpen && Math.abs(window.scrollY - lastScrollY) > 10) {
         closeMenu();
       }
+      lastScrollY = window.scrollY;
     }, { passive: true });
   }
 })();
