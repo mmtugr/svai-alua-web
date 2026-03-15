@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Alternatif 3: Beyaz arka plan, fore kazık makinası -->
+  <defs>
+    <linearGradient id="tealGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00A99D"/>
+      <stop offset="100%" stop-color="#006B63"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD54F"/>
+      <stop offset="100%" stop-color="#FEC50C"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="400" rx="32" fill="#ffffff"/>
+  <!-- Üst teal şerit -->
+  <rect x="0" y="0" width="400" height="6" rx="3" fill="url(#tealGrad)"/>
+
+  <!-- ТОО yazısı kaldırıldı, alta taşındı -->
+
+  <!-- Fore Kazık Makinası — merkeze yerleştirilmiş -->
+  <g transform="translate(200, 175)">
+
+    <!-- Paletler (tırtıl) -->
+    <rect x="-65" y="72" width="130" height="24" rx="12" fill="url(#tealGrad)" opacity="0.85"/>
+    <!-- Palet tekerlekleri -->
+    <circle cx="-45" cy="84" r="8" fill="rgba(0,133,124,0.25)" stroke="#006B63" stroke-width="1.5"/>
+    <circle cx="45" cy="84" r="8" fill="rgba(0,133,124,0.25)" stroke="#006B63" stroke-width="1.5"/>
+    <circle cx="-15" cy="84" r="6" fill="rgba(0,133,124,0.15)" stroke="#006B63" stroke-width="1"/>
+    <circle cx="15" cy="84" r="6" fill="rgba(0,133,124,0.15)" stroke="#006B63" stroke-width="1"/>
+
+    <!-- Alt gövde (döner platform) -->
+    <rect x="-55" y="42" width="110" height="32" rx="6" fill="#FEC50C"/>
+    <!-- Motor bölümü -->
+    <rect x="20" y="46" width="30" height="24" rx="4" fill="#e8a800" opacity="0.6"/>
+    <!-- Egzoz -->
+    <rect x="42" y="38" width="6" height="12" rx="3" fill="#006B63" opacity="0.5"/>
+
+    <!-- Kabin -->
+    <rect x="-50" y="18" width="40" height="28" rx="5" fill="#FEC50C"/>
+    <!-- Kabin camı -->
+    <rect x="-46" y="22" width="22" height="18" rx="3" fill="#ffffff" opacity="0.6"/>
+    <!-- Kabin cam çerçeve -->
+    <rect x="-46" y="22" width="22" height="18" rx="3" fill="none" stroke="#e8a800" stroke-width="1"/>
+    <!-- Kabin üst -->
+    <rect x="-52" y="16" width="44" height="5" rx="2.5" fill="#e8a800" opacity="0.7"/>
+
+    <!-- Mast (dikey kule/lider) -->
+    <rect x="-4" y="-120" width="8" height="165" rx="2" fill="url(#tealGrad)" opacity="0.9"/>
+    <!-- Mast sol ray -->
+    <rect x="-10" y="-120" width="3" height="165" rx="1" fill="url(#tealGrad)" opacity="0.6"/>
+    <!-- Mast sağ ray -->
+    <rect x="7" y="-120" width="3" height="165" rx="1" fill="url(#tealGrad)" opacity="0.6"/>
+
+    <!-- Mast çapraz destekler -->
+    <line x1="-10" y1="-110" x2="10" y2="-95" stroke="#00857C" stroke-width="1.5" opacity="0.4"/>
+    <line x1="10" y1="-110" x2="-10" y2="-95" stroke="#00857C" stroke-width="1.5" opacity="0.4"/>
+    <line x1="-10" y1="-85" x2="10" y2="-70" stroke="#00857C" stroke-width="1.5" opacity="0.4"/>
+    <line x1="10" y1="-85" x2="-10" y2="-70" stroke="#00857C" stroke-width="1.5" opacity="0.4"/>
+    <line x1="-10" y1="-60" x2="10" y2="-45" stroke="#00857C" stroke-width="1.5" opacity="0.4"/>
+    <line x1="10" y1="-60" x2="-10" y2="-45" stroke="#00857C" stroke-width="1.5" opacity="0.4"/>
+    <line x1="-10" y1="-35" x2="10" y2="-20" stroke="#00857C" stroke-width="1.5" opacity="0.4"/>
+    <line x1="10" y1="-35" x2="-10" y2="-20" stroke="#00857C" stroke-width="1.5" opacity="0.4"/>
+    <line x1="-10" y1="-10" x2="10" y2="5" stroke="#00857C" stroke-width="1.5" opacity="0.4"/>
+    <line x1="10" y1="-10" x2="-10" y2="5" stroke="#00857C" stroke-width="1.5" opacity="0.4"/>
+
+    <!-- Mast üst parça -->
+    <rect x="-12" y="-128" width="24" height="12" rx="3" fill="url(#tealGrad)"/>
+    <!-- Makara üst -->
+    <circle cx="0" cy="-122" r="4" fill="#FEC50C" stroke="#006B63" stroke-width="1"/>
+
+    <!-- Çekiç / Hammer (mast üzerinde hareket eden) -->
+    <rect x="-14" y="-60" width="28" height="35" rx="4" fill="#e8710a" opacity="0.9"/>
+    <rect x="-10" y="-55" width="20" height="8" rx="2" fill="rgba(255,255,255,0.25)"/>
+    <!-- Çekiç alt -->
+    <rect x="-12" y="-28" width="24" height="8" rx="2" fill="#c65d08"/>
+
+    <!-- Kazık (pile) — aşağıya doğru -->
+    <rect x="-5" y="-20" width="10" height="65" rx="1" fill="#006B63" opacity="0.7"/>
+    <!-- Kazık ucu -->
+    <polygon points="-5,45 5,45 0,55" fill="#006B63" opacity="0.7"/>
+
+    <!-- Halat (üst makaradan çekice) -->
+    <line x1="0" y1="-118" x2="0" y2="-60" stroke="#006B63" stroke-width="1.5" opacity="0.4" stroke-dasharray="4,3"/>
+
+    <!-- Mast destek ayağı (eğik) -->
+    <line x1="10" y1="42" x2="30" y2="-30" stroke="url(#tealGrad)" stroke-width="3" opacity="0.5" stroke-linecap="round"/>
+
+    <!-- Eklem noktaları -->
+    <circle cx="0" cy="42" r="4" fill="#FEC50C" stroke="#006B63" stroke-width="1"/>
+  </g>
+
+  <!-- ТОО АЛУА yazısı — aynı boyut, ТОО altın renk -->
+  <text x="200" y="326" text-anchor="middle" font-family="'Georgia', 'Times New Roman', serif" font-size="50" letter-spacing="6">
+    <tspan fill="url(#tealGrad)" font-weight="700">ТОО </tspan>
+    <tspan fill="url(#tealGrad)" font-weight="700">АЛУА</tspan>
+  </text>
+
+  <!-- Alt altın accent çizgi -->
+  <rect x="130" y="344" width="140" height="3" rx="1.5" fill="url(#goldGrad)"/>
+
+  <!-- Alt teal şerit -->
+  <rect x="0" y="394" width="400" height="6" rx="3" fill="url(#tealGrad)"/>
+</svg>

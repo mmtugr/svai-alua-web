@@ -1192,6 +1192,7 @@ a:hover { color: var(--color-accent-hover); }
 }
 
 .footer-bottom p { margin: 0; }
+.footer-credit { font-size: 0.7rem; opacity: 0.5; }
 
 /* ===== Scroll Reveal ===== */
 .scroll-reveal {
