@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Read(//Users/ugur/Projects/Project/**)",
+      "Read(//Users/ugur/Projects/**)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

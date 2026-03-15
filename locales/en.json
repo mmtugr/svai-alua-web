@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "about": "About Us",
+    "services": "Services",
+    "equipment": "Equipment",
+    "gallery": "Gallery",
+    "clients": "Clients",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Piling Works, Road Boring",
+    "subtitle": "Bored Piles • CFA Technology • Trenchless Utility Installation",
+    "cta": "Contact Us"
+  },
+  "about": {
+    "title": "About Us",
+    "p1": "Alua LLP is a company with many years of experience in piling works and trenchless utility installation in Kazakhstan. We perform bored piles using CFA technology, vibropiling, road boring, and other specialized works.",
+    "p2": "Our company is equipped with modern machinery from world-leading manufacturers: Soilmec, Liebherr, Delmag, MAIT and others. This allows us to complete projects of any complexity with high quality and on schedule.",
+    "p3": "We work with the largest developers and contractors in Kazakhstan. Over 140 companies have entrusted us with their projects."
+  },
+  "services": {
+    "title": "Our Services",
+    "items": [
+      { "text": "Bored piles by CFA technology (continuous flight auger)", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg", "desc": "CFA technology allows piles up to 1.5 m diameter and 35 m depth without soil excavation." },
+      { "text": "Vibropiling", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg", "desc": "Driving of Larssen sheet piles, steel pipes and piles using FINAROS-800 vibratory hammer." },
+      { "text": "Road and railway boring", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg", "desc": "Trenchless utility installation under roads and structures. Ditch Witch (USA) and UNP 100 (Russia) equipment." },
+      { "text": "Steel pipes and metal structures", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg", "desc": "Jacking of steel pipes up to 1500 mm diameter for various utilities." },
+      { "text": "Turnkey piling works", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg", "desc": "Full cycle from design to handover. Reinforcement cages on SHNELL Cage Making Machine line." }
+    ]
+  },
+  "equipment": {
+    "title": "Our Equipment",
+    "items": [
+      { "name": "Soilmec CM 48 / CM 70", "desc": "Drilling rigs", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
+      { "name": "Liebherr 921", "desc": "Piling works", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg" },
+      { "name": "MAIT T80", "desc": "Drilling machines", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
+      { "name": "Mini loader", "desc": "Earthworks", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" }
+    ]
+  },
+  "gallery": {
+    "title": "Gallery"
+  },
+  "clients": {
+    "title": "Clients",
+    "intro": "Over 140 companies have entrusted us with their projects",
+    "projects": "completed projects",
+    "modalTitle": "Completed Projects (147+)"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "address": "Address:",
+    "phone": "Phone:",
+    "email": "Email:",
+    "hours": "Working hours:",
+    "chatbotTitle": "How can we help?",
+    "chatbotQ1": "What are you interested in?",
+    "choicePiles": "Piling works",
+    "choicePuncture": "Road boring",
+    "choiceQuote": "Quote",
+    "choiceOther": "Other",
+    "resultPiles": "Piling works: CFA bored piles, vibropiling. Contact us on WhatsApp for consultation.",
+    "resultPuncture": "Road and railway boring. Trenchless utility installation. Message us on WhatsApp.",
+    "resultQuote": "For a quote, describe the project and scope of work. We will respond within 24 hours.",
+    "resultOther": "For any questions, contact us. We are here to help!",
+    "whatsappBtn": "Message on WhatsApp",
+    "formTitle": "Write to us",
+    "mapLabel": "Almaty, Kazakhstan"
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "submit": "Send",
+    "success": "Thank you! Your message has been sent.",
+    "error": "Error. Please try again later."
+  },
+  "contactInfo": {
+    "addressValue": "050058, Almaty, Ryskulov Prospect, 103",
+    "phones": ["+7 (727) 377 91 88", "+7 (777) 215 32 28"],
+    "emailValue": "alua_too@mail.ru",
+    "hoursValue": "09:00–18:00"
+  },
+  "footer": {
+    "license": "License No. 015231"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "about": "Hakkımızda",
+    "services": "Hizmetler",
+    "equipment": "Ekipman",
+    "gallery": "Galeri",
+    "clients": "Müşteriler",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "title": "Kazık işleri, yol altı delme",
+    "subtitle": "Fore kazıklar • CFA teknolojisi • Kazısız altyapı döşeme",
+    "cta": "Bize ulaşın"
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "p1": "«Alua» LLP — Kazakistan'da kazık işleri ve kazısız altyapı döşeme alanında yıllarca deneyime sahip bir şirkettir. CFA teknolojisi ile fore kazıklar, vibrasyonlu kazık çakma, yollar ve demiryolları altında delme ve diğer uzman işleri gerçekleştiriyoruz.",
+    "p2": "Şirketimiz Soilmec, Liebherr, Delmag, MAIT ve diğer dünya lideri üreticilerin modern ekipmanlarıyla donatılmıştır. Bu, her karmaşıklıkta projeleri yüksek kalitede ve belirlenen sürelerde tamamlamamıza olanak tanır.",
+    "p3": "Kazakistan'ın en büyük inşaat firmaları ve yüklenicileriyle çalışıyoruz. 140'tan fazla şirket projelerini bize emanet etti."
+  },
+  "services": {
+    "title": "Hizmetlerimiz",
+    "items": [
+      { "text": "CFA teknolojisi ile fore kazıklar (sürekli burgu)", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg", "desc": "CFA teknolojisi, hafriyat yapmadan 1,5 m çapında ve 35 m derinliğinde kazık imalatına olanak tanır." },
+      { "text": "Vibrasyonlu kazık çakma", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg", "desc": "Larssen palplanşları, çelik borular ve kazıkların ФИНАРОС-800 vibratör ile çakılması." },
+      { "text": "Yollar ve demiryolları altında delme", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg", "desc": "Yollar ve yapılar altında kazısız altyapı döşeme. Ditch Witch (ABD) ve УНП 100 (Rusya) ekipmanları." },
+      { "text": "Çelik borular ve metal yapılar", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg", "desc": "Çeşitli altyapılar için 1500 mm çapında çelik boru itme." },
+      { "text": "Anahtar teslim kazık işleri", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg", "desc": "Tasarımdan teslimata tam döngü. SHNELL Cage Making Machine hattında donatı kafesleri." }
+    ]
+  },
+  "equipment": {
+    "title": "Ekipmanlarımız",
+    "items": [
+      { "name": "Soilmec CM 48 / CM 70", "desc": "Sondaj makineleri", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
+      { "name": "Liebherr 921", "desc": "Kazık işleri", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg" },
+      { "name": "MAIT T80", "desc": "Sondaj makineleri", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
+      { "name": "Mini yükleyici", "desc": "Hafriyat", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" }
+    ]
+  },
+  "gallery": {
+    "title": "Galeri"
+  },
+  "clients": {
+    "title": "Müşteriler",
+    "intro": "140'tan fazla şirket projelerini bize emanet etti",
+    "projects": "tamamlanan proje",
+    "modalTitle": "Tamamlanan projeler (147+)"
+  },
+  "contact": {
+    "title": "Bize ulaşın",
+    "address": "Adres:",
+    "phone": "Telefon:",
+    "email": "E-posta:",
+    "hours": "Çalışma saatleri:",
+    "chatbotTitle": "Size nasıl yardımcı olabiliriz?",
+    "chatbotQ1": "Ne ile ilgileniyorsunuz?",
+    "choicePiles": "Kazık işleri",
+    "choicePuncture": "Yol altı delme",
+    "choiceQuote": "Fiyat teklifi",
+    "choiceOther": "Diğer",
+    "resultPiles": "Kazık işleri: CFA fore kazıklar, vibrasyonlu çakma. Danışmanlık için WhatsApp ile iletişime geçin.",
+    "resultPuncture": "Yollar ve demiryolları altında delme. Kazısız altyapı döşeme. WhatsApp'tan yazın.",
+    "resultQuote": "Fiyat teklifi için proje ve iş miktarını açıklayın. 24 saat içinde yanıt vereceğiz.",
+    "resultOther": "Herhangi bir sorunuz için bizimle iletişime geçin.",
+    "whatsappBtn": "WhatsApp ile yaz",
+    "formTitle": "Bize yazın",
+    "mapLabel": "Almatı, Kazakistan"
+  },
+  "form": {
+    "name": "Ad Soyad",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "message": "Mesaj",
+    "submit": "Gönder",
+    "success": "Teşekkürler! Mesajınız gönderildi.",
+    "error": "Hata. Lütfen daha sonra tekrar deneyin."
+  },
+  "contactInfo": {
+    "addressValue": "050058, Almatı, Rıskulov Bulvarı, 103",
+    "phones": ["+7 (727) 377 91 88", "+7 (777) 215 32 28"],
+    "emailValue": "alua_too@mail.ru",
+    "hoursValue": "09:00–18:00"
+  },
+  "footer": {
+    "license": "Lisans № 015231"
+  }
+}
