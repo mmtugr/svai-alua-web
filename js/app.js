@@ -273,15 +273,38 @@
   // Mobile menu
   const mobileBtn = document.querySelector('.mobile-menu-btn');
   const nav = document.querySelector('.nav');
+  function closeMenu() {
+    nav.classList.remove('mobile-open');
+  }
+
   if (mobileBtn && nav) {
     mobileBtn.addEventListener('click', function (e) {
       e.stopPropagation();
       nav.classList.toggle('mobile-open');
     });
-    document.addEventListener('click', function (e) {
+
+    // Boş yere dokunma
+    document.addEventListener('touchstart', function (e) {
       if (nav.classList.contains('mobile-open') && !e.target.closest('.nav') && !e.target.closest('.mobile-menu-btn')) {
-        nav.classList.remove('mobile-open');
+        closeMenu();
       }
     });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('mobile-open') && !e.target.closest('.nav') && !e.target.closest('.mobile-menu-btn')) {
+        closeMenu();
+      }
+    });
+
+    // Menüden link seçilince
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Scroll yapınca
+    window.addEventListener('scroll', function () {
+      if (nav.classList.contains('mobile-open')) {
+        closeMenu();
+      }
+    }, { passive: true });
   }
 })();
