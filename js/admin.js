@@ -302,7 +302,7 @@
   }
 
   // Init admin lang buttons
-  document.addEventListener('DOMContentLoaded', function () {
+  (function initAdminLangButtons() {
     document.querySelectorAll('.admin-lang-btn').forEach(btn => {
       btn.addEventListener('click', function () {
         adminLang = btn.dataset.adminLang;
@@ -313,7 +313,7 @@
       });
     });
     applyAdminLang();
-  });
+  })();
 
   const IMG_BASE = 'https://svai-alua.kz';
   const LANGS = ['kk', 'ru', 'en', 'zh', 'tr'];
