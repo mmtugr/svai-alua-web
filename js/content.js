@@ -3,6 +3,17 @@
 
   const STORAGE_KEY = 'svai_alua_admin_content';
   const SHARED_KEY = 'svai_alua_admin_shared';
+  const VERSION_KEY = 'svai_alua_content_version';
+  const CONTENT_VERSION = 2; // Locale dosyaları güncellendiğinde bu sayıyı artırın
+
+  // Versiyon kontrolü: eski cache varsa otomatik temizle
+  (function checkVersion() {
+    const storedVersion = parseInt(localStorage.getItem(VERSION_KEY) || '0', 10);
+    if (storedVersion < CONTENT_VERSION) {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.setItem(VERSION_KEY, String(CONTENT_VERSION));
+    }
+  })();
 
   const DEFAULT_GALLERY_IMAGES = [
     '/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg',
@@ -220,6 +231,7 @@
     clearAll() {
       localStorage.removeItem(STORAGE_KEY);
       localStorage.removeItem(SHARED_KEY);
+      localStorage.setItem(VERSION_KEY, String(CONTENT_VERSION));
     },
   };
 })();
