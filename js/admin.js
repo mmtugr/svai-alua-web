@@ -6,15 +6,15 @@
   function getResolvedTheme(m) { return m === 'system' ? (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light') : m; }
   function applyAdminTheme(mode) {
     document.documentElement.setAttribute('data-theme', getResolvedTheme(mode));
-    const btn = document.getElementById('admin-theme-toggle');
-    if (btn) btn.textContent = mode === 'light' ? '\u2600' : mode === 'dark' ? '\u263E' : '\u25D0';
+    const icon = document.getElementById('admin-theme-icon');
+    if (icon) icon.textContent = mode === 'dark' ? '\u263E' : '\u2600';
   }
   applyAdminTheme(localStorage.getItem(THEME_KEY) || 'light');
   document.addEventListener('DOMContentLoaded', function () {
     const btn = document.getElementById('admin-theme-toggle');
     if (btn) btn.addEventListener('click', function () {
-      const cur = localStorage.getItem(THEME_KEY) || 'light';
-      const next = cur === 'light' ? 'dark' : cur === 'dark' ? 'system' : 'light';
+      const resolved = document.documentElement.getAttribute('data-theme');
+      const next = resolved === 'light' ? 'dark' : 'light';
       localStorage.setItem(THEME_KEY, next);
       applyAdminTheme(next);
     });
@@ -142,6 +142,18 @@
       'gallery.saved': 'Galeri kaydedildi',
       'gallery.resetConfirm': 'Galeriyi varsayılana sıfırlamak istediğinizden emin misiniz?',
       'gallery.resetDone': 'Galeri sıfırlandı',
+      // Certificates
+      'nav.certificates': 'Sertifikalar',
+      'certificates.title': 'Sertifika ve Lisanslar',
+      'certificates.note': 'Sertifika görselleri tüm diller için ortaktır. Metin dile özeldir.',
+      'certificates.descLabel': 'Bölüm Başlığı',
+      'certificates.descText': 'Açıklama Metni',
+      'certificates.add': '+ Sertifika Ekle',
+      'certificates.added': 'Yeni sertifika alanı eklendi',
+      'certificates.deleted': 'Sertifika silindi',
+      'certificates.saved': 'Sertifikalar kaydedildi',
+      'certificates.resetConfirm': 'Sertifikaları sıfırlamak istediğinizden emin misiniz?',
+      'certificates.resetDone': 'Sertifikalar sıfırlandı',
       // Clients
       'clients.title': 'Proje Listesi',
       'clients.search': 'Proje ara...',
@@ -297,6 +309,18 @@
       'gallery.saved': 'Галерея сохранена',
       'gallery.resetConfirm': 'Вы уверены, что хотите сбросить галерею?',
       'gallery.resetDone': 'Галерея сброшена',
+      // Certificates
+      'nav.certificates': 'Сертификаты',
+      'certificates.title': 'Сертификаты и лицензии',
+      'certificates.note': 'Изображения сертификатов общие для всех языков. Текст зависит от языка.',
+      'certificates.descLabel': 'Заголовок раздела',
+      'certificates.descText': 'Описание',
+      'certificates.add': '+ Добавить сертификат',
+      'certificates.added': 'Новое поле добавлено',
+      'certificates.deleted': 'Сертификат удалён',
+      'certificates.saved': 'Сертификаты сохранены',
+      'certificates.resetConfirm': 'Вы уверены, что хотите сбросить сертификаты?',
+      'certificates.resetDone': 'Сертификаты сброшены',
       // Clients
       'clients.title': 'Список проектов',
       'clients.search': 'Поиск проекта...',
@@ -379,6 +403,7 @@
     { id: 'services', key: 'nav.services' },
     { id: 'equipment', key: 'nav.equipment' },
     { id: 'gallery', key: 'nav.gallery' },
+    { id: 'certificates', key: 'nav.certificates' },
     { id: 'clients', key: 'nav.clients' },
     { id: 'contact', key: 'nav.contact' },
     { id: 'settings', key: 'nav.settings' },
@@ -499,6 +524,7 @@
       case 'services': await renderServicesEditor(container); break;
       case 'equipment': await renderEquipmentEditor(container); break;
       case 'gallery': renderGalleryEditor(container); break;
+      case 'certificates': await renderCertificatesEditor(container); break;
       case 'clients': renderClientsEditor(container); break;
       case 'contact': await renderContactEditor(container); break;
       case 'settings': renderSettingsEditor(container); break;
@@ -875,6 +901,84 @@
     dirty = false;
     renderGalleryEditor(document.getElementById('admin-editor'));
     showToast(t('gallery.resetDone'));
+  };
+
+  // Certificates (shared images + per-lang desc)
+  async function renderCertificatesEditor(container) {
+    const certData = window.contentManager.getShared('certificates');
+    const images = certData?.images || [];
+    const data = await getMergedContent(currentLang);
+    const certLang = data.certificates || {};
+    let html = `<div class="editor-card"><h3>${t('certificates.title')}</h3>
+      <p style="color:var(--color-text-muted);font-size:0.85rem;margin-bottom:16px;">${t('certificates.note')}</p>
+      ${inputField(t('certificates.descLabel'), certLang.title, 'cert-title')}
+      ${inputField(t('certificates.descText'), certLang.desc, 'cert-desc', 'textarea')}
+      <hr style="border:none;border-top:1px solid var(--color-border);margin:20px 0">
+      <div class="gallery-editor-grid">`;
+    images.forEach((src, i) => {
+      const isB64 = src && src.startsWith('data:');
+      const previewSrc = isB64 ? src : (src ? IMG_BASE + src : '');
+      const cUploadId = `cert-upload-${i}`;
+      html += `<div class="gallery-editor-item">
+        <img src="${previewSrc || 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22100%22><rect fill=%22%231a2035%22 width=%22200%22 height=%22100%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%2390a4ae%22 text-anchor=%22middle%22 dy=%22.3em%22>No Image</text></svg>'}" alt="" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22100%22><rect fill=%22%231a2035%22 width=%22200%22 height=%22100%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%2390a4ae%22 text-anchor=%22middle%22 dy=%22.3em%22>No Image</text></svg>'">
+        <input class="form-input" value="${escapeHTML(src)}" data-cert-idx="${i}" id="cert-input-${i}" oninput="window._adminMarkDirty()">
+        <div style="display:flex;gap:4px;margin-top:4px;">
+          <label class="admin-btn admin-btn-secondary admin-btn-sm" for="${cUploadId}" style="cursor:pointer;flex:1;justify-content:center;">${t('btn.upload')}</label>
+          <input type="file" accept="image/*" id="${cUploadId}" class="hidden-input" onchange="window._adminUploadImage(this,'cert-input-${i}')">
+          <button class="admin-btn admin-btn-danger admin-btn-sm" onclick="window._adminRemoveCertificate(${i})">×</button>
+        </div>
+      </div>`;
+    });
+    html += `</div>
+      <button class="admin-btn admin-btn-secondary" style="margin-top:12px" onclick="window._adminAddCertificate()">${t('certificates.add')}</button>
+      <div class="actions-bar">
+        <button class="admin-btn admin-btn-primary" onclick="window._adminSaveCertificates()">${t('btn.save')}</button>
+        <button class="admin-btn admin-btn-secondary" onclick="window._adminResetCertificates()">${t('btn.reset')}</button>
+      </div>
+    </div>`;
+    container.innerHTML = html;
+  }
+
+  window._adminAddCertificate = async function () {
+    const certData = window.contentManager.getShared('certificates');
+    const images = [...(certData?.images || [])];
+    images.push('');
+    await window.contentManager.setShared('certificates', { images });
+    renderCertificatesEditor(document.getElementById('admin-editor'));
+    showToast(t('certificates.added'));
+  };
+
+  window._adminRemoveCertificate = async function (idx) {
+    const certData = window.contentManager.getShared('certificates');
+    const images = [...(certData?.images || [])];
+    images.splice(idx, 1);
+    await window.contentManager.setShared('certificates', { images });
+    renderCertificatesEditor(document.getElementById('admin-editor'));
+    showToast(t('certificates.deleted'));
+  };
+
+  window._adminSaveCertificates = async function () {
+    const val = (id) => document.getElementById(id)?.value || '';
+    const tval = (id) => { const el = document.getElementById(id); return el ? el.value : ''; };
+    // Save shared images
+    const inputs = document.querySelectorAll('[data-cert-idx]');
+    const images = Array.from(inputs).map(inp => inp.value.trim()).filter(Boolean);
+    await window.contentManager.setShared('certificates', { images });
+    // Save per-language text
+    await window.contentManager.setContent(currentLang, 'certificates', {
+      title: val('cert-title'),
+      desc: tval('cert-desc'),
+    });
+    dirty = false;
+    showToast(t('certificates.saved'));
+  };
+
+  window._adminResetCertificates = async function () {
+    if (!confirm(t('certificates.resetConfirm'))) return;
+    await window.contentManager.setShared('certificates', { images: window.contentManager.DEFAULT_CERTIFICATES });
+    dirty = false;
+    renderCertificatesEditor(document.getElementById('admin-editor'));
+    showToast(t('certificates.resetDone'));
   };
 
   // Clients/Projects (shared)

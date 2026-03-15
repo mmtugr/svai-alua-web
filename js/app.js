@@ -160,6 +160,18 @@
     }
   });
 
+  // Certificates lightbox (reuse gallery lightbox)
+  document.getElementById('certificates-grid')?.addEventListener('click', (e) => {
+    const item = e.target.closest('.certificate-item');
+    const img = item?.querySelector('img');
+    if (!img || !img.src) return;
+    const lightboxImg = document.getElementById('lightbox-img');
+    if (lightboxImg) {
+      lightboxImg.src = img.src;
+      openModal('gallery-lightbox');
+    }
+  });
+
   // Clients modal — grouped by city
   function parseProject(str) {
     const cityMatch = str.match(/[—–-]\s*(?:г\.\s*|пос\.\s*|ст\.\s*)?([А-Яа-яЁёҚқҮүҰұІіӘәӨөҺһНңҒғ\w\s-]+?)(?:\s+\d{2}\.\d{2}\.\d{4}|\s*\(|\s*$)/);

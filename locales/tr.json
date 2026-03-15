@@ -5,7 +5,8 @@
     "equipment": "Ekipman",
     "gallery": "Galeri",
     "clients": "Müşteriler",
-    "contact": "İletişim"
+    "contact": "İletişim",
+    "certificates": "Sertifikalar"
   },
   "hero": {
     "title": "Projenizin Sağlam Temeli",
@@ -14,18 +15,18 @@
     "scroll": "scroll"
   },
   "stats": {
-    "years": "10+",
+    "years": "25+",
     "yearsLabel": "yıllık sektör deneyimi",
     "projects": "147+",
     "projectsLabel": "tamamlanan proje",
-    "equipment": "8",
+    "equipment": "25",
     "equipmentLabel": "özel iş makinesi"
   },
   "about": {
     "title": "Hakkımızda",
-    "p1": "TOO АЛУА (Alua LLP), Kazakistan genelinde kazık işleri ve kazısız altyapı döşeme alanında uzmanlaşmış bir mühendislik şirketidir. 2014 yılından bu yana konut kompleksi temellerinden endüstriyel ölçekli altyapı projelerine kadar her karmaşıklıkta işler gerçekleştirmekteyiz.",
-    "p2": "Soilmec, Liebherr, Delmag, MAIT gibi dünya liderlerinin ekipmanlarından oluşan kendi özel makine parkımız, taşeron bağımlılığını ortadan kaldırır ve sürelere uyumu garanti eder. Her proje, mühendislik denetimi ve kalite belgelendirmesi ile yürütülür.",
-    "p3": "Kazakistan'ın 140'tan fazla büyük inşaat firması, ana yüklenici ve kamu kuruluşu, kritik projelerinin hayata geçirilmesinde bizi güvenilir iş ortağı olarak seçmiştir.",
+    "p1": "TOO АЛУА (Alua LLP), Kazakistan genelinde kazık işleri ve kazısız altyapı döşeme alanında uzmanlaşmış bir mühendislik şirketidir. 1999 yılında kurulan ve 2004 yılında özel temel işleri lisansı alan şirket, Kazakistan'da CFA teknolojisinin öncülerinden biri olmuştur. Konut kompleksi temellerinden endüstriyel ölçekli altyapı projelerine kadar her karmaşıklıkta işler gerçekleştirmekteyiz.",
+    "p2": "Soilmec, Liebherr, Delmag, MAIT, SANY gibi dünya liderlerinin ekipmanlarından oluşan 25+ birimlik kendi özel makine parkımız, taşeron bağımlılığını ortadan kaldırır ve sürelere uyumu garanti eder. Her proje, mühendislik denetimi ve kalite belgelendirmesi ile yürütülür.",
+    "p3": "Kazakistan'ın 140'tan fazla büyük inşaat firması, ana yüklenici ve kamu kuruluşu, kritik projelerinin hayata geçirilmesinde bizi güvenilir iş ortağı olarak seçmiştir. Şirket portföyünde 24 tamamlanmış kazısız altyapı döşeme projesi bulunmaktadır.",
     "missionTitle": "Misyon",
     "mission": "İleri teknolojiyi, yüksek nitelikli profesyonelleri ve her aşamada taviz vermeyen kalite standartlarını uygulayarak Kazakistan'ın inşaat projeleri için güvenilir bir temel sağlamak.",
     "visionTitle": "Vizyon",
@@ -38,6 +39,7 @@
       { "text": "Vibrasyonlu Kazık ve Palplanş Çakma", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg", "desc": "FINAROS-800 vibratör (statik moment: 35 kg·m, frekans: 38 Hz) ile Larssen palplanşları, çelik borular (Ø 630 mm'ye kadar) ve betonarme kazıkların çakılması. Uygulama alanları: kazı çevresi iksası, kıyı tahkimatı, geçici istinat duvarları. Avantajları: yüksek çakma hızı, sökülerek tekrar kullanılabilme imkânı." },
       { "text": "Yol ve Demiryolu Altı Geçişler", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg", "desc": "Yönlendirmeli delme ve Yatay Yönlendirmeli Delme (YYD) yöntemiyle kazısız altyapı döşeme. Ekipman: Ditch Witch JT3020 (ABD) — 300 m'ye kadar delme, Ø 400 mm'ye kadar; UNP-100 (Rusya) — 1.000 kN itme kuvveti, Ø 1.500 mm'ye kadar. Avantajları: yol kaplaması açılmadan, trafik akışı kesilmeden, peyzaj korunarak çalışma." },
       { "text": "Çelik Kılıf Boru İtme", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg", "desc": "Aktif karayolu ve demiryolları altında 325–1.500 mm çapında çelik kılıf boruların itilmesi. Amaç: su temini, evsel ve yağmur suyu kanalizasyonu, ısıtma şebekeleri ve enerji kablo hatlarının döşenmesi. Çalışmalar trafik akışı kesilmeden ve geçiş doğruluğunun tam jeodezik kontrolü ile gerçekleştirilir." },
+      { "text": "Kuyu Genişletme (DDS Teknolojisi)", "img": "/assets/equipment-placeholder.svg", "desc": "DDS (Displacement Drilling System) teknolojisi ile genişletilmiş kazık imalatı. Yöntem, kuyu çevresindeki zemini sıkıştırarak çap artırmadan kazığın taşıma kapasitesini yükseltir. Zorlu zemin koşullarında maksimum taşıma kapasitesine ulaşmak için uygulanır." },
       { "text": "Anahtar Teslim Kazık Çözümleri", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg", "desc": "Kapsamlı anahtar teslim kazık hizmetleri: zemin etüdü, kazık alanı projelendirmesi, SHNELL Cage Making Machine otomatik hattında donatı kafesi üretimi (Ø 300–2.000 mm, uzunluk 14 m'ye kadar), sondaj, bütünlük kontrolü ile betonlama, kazık yükleme testleri ve tam uygulama dokümantasyonu paketi ile müşteriye teslim." }
     ]
   },
@@ -46,12 +48,31 @@
     "items": [
       { "name": "Soilmec CM 48", "desc": "CFA sondaj makinesi. Maks. derinlik: 23 m • Maks. çap: 1.000 mm • Tork: 150 kNm", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
       { "name": "Soilmec CM 70", "desc": "CFA sondaj makinesi. Maks. derinlik: 35 m • Maks. çap: 1.500 mm • Tork: 230 kNm", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
-      { "name": "Liebherr LRB 355", "desc": "Sondaj makinesi. Maks. derinlik: 65 m • Maks. çap: 2.400 mm • Ağırlık: 95 t", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg" },
+      { "name": "LIEBHERR 921 L/C", "desc": "Sondaj makinesi. Kazık işleri için paletli vinç-ekskavatör", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg" },
+      { "name": "Delmag RH22 on CAT 330B", "desc": "Sondaj makinesi. Caterpillar ekskavatörüne monteli sondaj ekipmanı", "img": "/assets/equipment-placeholder.svg" },
       { "name": "MAIT T80", "desc": "Sondaj makinesi. Maks. derinlik: 52 m • Maks. çap: 1.800 mm • Tork: 200 kNm", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
+      { "name": "Delmag RH 0912 on LIEBHERR R932", "desc": "Sondaj makinesi. Liebherr ekskavatörüne monteli sondaj ekipmanı", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "SANY SR 185", "desc": "Sondaj makinesi. Maks. derinlik: 60 m • Maks. çap: 2.000 mm • Tork: 185 kNm", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "MECBO 4.65 №1", "desc": "Sabit beton pompası. Kapasite: 65 m³/saat • Basınç: 4 MPa", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "MECBO 4.65 №2", "desc": "Sabit beton pompası. Kapasite: 65 m³/saat • Basınç: 4 MPa", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "ALBTC80-13-132", "desc": "Beton pompası. Kapasite: 80 m³/saat", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "STRONG SL933", "desc": "Tekerlekli yükleyici. Kaldırma kapasitesi: 3 t", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Takeuchi TL 130", "desc": "Paletli mini yükleyici. Kaldırma kapasitesi: 1,3 t", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Mitsubishi WS200", "desc": "Mini yükleyici. Kaldırma kapasitesi: 0,9 t", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "CASE SR 175B-NR", "desc": "Mini yükleyici. Kaldırma kapasitesi: 0,8 t", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "LIUGONG CLG835N", "desc": "Tekerlekli yükleyici. Kaldırma kapasitesi: 3,5 t", "img": "/assets/equipment-placeholder.svg" },
       { "name": "FINAROS-800", "desc": "Vibratör. Statik moment: 35 kg·m • Frekans: 38 Hz • Maks. kuvvet: 800 kN", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" },
-      { "name": "Ditch Witch JT3020", "desc": "YYD makinesi. Maks. delme uzunluğu: 300 m • Çekme kuvveti: 133 kN • Çap: 400 mm'ye kadar", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" },
-      { "name": "UNP-100", "desc": "Yönlendirmeli delme makinesi. İtme kuvveti: 1.000 kN • Çap: 1.500 mm'ye kadar", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
-      { "name": "SHNELL Cage Making", "desc": "Donatı kafes üretim hattı. Çap: 300–2.000 mm • Uzunluk: 14 m'ye kadar • Kapasite: 20 kafes/vardiya", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg" }
+      { "name": "DGS-400.3", "desc": "Vibratör. Statik moment: 40 kg·m", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "VTH-1 №1", "desc": "Yüksek frekanslı vibratör", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "VTH-1 №2", "desc": "Yüksek frekanslı vibratör", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Ditch Witch P80", "desc": "YYD makinesi. Çekme kuvveti: 356 kN • Maks. delme uzunluğu: 450 m", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "UNP-100", "desc": "Yönlendirmeli delme makinesi. İtme kuvveti: 1.000 kN • Çap: 1.500 mm'ye kadar", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Kipor KI-W-C280 №1", "desc": "Kaynak jeneratörü. Güç: 280 A", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Kipor KI-W-C280 №2", "desc": "Kaynak jeneratörü. Güç: 280 A", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Kipor KDE-5000 EW", "desc": "Dizel kaynak jeneratörü. Güç: 5 kW / 200 A", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Kipor KDE-180 EW", "desc": "Dizel kaynak jeneratörü. Güç: 180 A", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "TDM1000", "desc": "Kaynak transformatörü. Güç: 1.000 A", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "SCHNELL GTM 200/1100/16 E XP", "desc": "Donatı kafes üretim hattı. Çap: 300–2.000 mm • Uzunluk: 14 m'ye kadar • Kapasite: 20 kafes/vardiya", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg" }
     ]
   },
   "gallery": {
@@ -98,14 +119,25 @@
     "emailValue": "alua_too@mail.ru",
     "hoursValue": "Pzt–Cum 09:00–18:00"
   },
+  "certificates": {
+    "title": "Sertifikalar ve Lisanslar",
+    "desc": "Alua LLP, 10 Haziran 2004 tarihli 015231 numaralı Devlet Lisansı kapsamında faaliyet göstermektedir. Kategori II – süresiz. Yukarıdakilere ek olarak, Alua LLP açık kazı yapmanın mümkün olmadığı durumlarda yolların ve diğer engellerin altından kazı yaparak altyapı hatları döşeme yeteneğine sahiptir. Bu çalışmalar ABD ve Rusya'da üretilen ekipmanlar kullanılarak gerçekleştirilmektedir. Alua LLP, çeşitli benzer şirketlerle ortaklık kurmuştur ve gerekirse bu şirketleri kazık çakma projelerine dahil edebilir."
+  },
+  "btn": {
+    "showAll": "Tümünü göster",
+    "hide": "Gizle"
+  },
   "footer": {
-    "license": "Lisans № 015231",
+    "license": "Lisans № 015231 (10.06.2004 tarihli)",
     "desc": "Uzman temel mühendisliği: CFA fore kazıklar, vibrasyonlu çakma, kazısız altyapı döşeme. Almatı, Kazakistan.",
     "navTitle": "Navigasyon",
     "servicesTitle": "Hizmetler",
     "service1": "CFA Fore Kazıklar",
     "service2": "Vibrasyonlu Çakma",
     "service3": "Delme ve YYD",
+    "service4": "Çelik Kılıf Boru İtme",
+    "service5": "Kuyu Genişletme (DDS)",
+    "service6": "Anahtar Teslim Kazık Çözümleri",
     "contactTitle": "İletişim"
   }
 }

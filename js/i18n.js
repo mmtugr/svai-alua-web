@@ -67,14 +67,42 @@
     try { const u = new URL(src); return ['http:', 'https:'].includes(u.protocol); } catch { return false; }
   }
 
+  const INITIAL_VISIBLE = 6;
+
+  function createShowAllBtn(totalCount, targetId) {
+    const btn = document.createElement('button');
+    btn.className = 'show-all-btn';
+    btn.dataset.target = targetId;
+    const showText = (t('btn.showAll') || 'Показать все') + ` (${totalCount})`;
+    const hideText = t('btn.hide') || 'Скрыть';
+    const arrow = document.createElement('span');
+    arrow.className = 'show-all-arrow';
+    arrow.textContent = '↓';
+    btn.textContent = showText;
+    btn.appendChild(arrow);
+    btn.addEventListener('click', () => {
+      const grid = document.getElementById(targetId);
+      if (!grid) return;
+      const expanded = grid.classList.toggle('show-all');
+      btn.firstChild.textContent = expanded ? hideText : showText;
+      arrow.textContent = expanded ? '↑' : '↓';
+      btn.classList.toggle('expanded', expanded);
+    });
+    return btn;
+  }
+
   function renderEquipment() {
     const items = translations.equipment?.items;
     const grid = document.getElementById('equipment-grid');
     if (!grid || !Array.isArray(items)) return;
     grid.innerHTML = '';
-    items.forEach((e) => {
+    grid.classList.remove('show-all');
+    const existingBtn = grid.parentElement?.querySelector('.show-all-btn[data-target="equipment-grid"]');
+    if (existingBtn) existingBtn.remove();
+    items.forEach((e, i) => {
       const card = document.createElement('div');
       card.className = 'equipment-card';
+      if (i >= INITIAL_VISIBLE) card.classList.add('hidden-item');
       if (e.img) {
         const imgSrc = e.img.startsWith('data:') ? e.img : IMG_BASE + e.img;
         if (isValidImgSrc(imgSrc)) {
@@ -96,6 +124,9 @@
       card.appendChild(info);
       grid.appendChild(card);
     });
+    if (items.length > INITIAL_VISIBLE) {
+      grid.parentElement.appendChild(createShowAllBtn(items.length, 'equipment-grid'));
+    }
   }
 
   function renderGallery() {
@@ -105,14 +136,53 @@
     const images = galleryData?.images || window.contentManager?.DEFAULT_GALLERY_IMAGES || [];
     const companyName = translations.about?.title || 'ТОО Алуа';
     grid.innerHTML = '';
+    grid.classList.remove('show-all');
+    const existingBtn = grid.parentElement?.querySelector('.show-all-btn[data-target="gallery-grid"]');
+    if (existingBtn) existingBtn.remove();
+    let validCount = 0;
     images.forEach((src, i) => {
       const imgSrc = src.startsWith('data:') ? src : IMG_BASE + src;
       if (!isValidImgSrc(imgSrc)) return;
       const div = document.createElement('div');
       div.className = 'gallery-item';
+      if (validCount >= INITIAL_VISIBLE) div.classList.add('hidden-item');
       const img = document.createElement('img');
       img.src = imgSrc;
       img.alt = companyName + ' — ' + (translations.gallery?.title || 'Галерея') + ' ' + (i + 1);
+      img.loading = 'lazy';
+      div.appendChild(img);
+      grid.appendChild(div);
+      validCount++;
+    });
+    if (validCount > INITIAL_VISIBLE) {
+      grid.parentElement.appendChild(createShowAllBtn(validCount, 'gallery-grid'));
+    }
+  }
+
+  function renderCertificates() {
+    const grid = document.getElementById('certificates-grid');
+    if (!grid) return;
+    const certData = window.contentManager?.getShared('certificates');
+    const images = certData?.images || [];
+    const companyName = translations.about?.title || 'ТОО Алуа';
+    grid.innerHTML = '';
+    const section = grid.closest('.certificates-section');
+    const navLink = document.querySelector('a[href="#certificates"]');
+    if (images.length === 0) {
+      if (section) section.style.display = 'none';
+      if (navLink) navLink.style.display = 'none';
+      return;
+    }
+    if (section) section.style.display = '';
+    if (navLink) navLink.style.display = '';
+    images.forEach((src, i) => {
+      const imgSrc = src.startsWith('data:') ? src : IMG_BASE + src;
+      if (!isValidImgSrc(imgSrc)) return;
+      const div = document.createElement('div');
+      div.className = 'certificate-item';
+      const img = document.createElement('img');
+      img.src = imgSrc;
+      img.alt = companyName + ' — ' + (translations.certificates?.title || 'Сертификат') + ' ' + (i + 1);
       img.loading = 'lazy';
       div.appendChild(img);
       grid.appendChild(div);
@@ -154,6 +224,7 @@
     renderServices();
     renderEquipment();
     renderGallery();
+    renderCertificates();
     renderContactInfo();
     document.querySelectorAll('.lang-btn').forEach((btn) => {
       btn.classList.toggle('active', btn.dataset.lang === lang);

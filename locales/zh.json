@@ -5,7 +5,8 @@
     "equipment": "设备",
     "gallery": "项目展示",
     "clients": "客户",
-    "contact": "联系我们"
+    "contact": "联系我们",
+    "certificates": "证书"
   },
   "hero": {
     "title": "为您的项目奠定坚实基础",
@@ -14,18 +15,18 @@
     "scroll": "scroll"
   },
   "stats": {
-    "years": "10+",
+    "years": "25+",
     "yearsLabel": "年行业经验",
     "projects": "147+",
     "projectsLabel": "已交付项目",
-    "equipment": "8",
+    "equipment": "25",
     "equipmentLabel": "台专业设备"
   },
   "about": {
     "title": "关于公司",
-    "p1": "TOO АЛУА（阿鲁阿有限责任公司）是一家专业工程公司，在哈萨克斯坦全境提供全方位桩基工程和非开挖管线铺设服务。自2014年以来，我们承接各种复杂程度的项目——从住宅小区基础工程到工业规模的基础设施建设。",
-    "p2": "公司自有的专业设备车队来自世界领先制造商——Soilmec、利勃海尔、Delmag、MAIT——确保不依赖分包商并保证工期。每个项目均配备工程师监督和完整的质量文件管控。",
-    "p3": "哈萨克斯坦140多家大型开发商、总承包商和政府机构选择我们作为关键建设项目的可靠合作伙伴。",
+    "p1": "TOO АЛУА（阿鲁阿有限责任公司）是一家专业工程公司，在哈萨克斯坦全境提供全方位桩基工程和非开挖管线铺设服务。公司成立于1999年，2004年取得特种基础工程许可证，成为哈萨克斯坦CFA技术的先驱之一。我们承接各种复杂程度的项目——从住宅小区基础工程到工业规模的基础设施建设。",
+    "p2": "公司拥有来自世界领先制造商——Soilmec、利勃海尔、Delmag、MAIT、SANY——的25台以上专业设备，确保不依赖分包商并保证工期。每个项目均配备工程师监督和完整的质量文件管控。",
+    "p3": "哈萨克斯坦140多家大型开发商、总承包商和政府机构选择我们作为关键建设项目的可靠合作伙伴。公司已完成24个非开挖管线铺设项目。",
     "missionTitle": "使命",
     "mission": "在工程的每个阶段运用先进技术、高素质专业人员和严格的质量标准，为哈萨克斯坦的建设项目提供可靠的基础保障。",
     "visionTitle": "愿景",
@@ -38,6 +39,7 @@
       { "text": "振动沉桩与钢板桩", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg", "desc": "使用FINAROS-800振动锤（静力矩：35 kg·m，频率：38 Hz）沉放拉森钢板桩、钢管桩（Ø最大630毫米）和钢筋混凝土桩。应用领域：基坑围护、岸坡防护、临时挡土墙。优势：沉桩速度快，可拔出重复使用。" },
       { "text": "道路和铁路下穿越", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg", "desc": "采用导向顶管和水平定向钻进（HDD）技术进行非开挖管线铺设。设备：Ditch Witch JT3020（美国）——最大钻进300米，Ø最大400毫米；UNP-100（俄罗斯）——推力1,000 kN，Ø最大1,500毫米。优势：无需破坏路面、对交通影响最小、保护地面景观。" },
       { "text": "钢套管顶进", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg", "desc": "在运营中的公路和铁路下顶进直径325–1,500毫米的钢套管。用途：铺设给水管道、生活和雨水排水管道、供热管网和电力电缆管线。施工过程中不中断交通，并进行全程测量精度控制。" },
+      { "text": "钻孔扩底（DDS技术）", "img": "/assets/equipment-placeholder.svg", "desc": "采用DDS（Displacement Drilling System）位移钻进系统技术施工扩底桩。该技术通过压密钻孔周围土体，在不增加桩径的前提下提高桩基承载力。适用于复杂地质条件下实现最大承载力。" },
       { "text": "交钥匙桩基方案", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg", "desc": "全周期交钥匙桩基服务：工程勘察、桩基场地设计、SHNELL Cage Making Machine自动化生产线制作钢筋笼（Ø 300–2,000毫米，长度最长14米）、钻孔、完整性监测下的混凝土浇筑、桩基荷载试验，以及附带完整竣工文件的工程移交。" }
     ]
   },
@@ -46,12 +48,31 @@
     "items": [
       { "name": "Soilmec CM 48", "desc": "CFA钻机。最大深度：23米 • 最大直径：1000毫米 • 扭矩：150千牛·米", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
       { "name": "Soilmec CM 70", "desc": "CFA钻机。最大深度：35米 • 最大直径：1500毫米 • 扭矩：230千牛·米", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
-      { "name": "Liebherr LRB 355", "desc": "钻机。最大深度：65米 • 最大直径：2400毫米 • 重量：95吨", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg" },
+      { "name": "LIEBHERR 921 L/C", "desc": "钻机。履带式起重挖掘机，用于桩基施工", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg" },
+      { "name": "Delmag RH22 on CAT 330B", "desc": "钻机。安装于卡特彼勒挖掘机上的钻孔设备", "img": "/assets/equipment-placeholder.svg" },
       { "name": "MAIT T80", "desc": "钻机。最大深度：52米 • 最大直径：1800毫米 • 扭矩：200千牛·米", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
+      { "name": "Delmag RH 0912 on LIEBHERR R932", "desc": "钻机。安装于利勃海尔挖掘机上的钻孔设备", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "SANY SR 185", "desc": "钻机。最大深度：60米 • 最大直径：2000毫米 • 扭矩：185千牛·米", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "MECBO 4.65 №1", "desc": "固定式混凝土泵。产量：65立方米/小时 • 压力：4兆帕", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "MECBO 4.65 №2", "desc": "固定式混凝土泵。产量：65立方米/小时 • 压力：4兆帕", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "ALBTC80-13-132", "desc": "混凝土泵。产量：80立方米/小时", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "STRONG SL933", "desc": "前端装载机。载重量：3吨", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Takeuchi TL 130", "desc": "履带式小型装载机。载重量：1.3吨", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Mitsubishi WS200", "desc": "小型装载机。载重量：0.9吨", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "CASE SR 175B-NR", "desc": "小型装载机。载重量：0.8吨", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "LIUGONG CLG835N", "desc": "前端装载机。载重量：3.5吨", "img": "/assets/equipment-placeholder.svg" },
       { "name": "ФИНАРОС-800", "desc": "振动锤。静力矩：35千克·米 • 频率：38赫兹 • 最大力：800千牛", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" },
-      { "name": "Ditch Witch JT3020", "desc": "水平定向钻。最大钻进长度：300米 • 回拉力：133千牛 • 直径：最大400毫米", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" },
-      { "name": "УНП-100", "desc": "导向顶管机。顶进力：1000千牛 • 直径：最大1500毫米", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
-      { "name": "SHNELL Cage Making", "desc": "钢筋笼生产线。直径：300–2000毫米 • 长度：最长14米 • 产能：20个笼/班", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg" }
+      { "name": "DGS-400.3", "desc": "振动锤。静力矩：40千克·米", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "VTH-1 №1", "desc": "高频振动锤", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "VTH-1 №2", "desc": "高频振动锤", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Ditch Witch P80", "desc": "水平定向钻机。回拉力：356千牛 • 最大钻进长度：450米", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "УНП-100", "desc": "导向顶管机。顶进力：1000千牛 • 直径：最大1500毫米", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Kipor KI-W-C280 №1", "desc": "焊接发电机。功率：280安培", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Kipor KI-W-C280 №2", "desc": "焊接发电机。功率：280安培", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Kipor KDE-5000 EW", "desc": "柴油焊接发电机。功率：5千瓦/200安培", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Kipor KDE-180 EW", "desc": "柴油焊接发电机。功率：180安培", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "TDM1000", "desc": "焊接变压器。功率：1000安培", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "SCHNELL GTM 200/1100/16 E XP", "desc": "钢筋笼生产线。直径：300–2000毫米 • 长度：最长14米 • 产能：20个笼/班", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg" }
     ]
   },
   "gallery": {
@@ -98,14 +119,25 @@
     "emailValue": "alua_too@mail.ru",
     "hoursValue": "周一至周五 09:00–18:00"
   },
+  "certificates": {
+    "title": "证书与许可",
+    "desc": "Alua有限合伙公司根据2004年6月10日颁发的第015231号国家许可证开展业务。第二类——无限期。此外，Alua有限合伙公司具备在无法进行明挖的情况下，通过在道路及其他障碍物下方钻孔铺设市政管线的能力。相关工作使用美国和俄罗斯制造的设备完成。Alua有限合伙公司已与多家同类企业建立合作关系，必要时可邀请其参与桩基项目。"
+  },
+  "btn": {
+    "showAll": "显示全部",
+    "hide": "收起"
+  },
   "footer": {
-    "license": "许可证 № 015231",
+    "license": "许可证 № 015231（2004年6月10日签发）",
     "desc": "专业基础工程：CFA灌注桩、振动沉桩、非开挖管线铺设。阿拉木图，哈萨克斯坦。",
     "navTitle": "导航",
     "servicesTitle": "服务",
     "service1": "CFA灌注桩",
     "service2": "振动沉桩",
     "service3": "顶管与HDD",
+    "service4": "钢套管顶推",
+    "service5": "扩孔技术 (DDS)",
+    "service6": "交钥匙桩基工程",
     "contactTitle": "联系方式"
   }
 }

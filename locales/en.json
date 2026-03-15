@@ -5,7 +5,8 @@
     "equipment": "Equipment",
     "gallery": "Gallery",
     "clients": "Clients",
-    "contact": "Contact"
+    "contact": "Contact",
+    "certificates": "Certificates"
   },
   "hero": {
     "title": "A Solid Foundation for Your Project",
@@ -14,18 +15,18 @@
     "scroll": "scroll"
   },
   "stats": {
-    "years": "10+",
+    "years": "25+",
     "yearsLabel": "years in the industry",
     "projects": "147+",
     "projectsLabel": "projects delivered",
-    "equipment": "8",
+    "equipment": "25",
     "equipmentLabel": "specialized machines"
   },
   "about": {
     "title": "About Us",
-    "p1": "TOO АЛУА (Alua LLP) is a specialized engineering company delivering a full range of piling works and trenchless utility installation across Kazakhstan. Since 2014, we have executed projects of any complexity — from residential foundation systems to large-scale industrial infrastructure.",
-    "p2": "Our own fleet of specialized equipment from world-leading manufacturers — Soilmec, Liebherr, Delmag, MAIT — ensures independence from subcontractors and guarantees schedule compliance. Every project is supervised by qualified engineers with full quality documentation.",
-    "p3": "Over 140 companies — major developers, general contractors, and government entities in Kazakhstan — have chosen us as a reliable partner for mission-critical construction projects.",
+    "p1": "TOO АЛУА (Alua LLP) is a specialized engineering company delivering a full range of piling works and trenchless utility installation across Kazakhstan. Founded in 1999 and licensed for specialized foundation works since 2004, the company became one of the pioneers of CFA technology in Kazakhstan. We execute projects of any complexity — from residential foundation systems to large-scale industrial infrastructure.",
+    "p2": "Our own fleet of 25+ specialized machines from world-leading manufacturers — Soilmec, Liebherr, Delmag, MAIT, SANY — ensures independence from subcontractors and guarantees schedule compliance. Every project is supervised by qualified engineers with full quality documentation.",
+    "p3": "Over 140 companies — major developers, general contractors, and government entities in Kazakhstan — have chosen us as a reliable partner for mission-critical construction projects. The company's portfolio includes 24 completed trenchless utility installation projects.",
     "missionTitle": "Mission",
     "mission": "To provide a reliable foundation for Kazakhstan's construction projects through advanced technology, highly skilled professionals, and uncompromising quality standards at every stage of the process.",
     "visionTitle": "Vision",
@@ -38,6 +39,7 @@
       { "text": "Vibro Piling & Sheet Piling", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg", "desc": "Driving Larssen sheet piles, steel pipes (Ø up to 630 mm), and reinforced concrete piles using the FINAROS-800 vibratory hammer (static moment: 35 kg·m, frequency: 38 Hz). Applications: excavation shoring, bank protection, temporary retaining walls. Advantages: high driving speed, extractable for reuse." },
       { "text": "Road & Railway Undercrossing", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg", "desc": "Trenchless utility installation via guided boring and Horizontal Directional Drilling (HDD). Equipment: Ditch Witch JT3020 (USA) — bore length up to 300 m, Ø up to 400 mm; UNP-100 (Russia) — thrust 1,000 kN, Ø up to 1,500 mm. Benefits: no road surface disruption, minimal traffic interference, landscape preservation." },
       { "text": "Steel Casing Jacking", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg", "desc": "Jacking steel casing pipes 325–1,500 mm in diameter under active roads and railways. Purpose: installation of water supply, sanitary and storm sewers, heating networks, and power cable conduits. Work is performed without traffic interruption and with full geodetic alignment control." },
+      { "text": "Borehole Enlargement (DDS Technology)", "img": "/assets/equipment-placeholder.svg", "desc": "Installation of enlarged piles using DDS (Displacement Drilling System) technology. The method compacts soil around the borehole, increasing pile bearing capacity without increasing diameter. Applied in challenging ground conditions to achieve maximum bearing capacity." },
       { "text": "Turnkey Piling Solutions", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg", "desc": "Comprehensive turnkey piling services: site investigation, pile field design, rebar cage production on the automated SHNELL Cage Making Machine line (Ø 300–2,000 mm, length up to 14 m), drilling, concreting with integrity monitoring, pile load testing, and handover with a complete as-built documentation package." }
     ]
   },
@@ -46,12 +48,31 @@
     "items": [
       { "name": "Soilmec CM 48", "desc": "CFA drilling rig. Max depth: 23 m • Max diameter: 1,000 mm • Torque: 150 kNm", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
       { "name": "Soilmec CM 70", "desc": "CFA drilling rig. Max depth: 35 m • Max diameter: 1,500 mm • Torque: 230 kNm", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
-      { "name": "Liebherr LRB 355", "desc": "Drilling rig. Max depth: 65 m • Max diameter: 2,400 mm • Weight: 95 t", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg" },
+      { "name": "LIEBHERR 921 L/C", "desc": "Drilling rig. Crawler crane-excavator for piling works", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg" },
+      { "name": "Delmag RH22 on CAT 330B", "desc": "Drilling rig. Mounted drilling attachment on Caterpillar excavator", "img": "/assets/equipment-placeholder.svg" },
       { "name": "MAIT T80", "desc": "Drilling rig. Max depth: 52 m • Max diameter: 1,800 mm • Torque: 200 kNm", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
+      { "name": "Delmag RH 0912 on LIEBHERR R932", "desc": "Drilling rig. Mounted drilling attachment on Liebherr excavator", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "SANY SR 185", "desc": "Drilling rig. Max depth: 60 m • Max diameter: 2,000 mm • Torque: 185 kNm", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "MECBO 4.65 #1", "desc": "Stationary concrete pump. Output: 65 m³/h • Pressure: 4 MPa", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "MECBO 4.65 #2", "desc": "Stationary concrete pump. Output: 65 m³/h • Pressure: 4 MPa", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "ALBTC80-13-132", "desc": "Concrete pump. Output: 80 m³/h", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "STRONG SL933", "desc": "Front-end loader. Lifting capacity: 3 t", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Takeuchi TL 130", "desc": "Compact track loader. Lifting capacity: 1.3 t", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Mitsubishi WS200", "desc": "Skid steer loader. Lifting capacity: 0.9 t", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "CASE SR 175B-NR", "desc": "Skid steer loader. Lifting capacity: 0.8 t", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "LIUGONG CLG835N", "desc": "Front-end loader. Lifting capacity: 3.5 t", "img": "/assets/equipment-placeholder.svg" },
       { "name": "FINAROS-800", "desc": "Vibratory hammer. Static moment: 35 kg·m • Frequency: 38 Hz • Max force: 800 kN", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" },
-      { "name": "Ditch Witch JT3020", "desc": "HDD rig. Max bore length: 300 m • Pullback: 133 kN • Diameter: up to 400 mm", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" },
-      { "name": "UNP-100", "desc": "Guided boring machine. Thrust: 1,000 kN • Diameter: up to 1,500 mm", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
-      { "name": "SHNELL Cage Making", "desc": "Rebar cage production line. Diameter: 300–2,000 mm • Length: up to 14 m • Capacity: 20 cages/shift", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg" }
+      { "name": "DGS-400.3", "desc": "Vibratory hammer. Static moment: 40 kg·m", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "VTH-1 #1", "desc": "High-frequency vibratory hammer", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "VTH-1 #2", "desc": "High-frequency vibratory hammer", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Ditch Witch P80", "desc": "HDD rig. Pullback: 356 kN • Max bore length: 450 m", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "UNP-100", "desc": "Guided boring machine. Thrust: 1,000 kN • Diameter: up to 1,500 mm", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Kipor KI-W-C280 #1", "desc": "Welding generator. Output: 280 A", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Kipor KI-W-C280 #2", "desc": "Welding generator. Output: 280 A", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Kipor KDE-5000 EW", "desc": "Diesel welding generator. Power: 5 kW / 200 A", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "Kipor KDE-180 EW", "desc": "Diesel welding generator. Output: 180 A", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "TDM1000", "desc": "Welding transformer. Output: 1,000 A", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "SCHNELL GTM 200/1100/16 E XP", "desc": "Rebar cage production line. Diameter: 300–2,000 mm • Length: up to 14 m • Capacity: 20 cages/shift", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg" }
     ]
   },
   "gallery": {
@@ -98,14 +119,25 @@
     "emailValue": "alua_too@mail.ru",
     "hoursValue": "Mon–Fri 09:00–18:00"
   },
+  "certificates": {
+    "title": "Certificates & Licenses",
+    "desc": "Alua LLP operates under State License No. 015231 dated June 10, 2004. Category II — unlimited term. In addition, Alua LLP has the capability to lay utility lines by drilling under roads and other obstacles where open excavation is not feasible. These works are carried out using equipment manufactured in the USA and Russia. Alua LLP has established partnerships with various similar companies and can involve them in piling projects when necessary."
+  },
+  "btn": {
+    "showAll": "Show all",
+    "hide": "Show less"
+  },
   "footer": {
-    "license": "License No. 015231",
+    "license": "License No. 015231 dated 10.06.2004",
     "desc": "Specialized foundation engineering: CFA bored piles, vibro piling, trenchless utility installation. Almaty, Kazakhstan.",
     "navTitle": "Navigation",
     "servicesTitle": "Services",
     "service1": "CFA Bored Piles",
     "service2": "Vibro Piling",
     "service3": "Boring & HDD",
+    "service4": "Steel Casing Pipe Jacking",
+    "service5": "Borehole Reaming (DDS)",
+    "service6": "Turnkey Piling Solutions",
     "contactTitle": "Contacts"
   }
 }

@@ -1,6 +1,12 @@
 (function () {
   'use strict';
 
+  const DEFAULT_CERTIFICATES = [
+    '/thumb/2/GzcN41apvEzPsDHAz1A3nQ/r/d/litsenziya-novyy-1.jpg',
+    '/thumb/2/Or-kD9_TrUa8VonNkRiu1Q/r/d/litsenziya-novyy-2.jpg',
+    '/thumb/2/3eVUpJsa1OKWBnnG5UV7Nw/r/d/svidetelstvo-o-gos-registratsii-original.jpg',
+  ];
+
   const DEFAULT_GALLERY_IMAGES = [
     '/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg',
     '/thumb/2/s7IkmRKHCQTE1fEVQfjLew/550c350/d/img-20170426-wa0015.jpg',
@@ -137,6 +143,7 @@
 
   window.contentManager = {
     DEFAULT_GALLERY_IMAGES,
+    DEFAULT_CERTIFICATES,
     DEFAULT_PROJECTS,
 
     async init() {
@@ -180,6 +187,10 @@
       if (key === 'gallery') {
         const g = cache.shared.gallery;
         return g && g.images ? g : { images: DEFAULT_GALLERY_IMAGES };
+      }
+      if (key === 'certificates') {
+        const c = cache.shared.certificates;
+        return c && c.images ? c : { images: DEFAULT_CERTIFICATES };
       }
       if (key === 'projects') {
         const p = cache.shared.projects;
