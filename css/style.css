@@ -127,6 +127,13 @@ a:hover { color: var(--color-accent-hover); }
 }
 .logo:hover { color: var(--color-accent); }
 
+.logo-flag {
+  vertical-align: middle;
+  margin-right: 6px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
 .nav { display: flex; gap: 28px; }
 
 .nav a {
