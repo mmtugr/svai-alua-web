@@ -61,12 +61,12 @@
       { "name": "Mitsubishi WS200", "desc": "小型装载机。载重量：0.9吨", "img": "/assets/equipment-placeholder.svg" },
       { "name": "CASE SR 175B-NR", "desc": "小型装载机。载重量：0.8吨", "img": "/assets/equipment-placeholder.svg" },
       { "name": "LIUGONG CLG835N", "desc": "前端装载机。载重量：3.5吨", "img": "/assets/equipment-placeholder.svg" },
-      { "name": "ФИНАРОС-800", "desc": "振动锤。静力矩：35千克·米 • 频率：38赫兹 • 最大力：800千牛", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" },
+      { "name": "FINAROS-800", "desc": "振动锤。静力矩：35千克·米 • 频率：38赫兹 • 最大力：800千牛", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" },
       { "name": "DGS-400.3", "desc": "振动锤。静力矩：40千克·米", "img": "/assets/equipment-placeholder.svg" },
       { "name": "VTH-1 №1", "desc": "高频振动锤", "img": "/assets/equipment-placeholder.svg" },
       { "name": "VTH-1 №2", "desc": "高频振动锤", "img": "/assets/equipment-placeholder.svg" },
       { "name": "Ditch Witch P80", "desc": "水平定向钻机。回拉力：356千牛 • 最大钻进长度：450米", "img": "/assets/equipment-placeholder.svg" },
-      { "name": "УНП-100", "desc": "导向顶管机。顶进力：1000千牛 • 直径：最大1500毫米", "img": "/assets/equipment-placeholder.svg" },
+      { "name": "UNP-100", "desc": "导向顶管机。顶进力：1000千牛 • 直径：最大1500毫米", "img": "/assets/equipment-placeholder.svg" },
       { "name": "Kipor KI-W-C280 №1", "desc": "焊接发电机。功率：280安培", "img": "/assets/equipment-placeholder.svg" },
       { "name": "Kipor KI-W-C280 №2", "desc": "焊接发电机。功率：280安培", "img": "/assets/equipment-placeholder.svg" },
       { "name": "Kipor KDE-5000 EW", "desc": "柴油焊接发电机。功率：5千瓦/200安培", "img": "/assets/equipment-placeholder.svg" },
@@ -121,7 +121,7 @@
   },
   "certificates": {
     "title": "证书与许可",
-    "desc": "Alua有限合伙公司根据2004年6月10日颁发的第015231号国家许可证开展业务。第二类——无限期。此外，Alua有限合伙公司具备在无法进行明挖的情况下，通过在道路及其他障碍物下方钻孔铺设市政管线的能力。相关工作使用美国和俄罗斯制造的设备完成。Alua有限合伙公司已与多家同类企业建立合作关系，必要时可邀请其参与桩基项目。"
+    "desc": "Alua有限责任公司根据2004年6月10日颁发的第015231号国家许可证开展业务。第二类——无限期。此外，Alua有限责任公司具备在无法进行明挖的情况下，通过在道路及其他障碍物下方钻孔铺设市政管线的能力。相关工作使用美国和俄罗斯制造的设备完成。Alua有限责任公司已与多家同类企业建立合作关系，必要时可邀请其参与桩基项目。"
   },
   "btn": {
     "showAll": "显示全部",

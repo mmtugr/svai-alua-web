@@ -44,20 +44,6 @@
     return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  function renderServices() {
-    const items = translations.services?.items;
-    const list = document.querySelector('.services-list');
-    if (!list || !Array.isArray(items)) return;
-    list.innerHTML = '';
-    items.forEach((s, i) => {
-      const text = typeof s === 'string' ? s : s.text;
-      const li = document.createElement('li');
-      li.dataset.serviceIndex = i;
-      li.textContent = text;
-      list.appendChild(li);
-    });
-  }
-
   const IMG_BASE = 'https://svai-alua.kz';
 
   function isValidImgSrc(src) {
@@ -65,6 +51,32 @@
     if (src.startsWith('data:image/')) return true;
     if (src.startsWith('/')) return true;
     try { const u = new URL(src); return ['http:', 'https:'].includes(u.protocol); } catch { return false; }
+  }
+
+  function renderServices() {
+    const items = translations.services?.items;
+    const list = document.querySelector('.services-list');
+    if (!list || !Array.isArray(items)) return;
+    list.innerHTML = '';
+    items.forEach((s, i) => {
+      const text = typeof s === 'string' ? s : s.text;
+      const imgSrc = typeof s === 'object' ? s.img : null;
+      const li = document.createElement('li');
+      li.dataset.serviceIndex = i;
+      if (imgSrc && isValidImgSrc(imgSrc)) {
+        const thumb = document.createElement('img');
+        thumb.className = 'service-thumb';
+        thumb.src = imgSrc.startsWith('data:') ? imgSrc : IMG_BASE + imgSrc;
+        thumb.alt = '';
+        thumb.loading = 'lazy';
+        li.appendChild(thumb);
+      }
+      const span = document.createElement('span');
+      span.className = 'service-text';
+      span.textContent = text;
+      li.appendChild(span);
+      list.appendChild(li);
+    });
   }
 
   const INITIAL_VISIBLE = 6;

@@ -88,6 +88,41 @@
   document.addEventListener('content-rendered', initScrollReveal);
   document.addEventListener('DOMContentLoaded', initScrollReveal);
 
+  /* ===== Count-up animation for stats ===== */
+  var _countUpObserver = null;
+  function initCountUp() {
+    var statsRow = document.querySelector('.stats-row');
+    if (!statsRow) return;
+    // Store target values from rendered content
+    var statEls = document.querySelectorAll('.stat-number');
+    var targets = [];
+    statEls.forEach(function (el) {
+      var text = el.textContent.trim();
+      targets.push({ el: el, text: text, suffix: text.replace(/[\d.]/g, ''), target: parseFloat(text) });
+    });
+    if (_countUpObserver) _countUpObserver.disconnect();
+    _countUpObserver = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        _countUpObserver.disconnect();
+        targets.forEach(function (t) {
+          if (isNaN(t.target)) return;
+          var duration = 1500;
+          var start = performance.now();
+          t.el.textContent = '0' + t.suffix;
+          function tick(now) {
+            var progress = Math.min((now - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            t.el.textContent = Math.round(eased * t.target) + t.suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+      }
+    }, { threshold: 0.3 });
+    _countUpObserver.observe(statsRow);
+  }
+  document.addEventListener('content-rendered', initCountUp);
+
   function getProjects() {
     return window.contentManager?.getShared('projects') || window.contentManager?.DEFAULT_PROJECTS || [];
   }
