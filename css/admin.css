@@ -249,6 +249,7 @@ body {
   font-family: var(--font);
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
 }
 
@@ -606,4 +607,115 @@ body {
   .gallery-editor-grid {
     grid-template-columns: 1fr;
   }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* --- Dashboard --- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.dashboard-stat-card {
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.dashboard-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.dashboard-stat-icon {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.dashboard-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.dashboard-stat-label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+}
+
+.dashboard-table-wrap {
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+  padding: 10px 14px;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dashboard-table th {
+  font-weight: 600;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dashboard-table td:first-child,
+.dashboard-table th:first-child {
+  text-align: left;
+}
+
+.status-ok {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.status-empty {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.dashboard-info-list {
+  margin-top: 12px;
+}
+
+.dashboard-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dashboard-info-row:last-child {
+  border-bottom: none;
+}
+
+.dashboard-info-label {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.dashboard-info-value {
+  font-weight: 500;
+  font-size: 0.9rem;
 }

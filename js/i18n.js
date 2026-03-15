@@ -162,6 +162,9 @@
   }
 
   document.addEventListener('DOMContentLoaded', async () => {
+    if (window.contentManager && window.contentManager.init) {
+      await window.contentManager.init();
+    }
     await setLang(currentLang);
     document.querySelectorAll('.lang-btn').forEach((btn) => {
       btn.addEventListener('click', () => setLang(btn.dataset.lang));

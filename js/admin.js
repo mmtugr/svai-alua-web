@@ -34,7 +34,7 @@
       'auth.forgotDone': 'Yeni şifre e-posta adresinize gönderildi.',
       'auth.forgotNoEmail': 'Önce Ayarlar bölümünden e-posta adresinizi kaydedin.',
       'auth.forgotFailed': 'E-posta gönderilemedi. Lütfen tekrar deneyin.',
-      'auth.forgotNotConfigured': 'EmailJS henüz yapılandırılmamış. Ayarlar bölümünden yapılandırın.',
+      'auth.forgotNotConfigured': 'Şifre sıfırlama yapılandırılmamış.',
       // Header
       'header.viewSite': 'Siteyi Görüntüle',
       'header.export': 'Dışa Aktar',
@@ -55,6 +55,7 @@
       'pass.tooShort': 'Şifre en az 6 karakter olmalı',
       'pass.success': 'Şifre başarıyla değiştirildi',
       // Sidebar
+      'nav.dashboard': 'Gösterge Paneli',
       'nav.hero': 'Hero',
       'nav.about': 'Hakkımızda',
       'nav.services': 'Hizmetler',
@@ -62,6 +63,22 @@
       'nav.gallery': 'Galeri',
       'nav.clients': 'Projeler',
       'nav.contact': 'İletişim',
+      // Dashboard
+      'dashboard.title': 'Gösterge Paneli',
+      'dashboard.services': 'Hizmetler',
+      'dashboard.equipment': 'Ekipman',
+      'dashboard.gallery': 'Galeri Resimleri',
+      'dashboard.projects': 'Projeler',
+      'dashboard.contentStatus': 'İçerik Durumu',
+      'dashboard.systemInfo': 'Sistem Bilgileri',
+      'dashboard.firebaseStatus': 'Firebase Durumu',
+      'dashboard.connected': 'Bağlı',
+      'dashboard.disconnected': 'Bağlı Değil',
+      'dashboard.user': 'Kullanıcı',
+      'dashboard.lastLogin': 'Son Giriş',
+      'dashboard.filled': 'Dolu',
+      'dashboard.empty': 'Boş',
+      'dashboard.language': 'Dil',
       // Shared
       'shared.langNote': 'Bu bölüm tüm diller için ortaktır',
       'btn.save': 'Kaydet',
@@ -160,11 +177,6 @@
       'settings.emailHint': 'Şifre sıfırlama e-postası bu adrese gönderilecektir.',
       'settings.save': 'Kaydet',
       'settings.saved': 'Ayarlar kaydedildi',
-      'settings.emailjsTitle': 'EmailJS Yapılandırması',
-      'settings.emailjsPublicKey': 'Public Key',
-      'settings.emailjsServiceId': 'Service ID',
-      'settings.emailjsTemplateId': 'Template ID',
-      'settings.emailjsHint': 'emailjs.com hesabınızdan alınan bilgileri girin. Şifre sıfırlama e-postaları bu servis üzerinden gönderilecektir.',
     },
     ru: {
       // Auth
@@ -177,7 +189,7 @@
       'auth.forgotDone': 'Новый пароль отправлен на ваш e-mail.',
       'auth.forgotNoEmail': 'Сначала укажите e-mail в разделе Настройки.',
       'auth.forgotFailed': 'Не удалось отправить e-mail. Попробуйте ещё раз.',
-      'auth.forgotNotConfigured': 'EmailJS не настроен. Настройте в разделе Настройки.',
+      'auth.forgotNotConfigured': 'Сброс пароля не настроен.',
       // Header
       'header.viewSite': 'Открыть сайт',
       'header.export': 'Экспорт',
@@ -198,6 +210,7 @@
       'pass.tooShort': 'Пароль должен быть не менее 6 символов',
       'pass.success': 'Пароль успешно изменён',
       // Sidebar
+      'nav.dashboard': 'Панель управления',
       'nav.hero': 'Главная',
       'nav.about': 'О компании',
       'nav.services': 'Услуги',
@@ -205,6 +218,22 @@
       'nav.gallery': 'Галерея',
       'nav.clients': 'Проекты',
       'nav.contact': 'Контакты',
+      // Dashboard
+      'dashboard.title': 'Панель управления',
+      'dashboard.services': 'Услуги',
+      'dashboard.equipment': 'Оборудование',
+      'dashboard.gallery': 'Изображения галереи',
+      'dashboard.projects': 'Проекты',
+      'dashboard.contentStatus': 'Статус контента',
+      'dashboard.systemInfo': 'Системная информация',
+      'dashboard.firebaseStatus': 'Статус Firebase',
+      'dashboard.connected': 'Подключено',
+      'dashboard.disconnected': 'Не подключено',
+      'dashboard.user': 'Пользователь',
+      'dashboard.lastLogin': 'Последний вход',
+      'dashboard.filled': 'Заполнено',
+      'dashboard.empty': 'Пусто',
+      'dashboard.language': 'Язык',
       // Shared
       'shared.langNote': 'Этот раздел общий для всех языков',
       'btn.save': 'Сохранить',
@@ -303,11 +332,6 @@
       'settings.emailHint': 'На этот адрес будет отправлен новый пароль при сбросе.',
       'settings.save': 'Сохранить',
       'settings.saved': 'Настройки сохранены',
-      'settings.emailjsTitle': 'Настройка EmailJS',
-      'settings.emailjsPublicKey': 'Public Key',
-      'settings.emailjsServiceId': 'Service ID',
-      'settings.emailjsTemplateId': 'Template ID',
-      'settings.emailjsHint': 'Введите данные из вашего аккаунта emailjs.com. Через этот сервис будут отправляться e-mail для сброса пароля.',
     },
   };
 
@@ -349,6 +373,7 @@
   const LANGS = ['kk', 'ru', 'en', 'zh', 'tr'];
   const LANG_LABELS = { kk: 'KZ', ru: 'RU', en: 'EN', zh: 'ZH', tr: 'TR' };
   const SECTIONS = [
+    { id: 'dashboard', key: 'nav.dashboard' },
     { id: 'hero', key: 'nav.hero' },
     { id: 'about', key: 'nav.about' },
     { id: 'services', key: 'nav.services' },
@@ -360,116 +385,42 @@
   ];
 
   let currentLang = 'ru';
-  let currentSection = 'hero';
+  let currentSection = 'dashboard';
   let localeCache = {};
   let dirty = false;
 
-  // --- Auth (SHA-256 hashed password + brute-force protection) ---
-  const DEFAULT_PASS_HASH = '963a708fb5c3cbc8656e380ea1060f1476ec56801c8fef94c727e4c769148f9e';
-  const PASS_HASH_KEY = 'svai_alua_admin_pass_hash';
-  const SESSION_TOKEN_KEY = 'admin_auth_token';
-  const SESSION_TIMEOUT = 30 * 60 * 1000; // 30 dakika oturum süresi
-  function getPassHash() { return localStorage.getItem(PASS_HASH_KEY) || DEFAULT_PASS_HASH; }
-  const MAX_ATTEMPTS = 5;
-  const LOCKOUT_KEY = 'admin_lockout';
-  const authOverlay = document.getElementById('auth-overlay');
-  const authForm = document.getElementById('auth-form');
-  const authInput = document.getElementById('auth-password');
-  const authError = document.getElementById('auth-error');
-
-  async function hashPassword(pass) {
-    const data = new TextEncoder().encode(pass);
-    const buffer = await crypto.subtle.digest('SHA-256', data);
-    return Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2, '0')).join('');
-  }
-
-  // Güvenli oturum token'ı: şifre hash + zaman damgası ile HMAC benzeri doğrulama
-  async function generateSessionToken() {
-    const passHash = getPassHash();
-    const timestamp = Date.now().toString();
-    const tokenData = passHash + '|' + timestamp;
-    const hash = await hashPassword(tokenData);
-    return timestamp + '|' + hash;
-  }
-
-  async function validateSessionToken(token) {
-    if (!token) return false;
-    const parts = token.split('|');
-    if (parts.length !== 2) return false;
-    const [timestamp, hash] = parts;
-    const ts = parseInt(timestamp, 10);
-    if (isNaN(ts)) return false;
-    // Oturum zaman aşımı kontrolü
-    if (Date.now() - ts > SESSION_TIMEOUT) return false;
-    // Token doğrulama
-    const passHash = getPassHash();
-    const expected = await hashPassword(passHash + '|' + timestamp);
-    return hash === expected;
-  }
-
-  function getLockoutState() {
-    try {
-      const raw = localStorage.getItem(LOCKOUT_KEY);
-      if (!raw) return { attempts: 0, lockedUntil: 0 };
-      return JSON.parse(raw);
-    } catch { return { attempts: 0, lockedUntil: 0 }; }
-  }
-
-  function setLockoutState(state) {
-    localStorage.setItem(LOCKOUT_KEY, JSON.stringify(state));
-  }
-
-  async function checkAuth() {
-    const token = sessionStorage.getItem(SESSION_TOKEN_KEY);
-    if (await validateSessionToken(token)) {
-      authOverlay.style.display = 'none';
-      return true;
-    }
-    sessionStorage.removeItem(SESSION_TOKEN_KEY);
-    return false;
-  }
-
-  if (authForm) {
-    authForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const lockout = getLockoutState();
-
-      // Check if locked out
-      if (lockout.lockedUntil > Date.now()) {
-        const remaining = Math.ceil((lockout.lockedUntil - Date.now()) / 1000);
-        authError.textContent = adminLang === 'ru'
-          ? `Слишком много попыток. Подождите ${remaining} сек.`
-          : `Çok fazla deneme. ${remaining} sn bekleyin.`;
-        authError.style.display = 'block';
-        authInput.value = '';
-        return;
-      }
-
-      const hash = await hashPassword(authInput.value);
-      if (hash === getPassHash()) {
-        const token = await generateSessionToken();
-        sessionStorage.setItem(SESSION_TOKEN_KEY, token);
-        setLockoutState({ attempts: 0, lockedUntil: 0 });
-        authOverlay.style.display = 'none';
-        init();
-      } else {
-        const attempts = lockout.attempts + 1;
-        if (attempts >= MAX_ATTEMPTS) {
-          // Lock for 30 seconds * (number of lockouts)
-          const lockSeconds = 30 * Math.min(attempts - MAX_ATTEMPTS + 1, 10);
-          setLockoutState({ attempts, lockedUntil: Date.now() + lockSeconds * 1000 });
-          authError.textContent = adminLang === 'ru'
-            ? `Слишком много попыток. Подождите ${lockSeconds} сек.`
-            : `Çok fazla deneme. ${lockSeconds} sn bekleyin.`;
+  // --- Auth (Firebase) ---
+  function checkAuth() {
+    return new Promise(resolve => {
+      const auth = window.firebaseAuth;
+      if (!auth) { resolve(false); return; }
+      auth.onAuthStateChanged(user => {
+        if (user) {
+          document.getElementById('auth-overlay').style.display = 'none';
+          resolve(true);
         } else {
-          setLockoutState({ attempts, lockedUntil: 0 });
-          authError.textContent = t('auth.error');
+          document.getElementById('auth-overlay').style.display = '';
+          resolve(false);
         }
-        authError.style.display = 'block';
-        authInput.value = '';
-      }
+      });
     });
   }
+
+  document.getElementById('auth-form')?.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const email = document.getElementById('auth-email').value.trim();
+    const password = document.getElementById('auth-password').value;
+    const errorEl = document.getElementById('auth-error');
+    if (!email || !password) { errorEl.style.display = 'block'; return; }
+    try {
+      await window.firebaseAuth.signInWithEmailAndPassword(email, password);
+      errorEl.style.display = 'none';
+      document.getElementById('auth-overlay').style.display = 'none';
+      init();
+    } catch (err) {
+      errorEl.style.display = 'block';
+    }
+  });
 
   // --- Toast ---
   function showToast(msg, type = 'success') {
@@ -518,7 +469,7 @@
   // --- Lang tabs ---
   function renderLangTabs() {
     const container = document.getElementById('lang-tabs');
-    const isShared = currentSection === 'gallery' || currentSection === 'clients' || currentSection === 'settings';
+    const isShared = currentSection === 'dashboard' || currentSection === 'gallery' || currentSection === 'clients' || currentSection === 'settings';
     if (isShared) {
       container.innerHTML = `<span style="color:var(--color-text-muted);font-size:0.85rem;">${t('shared.langNote')}</span>`;
       return;
@@ -542,6 +493,7 @@
     const container = document.getElementById('admin-editor');
     renderLangTabs();
     switch (currentSection) {
+      case 'dashboard': await renderDashboardEditor(container); break;
       case 'hero': await renderHeroEditor(container); break;
       case 'about': await renderAboutEditor(container); break;
       case 'services': await renderServicesEditor(container); break;
@@ -569,6 +521,119 @@
   }
 
   window._adminMarkDirty = markDirty;
+
+  // --- Dashboard ---
+  async function renderDashboardEditor(container) {
+    const cm = window.contentManager;
+    const CONTENT_SECTIONS = ['hero', 'about', 'services', 'equipment', 'contact', 'contactInfo'];
+
+    // Load merged content for all languages
+    const mergedByLang = {};
+    for (const lang of LANGS) {
+      mergedByLang[lang] = await getMergedContent(lang);
+    }
+
+    // Count stats across all languages
+    let maxServices = 0, maxEquipment = 0;
+    for (const lang of LANGS) {
+      const c = mergedByLang[lang];
+      const sItems = c.services?.items || (Array.isArray(c.services) ? c.services : []);
+      const eItems = c.equipment?.items || (Array.isArray(c.equipment) ? c.equipment : []);
+      const sLen = Array.isArray(sItems) ? sItems.length : 0;
+      const eLen = Array.isArray(eItems) ? eItems.length : 0;
+      if (sLen > maxServices) maxServices = sLen;
+      if (eLen > maxEquipment) maxEquipment = eLen;
+    }
+    const gallery = cm.getShared('gallery');
+    const galleryCount = Array.isArray(gallery?.images) ? gallery.images.length : 0;
+    const projects = cm.getShared('projects');
+    const projectCount = Array.isArray(projects) ? projects.length : (Array.isArray(projects?.items) ? projects.items.length : 0);
+
+    // Firebase user info
+    const user = window.firebaseAuth?.currentUser;
+    const fbConnected = !!window.firebaseDb;
+    const userEmail = user?.email || '—';
+    const lastLogin = user?.metadata?.lastSignInTime ? new Date(user.metadata.lastSignInTime).toLocaleString() : '—';
+
+    // Build content status rows
+    let statusRows = '';
+    for (const lang of LANGS) {
+      const c = mergedByLang[lang];
+      let cells = '';
+      for (const sec of CONTENT_SECTIONS) {
+        const data = c[sec];
+        const filled = data && typeof data === 'object' && Object.keys(data).length > 0;
+        cells += `<td class="${filled ? 'status-ok' : 'status-empty'}">${filled ? '\u2713' : '\u2717'}</td>`;
+      }
+      statusRows += `<tr><td><strong>${LANG_LABELS[lang]}</strong></td>${cells}</tr>`;
+    }
+
+    container.innerHTML = `
+      <div class="editor-card">
+        <h3>${t('dashboard.title')}</h3>
+        <div class="dashboard-grid">
+          <div class="dashboard-stat-card">
+            <div class="dashboard-stat-icon">\uD83D\uDD27</div>
+            <div class="dashboard-stat-value">${maxServices}</div>
+            <div class="dashboard-stat-label">${t('dashboard.services')}</div>
+          </div>
+          <div class="dashboard-stat-card">
+            <div class="dashboard-stat-icon">\uD83D\uDE9C</div>
+            <div class="dashboard-stat-value">${maxEquipment}</div>
+            <div class="dashboard-stat-label">${t('dashboard.equipment')}</div>
+          </div>
+          <div class="dashboard-stat-card">
+            <div class="dashboard-stat-icon">\uD83D\uDDBC\uFE0F</div>
+            <div class="dashboard-stat-value">${galleryCount}</div>
+            <div class="dashboard-stat-label">${t('dashboard.gallery')}</div>
+          </div>
+          <div class="dashboard-stat-card">
+            <div class="dashboard-stat-icon">\uD83C\uDFD7\uFE0F</div>
+            <div class="dashboard-stat-value">${projectCount}</div>
+            <div class="dashboard-stat-label">${t('dashboard.projects')}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="editor-card">
+        <h3>${t('dashboard.contentStatus')}</h3>
+        <div class="dashboard-table-wrap">
+          <table class="dashboard-table">
+            <thead>
+              <tr>
+                <th>${t('dashboard.language')}</th>
+                <th>Hero</th>
+                <th>${t('nav.about')}</th>
+                <th>${t('nav.services')}</th>
+                <th>${t('nav.equipment')}</th>
+                <th>${t('nav.contact')}</th>
+                <th>ContactInfo</th>
+              </tr>
+            </thead>
+            <tbody>${statusRows}</tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="editor-card">
+        <h3>${t('dashboard.systemInfo')}</h3>
+        <div class="dashboard-info-list">
+          <div class="dashboard-info-row">
+            <span class="dashboard-info-label">${t('dashboard.firebaseStatus')}</span>
+            <span class="dashboard-info-value ${fbConnected ? 'status-ok' : 'status-empty'}">${fbConnected ? t('dashboard.connected') : t('dashboard.disconnected')}</span>
+          </div>
+          <div class="dashboard-info-row">
+            <span class="dashboard-info-label">${t('dashboard.user')}</span>
+            <span class="dashboard-info-value">${escapeHTML(userEmail)}</span>
+          </div>
+          <div class="dashboard-info-row">
+            <span class="dashboard-info-label">${t('dashboard.lastLogin')}</span>
+            <span class="dashboard-info-value">${escapeHTML(lastLogin)}</span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
 
   // --- Image upload (base64) ---
   let _uploadCounter = 0;
@@ -687,7 +752,7 @@
     const data = await getMergedContent(currentLang);
     const items = data.services?.items || [];
     items.push({ text: '', desc: '', img: '' });
-    window.contentManager.setContent(currentLang, 'services', { ...data.services, items });
+    await window.contentManager.setContent(currentLang, 'services', { ...data.services, items });
     renderEditor();
     showToast(t('services.added'));
   };
@@ -697,7 +762,7 @@
     const data = await getMergedContent(currentLang);
     const items = data.services?.items || [];
     items.splice(idx, 1);
-    window.contentManager.setContent(currentLang, 'services', { ...data.services, items });
+    await window.contentManager.setContent(currentLang, 'services', { ...data.services, items });
     renderEditor();
     showToast(t('services.deleted'));
   };
@@ -732,7 +797,7 @@
     const data = await getMergedContent(currentLang);
     const items = data.equipment?.items || [];
     items.push({ name: '', desc: '', img: '' });
-    window.contentManager.setContent(currentLang, 'equipment', { ...data.equipment, items });
+    await window.contentManager.setContent(currentLang, 'equipment', { ...data.equipment, items });
     renderEditor();
     showToast(t('equipment.added'));
   };
@@ -742,7 +807,7 @@
     const data = await getMergedContent(currentLang);
     const items = data.equipment?.items || [];
     items.splice(idx, 1);
-    window.contentManager.setContent(currentLang, 'equipment', { ...data.equipment, items });
+    await window.contentManager.setContent(currentLang, 'equipment', { ...data.equipment, items });
     renderEditor();
     showToast(t('equipment.deleted'));
   };
@@ -778,35 +843,35 @@
     container.innerHTML = html;
   }
 
-  window._adminAddGallery = function () {
+  window._adminAddGallery = async function () {
     const galleryData = window.contentManager.getShared('gallery');
     const images = [...(galleryData?.images || window.contentManager.DEFAULT_GALLERY_IMAGES)];
     images.push('');
-    window.contentManager.setShared('gallery', { images });
+    await window.contentManager.setShared('gallery', { images });
     renderGalleryEditor(document.getElementById('admin-editor'));
     showToast(t('gallery.added'));
   };
 
-  window._adminRemoveGallery = function (idx) {
+  window._adminRemoveGallery = async function (idx) {
     const galleryData = window.contentManager.getShared('gallery');
     const images = [...(galleryData?.images || window.contentManager.DEFAULT_GALLERY_IMAGES)];
     images.splice(idx, 1);
-    window.contentManager.setShared('gallery', { images });
+    await window.contentManager.setShared('gallery', { images });
     renderGalleryEditor(document.getElementById('admin-editor'));
     showToast(t('gallery.deleted'));
   };
 
-  window._adminSaveGallery = function () {
+  window._adminSaveGallery = async function () {
     const inputs = document.querySelectorAll('[data-gallery-idx]');
     const images = Array.from(inputs).map(inp => inp.value.trim()).filter(Boolean);
-    window.contentManager.setShared('gallery', { images });
+    await window.contentManager.setShared('gallery', { images });
     dirty = false;
     showToast(t('gallery.saved'));
   };
 
-  window._adminResetGallery = function () {
+  window._adminResetGallery = async function () {
     if (!confirm(t('gallery.resetConfirm'))) return;
-    window.contentManager.setShared('gallery', { images: window.contentManager.DEFAULT_GALLERY_IMAGES });
+    await window.contentManager.setShared('gallery', { images: window.contentManager.DEFAULT_GALLERY_IMAGES });
     dirty = false;
     renderGalleryEditor(document.getElementById('admin-editor'));
     showToast(t('gallery.resetDone'));
@@ -843,32 +908,32 @@
     });
   };
 
-  window._adminAddProject = function () {
+  window._adminAddProject = async function () {
     const projects = [...(window.contentManager.getShared('projects') || window.contentManager.DEFAULT_PROJECTS)];
     projects.push('');
-    window.contentManager.setShared('projects', projects);
+    await window.contentManager.setShared('projects', projects);
     renderClientsEditor(document.getElementById('admin-editor'));
     showToast(t('clients.added'));
   };
 
-  window._adminRemoveProject = function (idx) {
+  window._adminRemoveProject = async function (idx) {
     const projects = [...(window.contentManager.getShared('projects') || window.contentManager.DEFAULT_PROJECTS)];
     projects.splice(idx, 1);
-    window.contentManager.setShared('projects', projects);
+    await window.contentManager.setShared('projects', projects);
     renderClientsEditor(document.getElementById('admin-editor'));
   };
 
-  window._adminSaveProjects = function () {
+  window._adminSaveProjects = async function () {
     const inputs = document.querySelectorAll('[data-project-input]');
     const projects = Array.from(inputs).map(inp => inp.value.trim()).filter(Boolean);
-    window.contentManager.setShared('projects', projects);
+    await window.contentManager.setShared('projects', projects);
     dirty = false;
     showToast(t('clients.saved'));
   };
 
-  window._adminResetProjects = function () {
+  window._adminResetProjects = async function () {
     if (!confirm(t('clients.resetConfirm'))) return;
-    window.contentManager.setShared('projects', window.contentManager.DEFAULT_PROJECTS);
+    await window.contentManager.setShared('projects', window.contentManager.DEFAULT_PROJECTS);
     dirty = false;
     renderClientsEditor(document.getElementById('admin-editor'));
     showToast(t('clients.resetDone'));
@@ -913,13 +978,13 @@
     const tval = (id) => { const el = document.getElementById(id); return el ? el.value : ''; };
 
     if (section === 'hero') {
-      window.contentManager.setContent(currentLang, 'hero', {
+      await window.contentManager.setContent(currentLang, 'hero', {
         title: val('hero-title'),
         subtitle: val('hero-subtitle'),
         cta: val('hero-cta'),
       });
     } else if (section === 'about') {
-      window.contentManager.setContent(currentLang, 'about', {
+      await window.contentManager.setContent(currentLang, 'about', {
         title: val('about-title'),
         p1: tval('about-p1'),
         p2: tval('about-p2'),
@@ -940,7 +1005,7 @@
         });
         i++;
       }
-      window.contentManager.setContent(currentLang, 'services', {
+      await window.contentManager.setContent(currentLang, 'services', {
         title: val('services-title'),
         items,
       });
@@ -955,12 +1020,12 @@
         });
         i++;
       }
-      window.contentManager.setContent(currentLang, 'equipment', {
+      await window.contentManager.setContent(currentLang, 'equipment', {
         title: val('equipment-title'),
         items,
       });
     } else if (section === 'contact') {
-      window.contentManager.setContent(currentLang, 'contact', {
+      await window.contentManager.setContent(currentLang, 'contact', {
         title: val('contact-title'),
         chatbotTitle: val('contact-chatbotTitle'),
         chatbotQ1: val('contact-chatbotQ1'),
@@ -974,7 +1039,7 @@
         resultOther: tval('contact-resultOther'),
         whatsappBtn: val('contact-whatsappBtn'),
       });
-      window.contentManager.setContent(currentLang, 'contactInfo', {
+      await window.contentManager.setContent(currentLang, 'contactInfo', {
         addressValue: val('contact-address'),
         phones: [val('contact-phone1'), val('contact-phone2')].filter(Boolean),
         emailValue: val('contact-email-val'),
@@ -985,13 +1050,13 @@
     showToast(t('saved'));
   };
 
-  window._adminReset = function (section) {
+  window._adminReset = async function (section) {
     if (!confirm(t('resetConfirm'))) return;
-    const stored = JSON.parse(localStorage.getItem('svai_alua_admin_content') || '{}');
-    if (stored[currentLang]) {
-      delete stored[currentLang][section];
-      if (section === 'contact') delete stored[currentLang].contactInfo;
-      localStorage.setItem('svai_alua_admin_content', JSON.stringify(stored));
+    const defaults = await loadLocale(currentLang);
+    const defaultSection = defaults[section] || {};
+    await window.contentManager.setContent(currentLang, section, defaultSection);
+    if (section === 'contact' && defaults.contactInfo) {
+      await window.contentManager.setContent(currentLang, 'contactInfo', defaults.contactInfo);
     }
     localeCache = {};
     dirty = false;
@@ -1020,9 +1085,9 @@
     const file = e.target.files[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = (ev) => {
+    reader.onload = async (ev) => {
       try {
-        window.contentManager.importAll(ev.target.result);
+        await window.contentManager.importAll(ev.target.result);
         localeCache = {};
         renderEditor();
         showToast(t('importDone'));
@@ -1034,20 +1099,19 @@
     e.target.value = '';
   });
 
-  document.getElementById('btn-clear')?.addEventListener('click', () => {
+  document.getElementById('btn-clear')?.addEventListener('click', async () => {
     if (!confirm(t('clearConfirm'))) return;
-    window.contentManager.clearAll();
+    await window.contentManager.clearAll();
     localeCache = {};
     renderEditor();
     showToast(t('clearDone'));
   });
 
   // --- Logout ---
-  document.getElementById('btn-logout')?.addEventListener('click', () => {
+  document.getElementById('btn-logout')?.addEventListener('click', async function () {
     if (!confirm(t('header.logoutConfirm'))) return;
-    sessionStorage.removeItem(SESSION_TOKEN_KEY);
-    dirty = false;
-    window.location.reload();
+    await window.firebaseAuth.signOut();
+    location.reload();
   });
 
   // --- Change password ---
@@ -1058,11 +1122,10 @@
   document.getElementById('btn-change-pass')?.addEventListener('click', () => {
     if (passModal) {
       passModal.style.display = 'flex';
-      document.getElementById('pass-current').value = '';
       document.getElementById('pass-new').value = '';
       document.getElementById('pass-confirm').value = '';
       passError.style.display = 'none';
-      document.getElementById('pass-current').focus();
+      document.getElementById('pass-new').focus();
     }
   });
 
@@ -1074,165 +1137,59 @@
     if (e.target === passModal) passModal.style.display = 'none';
   });
 
-  passForm?.addEventListener('submit', async (e) => {
+  passForm?.addEventListener('submit', async function (e) {
     e.preventDefault();
-    const curPass = document.getElementById('pass-current').value;
     const newPass = document.getElementById('pass-new').value;
-    const confirmPass = document.getElementById('pass-confirm').value;
-
-    const curHash = await hashPassword(curPass);
-    if (curHash !== getPassHash()) {
-      passError.textContent = t('pass.wrongCurrent');
-      passError.style.display = 'block';
-      return;
+    const confirmVal = document.getElementById('pass-confirm').value;
+    const errEl = document.getElementById('pass-error');
+    if (newPass !== confirmVal) { errEl.textContent = t('pass.mismatch'); errEl.style.display = 'block'; return; }
+    if (newPass.length < 6) { errEl.textContent = t('pass.tooShort'); errEl.style.display = 'block'; return; }
+    try {
+      await window.firebaseAuth.currentUser.updatePassword(newPass);
+      errEl.style.display = 'none';
+      document.getElementById('pass-modal').style.display = 'none';
+      showToast(t('pass.success'));
+    } catch (err) {
+      errEl.textContent = err.message;
+      errEl.style.display = 'block';
     }
-    if (newPass.length < 6) {
-      passError.textContent = t('pass.tooShort');
-      passError.style.display = 'block';
-      return;
-    }
-    if (newPass !== confirmPass) {
-      passError.textContent = t('pass.mismatch');
-      passError.style.display = 'block';
-      return;
-    }
-    const newHash = await hashPassword(newPass);
-    localStorage.setItem(PASS_HASH_KEY, newHash);
-    passModal.style.display = 'none';
-    showToast(t('pass.success'));
   });
 
-  // --- EmailJS config keys ---
-  const EMAILJS_PUBLIC_KEY_STORAGE = 'svai_alua_emailjs_public_key';
-  const EMAILJS_SERVICE_ID_STORAGE = 'svai_alua_emailjs_service_id';
-  const EMAILJS_TEMPLATE_ID_STORAGE = 'svai_alua_emailjs_template_id';
-  const ADMIN_EMAIL_KEY = 'svai_alua_admin_email';
-
-  function getEmailJSConfig() {
-    return {
-      publicKey: localStorage.getItem(EMAILJS_PUBLIC_KEY_STORAGE) || '',
-      serviceId: localStorage.getItem(EMAILJS_SERVICE_ID_STORAGE) || '',
-      templateId: localStorage.getItem(EMAILJS_TEMPLATE_ID_STORAGE) || '',
-    };
-  }
-
-  function generateRandomPassword(length = 12) {
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789!@#$%';
-    const arr = new Uint8Array(length);
-    crypto.getRandomValues(arr);
-    return Array.from(arr, b => chars[b % chars.length]).join('');
-  }
-
-  // --- Forgot password (email reset) ---
-  // Admin e-postası, hash ile korunarak saklanır (konsol müdahalesini zorlaştırır)
-  const ADMIN_EMAIL_HASH_KEY = 'svai_alua_admin_email_hash';
-
-  async function getVerifiedAdminEmail() {
-    const email = localStorage.getItem(ADMIN_EMAIL_KEY);
-    const storedHash = localStorage.getItem(ADMIN_EMAIL_HASH_KEY);
-    if (!email || !storedHash) return null;
-    const expectedHash = await hashPassword(email + '|alua_email_verify');
-    return expectedHash === storedHash ? email : null;
-  }
-
-  async function setVerifiedAdminEmail(email) {
-    if (email) {
-      const hash = await hashPassword(email + '|alua_email_verify');
-      localStorage.setItem(ADMIN_EMAIL_KEY, email);
-      localStorage.setItem(ADMIN_EMAIL_HASH_KEY, hash);
-    } else {
-      localStorage.removeItem(ADMIN_EMAIL_KEY);
-      localStorage.removeItem(ADMIN_EMAIL_HASH_KEY);
-    }
-  }
-
+  // --- Forgot password (Firebase) ---
   document.getElementById('forgot-pass-link')?.addEventListener('click', async function () {
-    const adminEmail = await getVerifiedAdminEmail();
-    if (!adminEmail) {
-      alert(t('auth.forgotNoEmail'));
+    const email = document.getElementById('auth-email').value.trim();
+    if (!email) {
+      const errEl = document.getElementById('auth-error');
+      if (errEl) { errEl.textContent = t('auth.forgotNoEmail'); errEl.style.display = 'block'; }
       return;
     }
-    const cfg = getEmailJSConfig();
-    if (!cfg.publicKey || !cfg.serviceId || !cfg.templateId) {
-      alert(t('auth.forgotNotConfigured'));
-      return;
-    }
-    if (!confirm(t('auth.forgotConfirm'))) return;
-
-    const newPass = generateRandomPassword();
-    const newHash = await hashPassword(newPass);
-
     try {
-      await emailjs.send(cfg.serviceId, cfg.templateId, {
-        to_email: adminEmail,
-        new_password: newPass,
-        company_name: 'ТОО АЛУА',
-      }, cfg.publicKey);
-
-      localStorage.setItem(PASS_HASH_KEY, newHash);
+      await window.firebaseAuth.sendPasswordResetEmail(email);
       showToast(t('auth.forgotDone'));
     } catch (err) {
-      console.error('EmailJS error:', err);
-      alert(t('auth.forgotFailed'));
+      showToast(t('auth.forgotFailed'), 'error');
     }
   });
 
   // --- Settings editor ---
   function renderSettingsEditor(container) {
-    const adminEmail = localStorage.getItem(ADMIN_EMAIL_KEY) || '';
-    const cfg = getEmailJSConfig();
-
+    const user = window.firebaseAuth?.currentUser;
     container.innerHTML = `
-      <h2>${escapeHTML(t('settings.title'))}</h2>
-
-      <div class="form-group">
-        <label>${escapeHTML(t('settings.emailLabel'))}</label>
-        <input class="form-input" type="email" id="settings-admin-email" value="${escapeHTML(adminEmail)}" placeholder="admin@example.com">
-        <small style="color:var(--color-text-muted);display:block;margin-top:4px">${escapeHTML(t('settings.emailHint'))}</small>
-      </div>
-
-      <hr style="border:none;border-top:1px solid var(--color-border);margin:24px 0">
-
-      <h3>${escapeHTML(t('settings.emailjsTitle'))}</h3>
-      <small style="color:var(--color-text-muted);display:block;margin-bottom:12px">${escapeHTML(t('settings.emailjsHint'))}</small>
-
-      <div class="form-group">
-        <label>${escapeHTML(t('settings.emailjsPublicKey'))}</label>
-        <input class="form-input" type="text" id="settings-emailjs-pk" value="${escapeHTML(cfg.publicKey)}" placeholder="xxxxxxxxxxxxxxx">
-      </div>
-      <div class="form-group">
-        <label>${escapeHTML(t('settings.emailjsServiceId'))}</label>
-        <input class="form-input" type="text" id="settings-emailjs-sid" value="${escapeHTML(cfg.serviceId)}" placeholder="service_xxxxxxx">
-      </div>
-      <div class="form-group">
-        <label>${escapeHTML(t('settings.emailjsTemplateId'))}</label>
-        <input class="form-input" type="text" id="settings-emailjs-tid" value="${escapeHTML(cfg.templateId)}" placeholder="template_xxxxxxx">
-      </div>
-
-      <div style="margin-top:16px">
-        <button class="admin-btn admin-btn-primary" id="settings-save">${escapeHTML(t('settings.save'))}</button>
+      <div class="editor-card">
+        <h3>${escapeHTML(t('settings.title'))}</h3>
+        <div class="dashboard-info-list">
+          <div class="dashboard-info-row">
+            <span class="dashboard-info-label">${escapeHTML(t('settings.emailLabel'))}</span>
+            <span class="dashboard-info-value">${escapeHTML(user?.email || '—')}</span>
+          </div>
+          <div class="dashboard-info-row">
+            <span class="dashboard-info-label">${escapeHTML(t('dashboard.firebaseStatus'))}</span>
+            <span class="dashboard-info-value status-ok">${escapeHTML(t('dashboard.connected'))}</span>
+          </div>
+        </div>
+        <p style="color:var(--color-text-muted);margin-top:16px;font-size:0.85rem;">${escapeHTML(t('settings.emailHint'))}</p>
       </div>
     `;
-
-    document.getElementById('settings-save').addEventListener('click', async () => {
-      const email = document.getElementById('settings-admin-email').value.trim();
-      const pk = document.getElementById('settings-emailjs-pk').value.trim();
-      const sid = document.getElementById('settings-emailjs-sid').value.trim();
-      const tid = document.getElementById('settings-emailjs-tid').value.trim();
-
-      await setVerifiedAdminEmail(email || null);
-
-      if (pk) localStorage.setItem(EMAILJS_PUBLIC_KEY_STORAGE, pk);
-      else localStorage.removeItem(EMAILJS_PUBLIC_KEY_STORAGE);
-
-      if (sid) localStorage.setItem(EMAILJS_SERVICE_ID_STORAGE, sid);
-      else localStorage.removeItem(EMAILJS_SERVICE_ID_STORAGE);
-
-      if (tid) localStorage.setItem(EMAILJS_TEMPLATE_ID_STORAGE, tid);
-      else localStorage.removeItem(EMAILJS_TEMPLATE_ID_STORAGE);
-
-      showToast(t('settings.saved'));
-    });
   }
 
   // --- Unsaved changes warning ---
@@ -1245,6 +1202,7 @@
 
   // --- Init ---
   async function init() {
+    await window.contentManager.init();
     renderSidebar();
     await renderEditor();
   }

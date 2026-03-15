@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/admin.css">
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     (function(){
       var t=localStorage.getItem('svai_alua_theme')||'light';
@@ -22,9 +21,10 @@
   <div class="auth-overlay" id="auth-overlay">
     <div class="auth-box">
       <h2>Admin Panel</h2>
-      <p data-admin-i18n="auth.subtitle">Devam etmek için şifreyi girin</p>
+      <p data-admin-i18n="auth.subtitle">Devam etmek için giriş yapın</p>
       <form id="auth-form">
-        <input type="password" class="form-input" id="auth-password" data-admin-i18n-placeholder="auth.placeholder" placeholder="Şifre" autofocus>
+        <input type="email" class="form-input" id="auth-email" placeholder="E-posta" autofocus style="margin-bottom:10px">
+        <input type="password" class="form-input" id="auth-password" data-admin-i18n-placeholder="auth.placeholder" placeholder="Şifre">
         <p class="auth-error" id="auth-error" data-admin-i18n="auth.error">Yanlış şifre</p>
         <button type="submit" class="admin-btn admin-btn-primary" style="width:100%" data-admin-i18n="auth.login">Giriş</button>
       </form>
@@ -81,6 +81,10 @@
 
   <div class="toast" id="toast"></div>
 
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-init.js"></script>
   <script src="js/content.js"></script>
   <script src="js/admin.js"></script>
 </body>

@@ -1,20 +1,6 @@
 (function () {
   'use strict';
 
-  const STORAGE_KEY = 'svai_alua_admin_content';
-  const SHARED_KEY = 'svai_alua_admin_shared';
-  const VERSION_KEY = 'svai_alua_content_version';
-  const CONTENT_VERSION = 2; // Locale dosyaları güncellendiğinde bu sayıyı artırın
-
-  // Versiyon kontrolü: eski cache varsa otomatik temizle
-  (function checkVersion() {
-    const storedVersion = parseInt(localStorage.getItem(VERSION_KEY) || '0', 10);
-    if (storedVersion < CONTENT_VERSION) {
-      localStorage.removeItem(STORAGE_KEY);
-      localStorage.setItem(VERSION_KEY, String(CONTENT_VERSION));
-    }
-  })();
-
   const DEFAULT_GALLERY_IMAGES = [
     '/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg',
     '/thumb/2/s7IkmRKHCQTE1fEVQfjLew/550c350/d/img-20170426-wa0015.jpg',
@@ -130,16 +116,11 @@
     '\u0422\u041e\u041e "\u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u0438\u0432 \u0421\u0442\u0440\u043e\u0439" \u2014 \u0433. \u0410\u043b\u043c\u0430\u0442\u044b 2024',
   ];
 
-  function loadStored(key) {
-    try {
-      const raw = localStorage.getItem(key);
-      return raw ? JSON.parse(raw) : {};
-    } catch { return {}; }
-  }
+  // In-memory cache
+  let cache = { content: {}, shared: {} };
+  let initialized = false;
 
-  function saveStored(key, data) {
-    localStorage.setItem(key, JSON.stringify(data));
-  }
+  const db = window.firebaseDb;
 
   function deepMerge(target, source) {
     if (!source) return target;
@@ -158,62 +139,86 @@
     DEFAULT_GALLERY_IMAGES,
     DEFAULT_PROJECTS,
 
+    async init() {
+      if (initialized) return;
+      if (!db) { initialized = true; return; }
+      try {
+        // Load all content docs
+        const contentSnap = await db.collection('content').get();
+        contentSnap.forEach(doc => { cache.content[doc.id] = doc.data(); });
+        // Load shared docs
+        const sharedSnap = await db.collection('shared').get();
+        sharedSnap.forEach(doc => { cache.shared[doc.id] = doc.data(); });
+        initialized = true;
+      } catch (e) {
+        console.warn('Firestore init failed, using defaults:', e);
+        initialized = true;
+      }
+    },
+
     getContent(lang, defaultData) {
-      const stored = loadStored(STORAGE_KEY);
-      const overrides = stored[lang] || {};
+      const overrides = cache.content[lang] || {};
       return defaultData ? deepMerge(defaultData, overrides) : overrides;
     },
 
-    setContent(lang, sectionKey, data) {
-      const stored = loadStored(STORAGE_KEY);
-      if (!stored[lang]) stored[lang] = {};
-      stored[lang][sectionKey] = data;
-      saveStored(STORAGE_KEY, stored);
+    async setContent(lang, sectionKey, data) {
+      if (!cache.content[lang]) cache.content[lang] = {};
+      cache.content[lang][sectionKey] = data;
+      if (db) {
+        await db.collection('content').doc(lang).set(cache.content[lang]);
+      }
     },
 
-    setFullLangContent(lang, data) {
-      const stored = loadStored(STORAGE_KEY);
-      stored[lang] = data;
-      saveStored(STORAGE_KEY, stored);
+    async setFullLangContent(lang, data) {
+      cache.content[lang] = data;
+      if (db) {
+        await db.collection('content').doc(lang).set(data);
+      }
     },
 
     getShared(key) {
-      const stored = loadStored(SHARED_KEY);
-      if (key === 'gallery') return stored.gallery || { images: DEFAULT_GALLERY_IMAGES };
-      if (key === 'projects') return stored.projects || DEFAULT_PROJECTS;
-      return stored[key];
+      if (key === 'gallery') {
+        const g = cache.shared.gallery;
+        return g && g.images ? g : { images: DEFAULT_GALLERY_IMAGES };
+      }
+      if (key === 'projects') {
+        const p = cache.shared.projects;
+        return (p && Array.isArray(p.items)) ? p.items : DEFAULT_PROJECTS;
+      }
+      return cache.shared[key];
     },
 
-    setShared(key, data) {
-      const stored = loadStored(SHARED_KEY);
-      stored[key] = data;
-      saveStored(SHARED_KEY, stored);
+    async setShared(key, data) {
+      cache.shared[key] = data;
+      if (db) {
+        await db.collection('shared').doc(key).set(typeof data === 'object' && !Array.isArray(data) ? data : { items: data });
+      }
     },
 
     getAllStored() {
-      return {
-        content: loadStored(STORAGE_KEY),
-        shared: loadStored(SHARED_KEY),
-      };
+      return { content: cache.content, shared: cache.shared };
     },
 
     exportAll() {
       return JSON.stringify(this.getAllStored(), null, 2);
     },
 
-    importAll(jsonString) {
+    async importAll(jsonString) {
       const data = JSON.parse(jsonString);
       if (typeof data !== 'object' || data === null) throw new Error('Invalid data');
-      // Validate structure: content should be {langCode: {section: ...}}
       if (data.content) {
         if (typeof data.content !== 'object') throw new Error('Invalid content');
         for (const lang of Object.keys(data.content)) {
           if (!['kk', 'ru', 'en', 'zh', 'tr'].includes(lang)) throw new Error('Invalid lang: ' + lang);
           if (typeof data.content[lang] !== 'object') throw new Error('Invalid lang data');
         }
-        saveStored(STORAGE_KEY, data.content);
+        cache.content = data.content;
+        if (db) {
+          for (const lang of Object.keys(data.content)) {
+            await db.collection('content').doc(lang).set(data.content[lang]);
+          }
+        }
       }
-      // Validate shared: gallery.images should be array of strings, projects should be array of strings
       if (data.shared) {
         if (typeof data.shared !== 'object') throw new Error('Invalid shared');
         if (data.shared.gallery) {
@@ -221,17 +226,29 @@
           data.shared.gallery.images = data.shared.gallery.images.filter(i => typeof i === 'string');
         }
         if (data.shared.projects) {
-          if (!Array.isArray(data.shared.projects)) throw new Error('Invalid projects');
-          data.shared.projects = data.shared.projects.filter(p => typeof p === 'string');
+          if (Array.isArray(data.shared.projects)) {
+            data.shared.projects = { items: data.shared.projects.filter(p => typeof p === 'string') };
+          }
         }
-        saveStored(SHARED_KEY, data.shared);
+        cache.shared = data.shared;
+        if (db) {
+          for (const key of Object.keys(data.shared)) {
+            await db.collection('shared').doc(key).set(data.shared[key]);
+          }
+        }
       }
     },
 
-    clearAll() {
-      localStorage.removeItem(STORAGE_KEY);
-      localStorage.removeItem(SHARED_KEY);
-      localStorage.setItem(VERSION_KEY, String(CONTENT_VERSION));
+    async clearAll() {
+      cache = { content: {}, shared: {} };
+      if (db) {
+        const batch = db.batch();
+        const contentSnap = await db.collection('content').get();
+        contentSnap.forEach(doc => batch.delete(doc.ref));
+        const sharedSnap = await db.collection('shared').get();
+        sharedSnap.forEach(doc => batch.delete(doc.ref));
+        await batch.commit();
+      }
     },
   };
 })();

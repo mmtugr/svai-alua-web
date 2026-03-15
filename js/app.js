@@ -197,7 +197,14 @@
 
         const header = document.createElement('div');
         header.className = 'projects-city-header';
-        header.innerHTML = '<span class="projects-city-name">' + city + '</span><span class="projects-city-count">' + groups[city].length + '</span>';
+        const cityName = document.createElement('span');
+        cityName.className = 'projects-city-name';
+        cityName.textContent = city;
+        const cityCount = document.createElement('span');
+        cityCount.className = 'projects-city-count';
+        cityCount.textContent = groups[city].length;
+        header.appendChild(cityName);
+        header.appendChild(cityCount);
         section.appendChild(header);
 
         const ul = document.createElement('ul');
@@ -208,7 +215,16 @@
         });
         groups[city].forEach((p) => {
           const li = document.createElement('li');
-          li.innerHTML = '<span class="project-name">' + p.name + '</span>' + (p.date ? '<span class="project-date">' + p.date + '</span>' : '');
+          const nameSpan = document.createElement('span');
+          nameSpan.className = 'project-name';
+          nameSpan.textContent = p.name;
+          li.appendChild(nameSpan);
+          if (p.date) {
+            const dateSpan = document.createElement('span');
+            dateSpan.className = 'project-date';
+            dateSpan.textContent = p.date;
+            li.appendChild(dateSpan);
+          }
           ul.appendChild(li);
         });
         section.appendChild(ul);
