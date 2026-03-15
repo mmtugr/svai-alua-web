@@ -103,15 +103,16 @@
     if (!grid) return;
     const galleryData = window.contentManager?.getShared('gallery');
     const images = galleryData?.images || window.contentManager?.DEFAULT_GALLERY_IMAGES || [];
+    const companyName = translations.about?.title || 'ТОО Алуа';
     grid.innerHTML = '';
-    images.forEach((src) => {
+    images.forEach((src, i) => {
       const imgSrc = src.startsWith('data:') ? src : IMG_BASE + src;
       if (!isValidImgSrc(imgSrc)) return;
       const div = document.createElement('div');
       div.className = 'gallery-item';
       const img = document.createElement('img');
       img.src = imgSrc;
-      img.alt = '';
+      img.alt = companyName + ' — ' + (translations.gallery?.title || 'Галерея') + ' ' + (i + 1);
       img.loading = 'lazy';
       div.appendChild(img);
       grid.appendChild(div);
