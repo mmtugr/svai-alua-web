@@ -31,7 +31,13 @@
     if (btn) {
       btn.addEventListener('click', function () {
         const current = localStorage.getItem(THEME_KEY) || 'light';
-        const next = current === 'light' ? 'dark' : current === 'dark' ? 'system' : 'light';
+        let next;
+        const resolved = document.documentElement.getAttribute('data-theme');
+        if (resolved === 'light') {
+          next = 'dark';
+        } else {
+          next = 'light';
+        }
         localStorage.setItem(THEME_KEY, next);
         applyTheme(next);
       });
