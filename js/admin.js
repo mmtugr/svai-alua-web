@@ -1042,29 +1042,10 @@
   });
 
   // --- Forgot password (reset to default) ---
-  // Add "Forgot password?" link to auth form
-  document.addEventListener('DOMContentLoaded', function () {
-    const authBox = document.querySelector('.auth-box');
-    if (authBox && !document.getElementById('forgot-pass-link')) {
-      const link = document.createElement('button');
-      link.type = 'button';
-      link.id = 'forgot-pass-link';
-      link.className = 'admin-btn-link';
-      link.style.marginTop = '12px';
-      link.style.display = 'block';
-      link.style.width = '100%';
-      link.textContent = adminLang === 'ru' ? 'Забыли пароль?' : 'Şifremi unuttum';
-      link.setAttribute('data-admin-i18n', 'auth.forgot');
-      link.addEventListener('click', function () {
-        const confirmMsg = adminLang === 'ru'
-          ? 'Şifre varsayılana (alua2025) sıfırlansın mı?'
-          : 'Şifre varsayılana (alua2025) sıfırlansın mı?';
-        if (confirm(t('auth.forgotConfirm'))) {
-          localStorage.removeItem(PASS_HASH_KEY);
-          showToast(t('auth.forgotDone'));
-        }
-      });
-      authBox.appendChild(link);
+  document.getElementById('forgot-pass-link')?.addEventListener('click', function () {
+    if (confirm(t('auth.forgotConfirm'))) {
+      localStorage.removeItem(PASS_HASH_KEY);
+      showToast(t('auth.forgotDone'));
     }
   });
 
