@@ -29,13 +29,28 @@
       'auth.placeholder': 'Şifre',
       'auth.error': 'Yanlış şifre',
       'auth.login': 'Giriş',
+      'auth.forgot': 'Şifremi unuttum',
+      'auth.forgotConfirm': 'Şifre varsayılana (alua2025) sıfırlansın mı?',
+      'auth.forgotDone': 'Şifre sıfırlandı. Varsayılan şifre: alua2025',
       // Header
       'header.viewSite': 'Siteyi Görüntüle',
       'header.export': 'Dışa Aktar',
       'header.import': 'İçe Aktar',
       'header.clearAll': 'Tümünü Sıfırla',
+      'header.changePass': 'Şifre Değiştir',
       'header.logout': 'Çıkış',
       'header.logoutConfirm': 'Oturumu kapatmak istediğinizden emin misiniz?',
+      // Change password
+      'pass.title': 'Şifre Değiştir',
+      'pass.current': 'Mevcut şifre',
+      'pass.new': 'Yeni şifre',
+      'pass.confirm': 'Yeni şifre (tekrar)',
+      'pass.save': 'Kaydet',
+      'pass.cancel': 'İptal',
+      'pass.wrongCurrent': 'Mevcut şifre yanlış',
+      'pass.mismatch': 'Yeni şifreler eşleşmiyor',
+      'pass.tooShort': 'Şifre en az 6 karakter olmalı',
+      'pass.success': 'Şifre başarıyla değiştirildi',
       // Sidebar
       'nav.hero': 'Hero',
       'nav.about': 'Hakkımızda',
@@ -142,13 +157,28 @@
       'auth.placeholder': 'Пароль',
       'auth.error': 'Неверный пароль',
       'auth.login': 'Войти',
+      'auth.forgot': 'Забыли пароль?',
+      'auth.forgotConfirm': 'Сбросить пароль на стандартный (alua2025)?',
+      'auth.forgotDone': 'Пароль сброшен. Стандартный пароль: alua2025',
       // Header
       'header.viewSite': 'Открыть сайт',
       'header.export': 'Экспорт',
       'header.import': 'Импорт',
       'header.clearAll': 'Сбросить всё',
+      'header.changePass': 'Сменить пароль',
       'header.logout': 'Выход',
       'header.logoutConfirm': 'Вы уверены, что хотите выйти?',
+      // Change password
+      'pass.title': 'Сменить пароль',
+      'pass.current': 'Текущий пароль',
+      'pass.new': 'Новый пароль',
+      'pass.confirm': 'Новый пароль (повтор)',
+      'pass.save': 'Сохранить',
+      'pass.cancel': 'Отмена',
+      'pass.wrongCurrent': 'Неверный текущий пароль',
+      'pass.mismatch': 'Новые пароли не совпадают',
+      'pass.tooShort': 'Пароль должен быть не менее 6 символов',
+      'pass.success': 'Пароль успешно изменён',
       // Sidebar
       'nav.hero': 'Главная',
       'nav.about': 'О компании',
@@ -304,9 +334,9 @@
   let dirty = false;
 
   // --- Auth (SHA-256 hashed password + brute-force protection) ---
-  // Hash of 'alua2025' — to change password, run in console:
-  // crypto.subtle.digest('SHA-256', new TextEncoder().encode('newpassword')).then(b => console.log(Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2,'0')).join('')))
-  const ADMIN_PASS_HASH = '963a708fb5c3cbc8656e380ea1060f1476ec56801c8fef94c727e4c769148f9e';
+  const DEFAULT_PASS_HASH = '963a708fb5c3cbc8656e380ea1060f1476ec56801c8fef94c727e4c769148f9e'; // alua2025
+  const PASS_HASH_KEY = 'svai_alua_admin_pass_hash';
+  function getPassHash() { return localStorage.getItem(PASS_HASH_KEY) || DEFAULT_PASS_HASH; }
   const MAX_ATTEMPTS = 5;
   const LOCKOUT_KEY = 'admin_lockout';
   const authOverlay = document.getElementById('auth-overlay');
@@ -357,7 +387,7 @@
       }
 
       const hash = await hashPassword(authInput.value);
-      if (hash === ADMIN_PASS_HASH) {
+      if (hash === getPassHash()) {
         sessionStorage.setItem('admin_auth', 'true');
         setLockoutState({ attempts: 0, lockedUntil: 0 });
         authOverlay.style.display = 'none';
@@ -957,6 +987,85 @@
     sessionStorage.removeItem('admin_auth');
     dirty = false;
     window.location.reload();
+  });
+
+  // --- Change password ---
+  const passModal = document.getElementById('pass-modal');
+  const passForm = document.getElementById('pass-form');
+  const passError = document.getElementById('pass-error');
+
+  document.getElementById('btn-change-pass')?.addEventListener('click', () => {
+    if (passModal) {
+      passModal.style.display = 'flex';
+      document.getElementById('pass-current').value = '';
+      document.getElementById('pass-new').value = '';
+      document.getElementById('pass-confirm').value = '';
+      passError.style.display = 'none';
+      document.getElementById('pass-current').focus();
+    }
+  });
+
+  document.getElementById('pass-cancel')?.addEventListener('click', () => {
+    if (passModal) passModal.style.display = 'none';
+  });
+
+  passModal?.addEventListener('click', (e) => {
+    if (e.target === passModal) passModal.style.display = 'none';
+  });
+
+  passForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const curPass = document.getElementById('pass-current').value;
+    const newPass = document.getElementById('pass-new').value;
+    const confirmPass = document.getElementById('pass-confirm').value;
+
+    const curHash = await hashPassword(curPass);
+    if (curHash !== getPassHash()) {
+      passError.textContent = t('pass.wrongCurrent');
+      passError.style.display = 'block';
+      return;
+    }
+    if (newPass.length < 6) {
+      passError.textContent = t('pass.tooShort');
+      passError.style.display = 'block';
+      return;
+    }
+    if (newPass !== confirmPass) {
+      passError.textContent = t('pass.mismatch');
+      passError.style.display = 'block';
+      return;
+    }
+    const newHash = await hashPassword(newPass);
+    localStorage.setItem(PASS_HASH_KEY, newHash);
+    passModal.style.display = 'none';
+    showToast(t('pass.success'));
+  });
+
+  // --- Forgot password (reset to default) ---
+  // Add "Forgot password?" link to auth form
+  document.addEventListener('DOMContentLoaded', function () {
+    const authBox = document.querySelector('.auth-box');
+    if (authBox && !document.getElementById('forgot-pass-link')) {
+      const link = document.createElement('button');
+      link.type = 'button';
+      link.id = 'forgot-pass-link';
+      link.className = 'admin-btn-link';
+      link.style.marginTop = '12px';
+      link.style.display = 'block';
+      link.style.width = '100%';
+      link.textContent = adminLang === 'ru' ? 'Забыли пароль?' : 'Şifremi unuttum';
+      link.setAttribute('data-admin-i18n', 'auth.forgot');
+      link.addEventListener('click', function () {
+        const confirmMsg = adminLang === 'ru'
+          ? 'Şifre varsayılana (alua2025) sıfırlansın mı?'
+          : 'Şifre varsayılana (alua2025) sıfırlansın mı?';
+        if (confirm(t('auth.forgotConfirm'))) {
+          localStorage.removeItem(PASS_HASH_KEY);
+          showToast(t('auth.forgotDone'));
+        }
+      });
+      authBox.appendChild(link);
+    }
   });
 
   // --- Unsaved changes warning ---

@@ -44,6 +44,7 @@
           <button class="admin-lang-btn" data-admin-lang="tr">TR</button>
         </div>
         <button class="admin-btn admin-btn-secondary" id="admin-theme-toggle" style="font-size:1.1rem;padding:6px 12px;">☀</button>
+        <button class="admin-btn admin-btn-secondary admin-btn-sm" id="btn-change-pass" data-admin-i18n="header.changePass">Şifre Değiştir</button>
         <button class="admin-btn admin-btn-danger admin-btn-sm" id="btn-logout" data-admin-i18n="header.logout">Çıkış</button>
         <input type="file" accept=".json" class="hidden-input" id="import-file">
       </div>
@@ -57,6 +58,23 @@
       <div id="lang-tabs" class="lang-tabs"></div>
       <div id="admin-editor"></div>
     </main>
+  </div>
+
+  <!-- Change password modal -->
+  <div class="modal-overlay" id="pass-modal" style="display:none">
+    <div class="auth-box">
+      <h2 data-admin-i18n="pass.title">Şifre Değiştir</h2>
+      <form id="pass-form">
+        <input type="password" class="form-input" id="pass-current" data-admin-i18n-placeholder="pass.current" placeholder="Mevcut şifre" style="margin-bottom:10px">
+        <input type="password" class="form-input" id="pass-new" data-admin-i18n-placeholder="pass.new" placeholder="Yeni şifre" style="margin-bottom:10px">
+        <input type="password" class="form-input" id="pass-confirm" data-admin-i18n-placeholder="pass.confirm" placeholder="Yeni şifre (tekrar)" style="margin-bottom:10px">
+        <p class="auth-error" id="pass-error"></p>
+        <div style="display:flex;gap:8px;margin-top:12px">
+          <button type="submit" class="admin-btn admin-btn-primary" style="flex:1" data-admin-i18n="pass.save">Kaydet</button>
+          <button type="button" class="admin-btn admin-btn-secondary" style="flex:1" id="pass-cancel" data-admin-i18n="pass.cancel">İptal</button>
+        </div>
+      </form>
+    </div>
   </div>
 
   <div class="toast" id="toast"></div>
