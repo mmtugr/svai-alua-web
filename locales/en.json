@@ -1,6 +1,6 @@
 {
   "nav": {
-    "about": "About Us",
+    "about": "About",
     "services": "Services",
     "equipment": "Equipment",
     "gallery": "Gallery",
@@ -8,96 +8,104 @@
     "contact": "Contact"
   },
   "hero": {
-    "title": "Piling Works, Road Boring",
-    "subtitle": "Bored Piles • CFA Technology • Trenchless Utility Installation",
-    "cta": "Contact Us",
+    "title": "A Solid Foundation for Your Project",
+    "subtitle": "CFA Bored Piles • Vibro Piling • Horizontal Directional Drilling",
+    "cta": "Discuss Your Project",
     "scroll": "scroll"
   },
   "stats": {
     "years": "10+",
-    "yearsLabel": "years of experience",
+    "yearsLabel": "years in the industry",
     "projects": "147+",
-    "projectsLabel": "projects",
+    "projectsLabel": "projects delivered",
     "equipment": "8",
-    "equipmentLabel": "units of equipment"
+    "equipmentLabel": "specialized machines"
   },
   "about": {
     "title": "About Us",
-    "p1": "Alua LLP is a company with many years of experience in piling works and trenchless utility installation in Kazakhstan. We perform bored piles using CFA technology, vibropiling, road boring, and other specialized works.",
-    "p2": "Our company is equipped with modern machinery from world-leading manufacturers: Soilmec, Liebherr, Delmag, MAIT and others. This allows us to complete projects of any complexity with high quality and on schedule.",
-    "p3": "We work with the largest developers and contractors in Kazakhstan. Over 140 companies have entrusted us with their projects."
+    "p1": "Alua LLP is a specialized engineering company delivering a full range of piling works and trenchless utility installation across Kazakhstan. Since 2014, we have executed projects of any complexity — from residential foundation systems to large-scale industrial infrastructure.",
+    "p2": "Our own fleet of specialized equipment from world-leading manufacturers — Soilmec, Liebherr, Delmag, MAIT — ensures independence from subcontractors and guarantees schedule compliance. Every project is supervised by qualified engineers with full quality documentation.",
+    "p3": "Over 140 companies — major developers, general contractors, and government entities in Kazakhstan — have chosen us as a reliable partner for mission-critical construction projects.",
+    "missionTitle": "Mission",
+    "mission": "To provide a reliable foundation for Kazakhstan's construction projects through advanced technology, highly skilled professionals, and uncompromising quality standards at every stage of the process.",
+    "visionTitle": "Vision",
+    "vision": "To become Central Asia's leading engineering company in specialized foundation works, setting industry benchmarks for reliability, safety, and innovation."
   },
   "services": {
     "title": "Our Services",
     "items": [
-      { "text": "Bored piles by CFA technology (continuous flight auger)", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg", "desc": "CFA technology allows piles up to 1.5 m diameter and 35 m depth without soil excavation." },
-      { "text": "Vibropiling", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg", "desc": "Driving of Larssen sheet piles, steel pipes and piles using FINAROS-800 vibratory hammer." },
-      { "text": "Road and railway boring", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg", "desc": "Trenchless utility installation under roads and structures. Ditch Witch (USA) and UNP 100 (Russia) equipment." },
-      { "text": "Steel pipes and metal structures", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg", "desc": "Jacking of steel pipes up to 1500 mm diameter for various utilities." },
-      { "text": "Turnkey piling works", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg", "desc": "Full cycle from design to handover. Reinforcement cages on SHNELL Cage Making Machine line." }
+      { "text": "CFA Bored Piles", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg", "desc": "Continuous Flight Auger (CFA) piling technology. Diameter: 400–1,500 mm. Depth: up to 35 m. Equipment: Soilmec CM 48 and CM 70. Key advantages: minimal vibration, no soil excavation, high load-bearing capacity (up to 600 tonnes per pile). Ideal for confined urban environments and seismically active zones." },
+      { "text": "Vibro Piling & Sheet Piling", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg", "desc": "Driving Larssen sheet piles, steel pipes (Ø up to 630 mm), and reinforced concrete piles using the FINAROS-800 vibratory hammer (static moment: 35 kg·m, frequency: 38 Hz). Applications: excavation shoring, bank protection, temporary retaining walls. Advantages: high driving speed, extractable for reuse." },
+      { "text": "Road & Railway Undercrossing", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg", "desc": "Trenchless utility installation via guided boring and Horizontal Directional Drilling (HDD). Equipment: Ditch Witch JT3020 (USA) — bore length up to 300 m, Ø up to 400 mm; UNP-100 (Russia) — thrust 1,000 kN, Ø up to 1,500 mm. Benefits: no road surface disruption, minimal traffic interference, landscape preservation." },
+      { "text": "Steel Casing Jacking", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg", "desc": "Jacking steel casing pipes 325–1,500 mm in diameter under active roads and railways. Purpose: installation of water supply, sanitary and storm sewers, heating networks, and power cable conduits. Work is performed without traffic interruption and with full geodetic alignment control." },
+      { "text": "Turnkey Piling Solutions", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg", "desc": "Comprehensive turnkey piling services: site investigation, pile field design, rebar cage production on the automated SHNELL Cage Making Machine line (Ø 300–2,000 mm, length up to 14 m), drilling, concreting with integrity monitoring, pile load testing, and handover with a complete as-built documentation package." }
     ]
   },
   "equipment": {
-    "title": "Our Equipment",
+    "title": "Equipment Fleet",
     "items": [
-      { "name": "Soilmec CM 48 / CM 70", "desc": "Drilling rigs", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
-      { "name": "Liebherr 921", "desc": "Piling works", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg" },
-      { "name": "MAIT T80", "desc": "Drilling machines", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
-      { "name": "Mini loader", "desc": "Earthworks", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" }
+      { "name": "Soilmec CM 48", "desc": "CFA drilling rig. Max depth: 23 m • Max diameter: 1,000 mm • Torque: 150 kNm", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
+      { "name": "Soilmec CM 70", "desc": "CFA drilling rig. Max depth: 35 m • Max diameter: 1,500 mm • Torque: 230 kNm", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
+      { "name": "Liebherr LRB 355", "desc": "Drilling rig. Max depth: 65 m • Max diameter: 2,400 mm • Weight: 95 t", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg" },
+      { "name": "MAIT T80", "desc": "Drilling rig. Max depth: 52 m • Max diameter: 1,800 mm • Torque: 200 kNm", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
+      { "name": "FINAROS-800", "desc": "Vibratory hammer. Static moment: 35 kg·m • Frequency: 38 Hz • Max force: 800 kN", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" },
+      { "name": "Ditch Witch JT3020", "desc": "HDD rig. Max bore length: 300 m • Pullback: 133 kN • Diameter: up to 400 mm", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" },
+      { "name": "UNP-100", "desc": "Guided boring machine. Thrust: 1,000 kN • Diameter: up to 1,500 mm", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
+      { "name": "SHNELL Cage Making", "desc": "Rebar cage production line. Diameter: 300–2,000 mm • Length: up to 14 m • Capacity: 20 cages/shift", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg" }
     ]
   },
   "gallery": {
-    "title": "Gallery"
+    "title": "Project Gallery"
   },
   "clients": {
     "title": "Clients",
-    "intro": "Over 140 companies have entrusted us with their projects",
-    "projects": "completed projects",
+    "intro": "Trusted by Kazakhstan's leading developers and general contractors",
+    "projects": "projects delivered",
     "modalTitle": "Completed Projects (147+)"
   },
   "contact": {
-    "title": "Contact Us",
+    "title": "Discuss Your Project",
     "address": "Address:",
     "phone": "Phone:",
     "email": "Email:",
     "hours": "Working hours:",
     "chatbotTitle": "How can we help?",
-    "chatbotQ1": "What are you interested in?",
+    "chatbotQ1": "Select a category:",
     "choicePiles": "Piling works",
-    "choicePuncture": "Road boring",
-    "choiceQuote": "Quote",
-    "choiceOther": "Other",
-    "resultPiles": "Piling works: CFA bored piles, vibropiling. Contact us on WhatsApp for consultation.",
-    "resultPuncture": "Road and railway boring. Trenchless utility installation. Message us on WhatsApp.",
-    "resultQuote": "For a quote, describe the project and scope of work. We will respond within 24 hours.",
-    "resultOther": "For any questions, contact us. We are here to help!",
+    "choicePuncture": "Boring & HDD",
+    "choiceQuote": "Request a quote",
+    "choiceOther": "Other inquiry",
+    "resultPiles": "We deliver CFA bored piles, vibro piling, and sheet piling. Submit a request — our engineer will contact you within one hour.",
+    "resultPuncture": "Road and railway undercrossings, HDD, and steel casing jacking. Describe your task for a cost estimate.",
+    "resultQuote": "To prepare a commercial proposal, please provide project details, scope, and timeline. We respond within 24 hours.",
+    "resultOther": "Reach out to us through any convenient channel — we are ready to answer your questions.",
     "whatsappBtn": "Message on WhatsApp",
-    "formTitle": "Write to us",
+    "formTitle": "Submit a Request",
     "mapLabel": "Almaty, Kazakhstan"
   },
   "form": {
-    "name": "Name",
+    "name": "Full Name",
     "email": "Email",
     "phone": "Phone",
-    "message": "Message",
-    "submit": "Send",
-    "success": "Thank you! Your message has been sent.",
-    "error": "Error. Please try again later."
+    "message": "Describe your project",
+    "submit": "Submit Request",
+    "success": "Thank you! Your request has been received. We will contact you shortly.",
+    "error": "Failed to send. Please try again later."
   },
   "contactInfo": {
     "addressValue": "050058, Almaty, Ryskulov Prospect, 103",
     "phones": ["+7 (727) 377 91 88", "+7 (777) 215 32 28"],
     "emailValue": "alua_too@mail.ru",
-    "hoursValue": "09:00–18:00"
+    "hoursValue": "Mon–Fri 09:00–18:00"
   },
   "footer": {
     "license": "License No. 015231",
-    "desc": "Pile driving, bored piles, CFA technology, horizontal directional drilling. Almaty, Kazakhstan.",
+    "desc": "Specialized foundation engineering: CFA bored piles, vibro piling, trenchless utility installation. Almaty, Kazakhstan.",
     "navTitle": "Navigation",
     "servicesTitle": "Services",
-    "service1": "Bored piles",
-    "service2": "CFA technology",
-    "service3": "Horizontal drilling",
+    "service1": "CFA Bored Piles",
+    "service2": "Vibro Piling",
+    "service3": "Boring & HDD",
     "contactTitle": "Contacts"
   }
 }

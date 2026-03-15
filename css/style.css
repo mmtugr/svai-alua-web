@@ -13,9 +13,9 @@
   --color-bg: #ffffff;
   --color-bg-alt: #f7f8fa;
   --color-bg-card: #ffffff;
-  --color-accent: #0066cc;
-  --color-accent-hover: #0052a3;
-  --color-accent-light: rgba(0, 102, 204, 0.08);
+  --color-accent: #00857C;
+  --color-accent-hover: #006B63;
+  --color-accent-light: rgba(0, 133, 124, 0.08);
   --color-accent-secondary: #e8710a;
   --color-text: #1d1d1f;
   --color-text-secondary: #6e6e73;
@@ -33,6 +33,13 @@
   --about-overlay-m: linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.88) 100%);
   --modal-close-bg: rgba(0,0,0,0.06);
   --modal-close-hover: rgba(0,0,0,0.12);
+  --mountain-haze: rgba(0, 133, 124, 0.03);
+  --mountain-far: rgba(0, 133, 124, 0.1);
+  --mountain-snow: rgba(0, 133, 124, 0.05);
+  --mountain-mid: rgba(0, 133, 124, 0.18);
+  --mountain-near: rgba(0, 133, 124, 0.26);
+  --mountain-ground: rgba(0, 133, 124, 0.08);
+  --eagle-color: rgba(0, 80, 74, 0.7);
 }
 
 /* ===== Dark theme ===== */
@@ -40,9 +47,9 @@
   --color-bg: #0d1117;
   --color-bg-alt: #161b22;
   --color-bg-card: #1c2128;
-  --color-accent: #58a6ff;
-  --color-accent-hover: #79b8ff;
-  --color-accent-light: rgba(88, 166, 255, 0.1);
+  --color-accent: #4dd9cc;
+  --color-accent-hover: #6ee6db;
+  --color-accent-light: rgba(77, 217, 204, 0.1);
   --color-accent-secondary: #f0883e;
   --color-text: #e6edf3;
   --color-text-secondary: #8b949e;
@@ -60,6 +67,13 @@
   --about-overlay-m: linear-gradient(90deg, rgba(13,17,23,0.97) 0%, rgba(13,17,23,0.88) 100%);
   --modal-close-bg: rgba(255,255,255,0.08);
   --modal-close-hover: rgba(255,255,255,0.15);
+  --mountain-haze: rgba(77, 217, 204, 0.03);
+  --mountain-far: rgba(77, 217, 204, 0.08);
+  --mountain-snow: rgba(200, 240, 235, 0.08);
+  --mountain-mid: rgba(77, 217, 204, 0.15);
+  --mountain-near: rgba(77, 217, 204, 0.22);
+  --mountain-ground: rgba(77, 217, 204, 0.06);
+  --eagle-color: rgba(200, 240, 235, 0.7);
 }
 
 /* ===== Reset ===== */
@@ -127,11 +141,17 @@ a:hover { color: var(--color-accent-hover); }
 }
 .logo:hover { color: var(--color-accent); }
 
-.logo-flag {
+.logo-icon {
   vertical-align: middle;
-  margin-right: 6px;
-  border-radius: 2px;
+  margin-right: 8px;
   flex-shrink: 0;
+}
+
+.logo-text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
 }
 
 .nav { display: flex; gap: 28px; }
@@ -218,21 +238,35 @@ a:hover { color: var(--color-accent-hover); }
   align-items: center;
   justify-content: center;
   padding: 120px 24px 140px;
-  background:
-    var(--hero-overlay),
-    url('https://svai-alua.kz/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg') center/cover no-repeat;
+  background: var(--color-bg);
   overflow: hidden;
+}
+
+.hero-mountains {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 65%;
+  pointer-events: none;
+  z-index: 0;
+}
+.mountains-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .hero::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   right: 0;
-  height: 120px;
-  background: var(--hero-bottom);
+  height: 80px;
+  background: linear-gradient(180deg, transparent 0%, var(--color-bg) 100%);
   pointer-events: none;
+  z-index: 1;
 }
 
 .hero .container {
@@ -401,6 +435,53 @@ a:hover { color: var(--color-accent-hover); }
   color: var(--color-text-secondary);
   font-size: 1.05rem;
   margin-bottom: 20px;
+}
+
+/* ===== Mission & Vision ===== */
+.mission-vision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+  max-width: 800px;
+}
+
+.mv-card {
+  padding: 32px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  border-left: 3px solid var(--color-accent);
+  transition: var(--transition);
+}
+
+.mv-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.mv-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.mv-card p {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .mission-vision {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .mv-card { padding: 24px; }
 }
 
 /* ===== Services ===== */
@@ -668,7 +749,8 @@ a:hover { color: var(--color-accent-hover); }
   color: #fff;
 }
 
-.clients-modal .modal { max-width: 700px; max-height: 85vh; }
+.modal-wide { max-width: 850px; }
+.clients-modal .modal { max-height: 85vh; }
 
 .clients-modal .modal-body {
   padding: 28px;
@@ -681,24 +763,81 @@ a:hover { color: var(--color-accent-hover); }
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--color-text);
+  margin-bottom: 24px;
+}
+
+.projects-city-group {
   margin-bottom: 20px;
 }
 
-.clients-modal .projects-list {
-  list-style: none;
-  column-count: 2;
-  column-gap: 24px;
+.projects-city-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--color-accent-light);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 4px;
+  margin-bottom: 8px;
 }
 
-.clients-modal .projects-list li {
-  padding: 6px 0;
-  font-size: 0.9rem;
+.projects-city-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-accent);
+}
+
+.projects-city-count {
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.projects-city-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 16px;
+}
+
+.projects-city-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 5px 12px;
+  font-size: 0.85rem;
   color: var(--color-text-secondary);
-  break-inside: avoid;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.projects-city-list li:hover {
+  background: var(--color-bg-alt);
+}
+
+.project-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-date {
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+  margin-left: 8px;
+  white-space: nowrap;
 }
 
 @media (max-width: 600px) {
-  .clients-modal .projects-list { column-count: 1; }
+  .projects-city-list { grid-template-columns: 1fr; }
+  .modal-wide { max-width: 95vw; }
 }
 
 /* ===== Contact Section ===== */

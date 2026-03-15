@@ -1,103 +1,111 @@
 {
   "nav": {
     "about": "关于公司",
-    "services": "服务",
+    "services": "服务项目",
     "equipment": "设备",
-    "gallery": "图库",
+    "gallery": "项目展示",
     "clients": "客户",
-    "contact": "联系方式"
+    "contact": "联系我们"
   },
   "hero": {
-    "title": "桩基工程、道路顶管",
-    "subtitle": "灌注桩 • CFA技术 • 非开挖管线铺设",
-    "cta": "联系我们",
+    "title": "为您的项目奠定坚实基础",
+    "subtitle": "CFA灌注桩 • 振动沉桩 • 水平定向钻进",
+    "cta": "咨询项目",
     "scroll": "scroll"
   },
   "stats": {
     "years": "10+",
-    "yearsLabel": "年经验",
+    "yearsLabel": "年行业经验",
     "projects": "147+",
-    "projectsLabel": "个项目",
+    "projectsLabel": "已交付项目",
     "equipment": "8",
-    "equipmentLabel": "台设备"
+    "equipmentLabel": "台专业设备"
   },
   "about": {
     "title": "关于公司",
-    "p1": "«阿鲁阿»有限责任公司是哈萨克斯坦在桩基工程和非开挖管线铺设领域拥有多年经验的公司。我们采用CFA技术进行灌注桩施工、振动沉桩、道路和铁路下顶管及其他专业工程。",
-    "p2": "我公司配备Soilmec、利勃海尔、Delmag、MAIT等世界领先制造商的现代化设备。这使我们能够高质量、按时完成任何复杂程度的项目。",
-    "p3": "我们与哈萨克斯坦最大的开发商和承包机构合作。超过140家公司将项目委托给我们。"
+    "p1": "阿鲁阿有限责任公司是一家专业工程公司，在哈萨克斯坦全境提供全方位桩基工程和非开挖管线铺设服务。自2014年以来，我们承接各种复杂程度的项目——从住宅小区基础工程到工业规模的基础设施建设。",
+    "p2": "公司自有的专业设备车队来自世界领先制造商——Soilmec、利勃海尔、Delmag、MAIT——确保不依赖分包商并保证工期。每个项目均配备工程师监督和完整的质量文件管控。",
+    "p3": "哈萨克斯坦140多家大型开发商、总承包商和政府机构选择我们作为关键建设项目的可靠合作伙伴。",
+    "missionTitle": "使命",
+    "mission": "在工程的每个阶段运用先进技术、高素质专业人员和严格的质量标准，为哈萨克斯坦的建设项目提供可靠的基础保障。",
+    "visionTitle": "愿景",
+    "vision": "成为中亚地区特种基础工程领域的领先工程公司，在可靠性、安全性和创新方面树立行业标杆。"
   },
   "services": {
-    "title": "我们的服务",
+    "title": "服务项目",
     "items": [
-      { "text": "CFA技术灌注桩（连续螺旋钻）", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg", "desc": "CFA技术可在不挖土的情况下完成直径1.5米、深度35米的桩基施工。" },
-      { "text": "振动沉桩", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg", "desc": "使用ФИНАРОС-800振动沉桩机沉放拉森钢板桩、钢管和桩。" },
-      { "text": "道路和铁路下顶管", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg", "desc": "道路和构筑物下非开挖管线铺设。使用Ditch Witch（美国）和УНП 100（俄罗斯）设备。" },
-      { "text": "钢管和金属结构", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg", "desc": "直径1500毫米钢管顶进，用于各类管线。" },
-      { "text": "桩基工程总承包", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg", "desc": "从设计到交工的全周期服务。SHNELL Cage Making Machine生产线制作钢筋笼。" }
+      { "text": "CFA灌注桩", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg", "desc": "连续螺旋钻（Continuous Flight Auger）灌注桩施工。直径：400–1,500毫米。深度：最深35米。设备：Soilmec CM 48和CM 70。核心优势：振动极小、无需开挖土方、承载力高（单桩可达600吨）。适用于狭窄城市环境和地震活跃区域。" },
+      { "text": "振动沉桩与钢板桩", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg", "desc": "使用FINAROS-800振动锤（静力矩：35 kg·m，频率：38 Hz）沉放拉森钢板桩、钢管桩（Ø最大630毫米）和钢筋混凝土桩。应用领域：基坑围护、岸坡防护、临时挡土墙。优势：沉桩速度快，可拔出重复使用。" },
+      { "text": "道路和铁路下穿越", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg", "desc": "采用导向顶管和水平定向钻进（HDD）技术进行非开挖管线铺设。设备：Ditch Witch JT3020（美国）——最大钻进300米，Ø最大400毫米；UNP-100（俄罗斯）——推力1,000 kN，Ø最大1,500毫米。优势：无需破坏路面、对交通影响最小、保护地面景观。" },
+      { "text": "钢套管顶进", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg", "desc": "在运营中的公路和铁路下顶进直径325–1,500毫米的钢套管。用途：铺设给水管道、生活和雨水排水管道、供热管网和电力电缆管线。施工过程中不中断交通，并进行全程测量精度控制。" },
+      { "text": "交钥匙桩基方案", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg", "desc": "全周期交钥匙桩基服务：工程勘察、桩基场地设计、SHNELL Cage Making Machine自动化生产线制作钢筋笼（Ø 300–2,000毫米，长度最长14米）、钻孔、完整性监测下的混凝土浇筑、桩基荷载试验，以及附带完整竣工文件的工程移交。" }
     ]
   },
   "equipment": {
-    "title": "我们的设备",
+    "title": "设备车队",
     "items": [
-      { "name": "Soilmec CM 48 / CM 70", "desc": "钻机", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
-      { "name": "Liebherr 921", "desc": "桩基工程", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg" },
-      { "name": "MAIT T80", "desc": "钻机", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
-      { "name": "迷你装载机", "desc": "土方作业", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" }
+      { "name": "Soilmec CM 48", "desc": "CFA钻机。最大深度：23米 • 最大直径：1000毫米 • 扭矩：150千牛·米", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
+      { "name": "Soilmec CM 70", "desc": "CFA钻机。最大深度：35米 • 最大直径：1500毫米 • 扭矩：230千牛·米", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
+      { "name": "Liebherr LRB 355", "desc": "钻机。最大深度：65米 • 最大直径：2400毫米 • 重量：95吨", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg" },
+      { "name": "MAIT T80", "desc": "钻机。最大深度：52米 • 最大直径：1800毫米 • 扭矩：200千牛·米", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
+      { "name": "ФИНАРОС-800", "desc": "振动锤。静力矩：35千克·米 • 频率：38赫兹 • 最大力：800千牛", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" },
+      { "name": "Ditch Witch JT3020", "desc": "水平定向钻。最大钻进长度：300米 • 回拉力：133千牛 • 直径：最大400毫米", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" },
+      { "name": "УНП-100", "desc": "导向顶管机。顶进力：1000千牛 • 直径：最大1500毫米", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
+      { "name": "SHNELL Cage Making", "desc": "钢筋笼生产线。直径：300–2000毫米 • 长度：最长14米 • 产能：20个笼/班", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg" }
     ]
   },
   "gallery": {
-    "title": "图库"
+    "title": "项目展示"
   },
   "clients": {
     "title": "客户",
-    "intro": "超过140家公司将项目委托给我们",
-    "projects": "已完成项目",
-    "modalTitle": "已完成项目 (147+)"
+    "intro": "哈萨克斯坦领先开发商和总承包商的信赖之选",
+    "projects": "已交付项目",
+    "modalTitle": "已完成项目（147+）"
   },
   "contact": {
-    "title": "联系我们",
+    "title": "咨询项目",
     "address": "地址：",
     "phone": "电话：",
     "email": "邮箱：",
     "hours": "工作时间：",
     "chatbotTitle": "我们能帮您什么？",
-    "chatbotQ1": "您感兴趣的是？",
+    "chatbotQ1": "请选择类别：",
     "choicePiles": "桩基工程",
-    "choicePuncture": "道路下顶管",
-    "choiceQuote": "商业报价",
-    "choiceOther": "其他",
-    "resultPiles": "桩基工程：CFA灌注桩、振动沉桩。请通过WhatsApp联系我们咨询。",
-    "resultPuncture": "道路和铁路下顶管。非开挖管线铺设。请通过WhatsApp联系我们。",
-    "resultQuote": "获取商业报价请描述项目和工程量。我们将在24小时内回复。",
-    "resultOther": "如有任何问题请联系我们。",
+    "choicePuncture": "顶管与HDD",
+    "choiceQuote": "索取报价",
+    "choiceOther": "其他咨询",
+    "resultPiles": "我们提供CFA灌注桩、振动沉桩和钢板桩施工。提交申请——工程师将在一小时内与您联系。",
+    "resultPuncture": "道路和铁路下穿越、HDD和钢套管顶进。请描述您的需求以获取报价。",
+    "resultQuote": "请提供项目详情、工程量和工期要求，我们将在24小时内回复商务报价。",
+    "resultOther": "通过任何方便的方式联系我们——我们随时准备回答您的问题。",
     "whatsappBtn": "WhatsApp联系",
-    "formTitle": "联系我们",
+    "formTitle": "提交咨询",
     "mapLabel": "阿拉木图，哈萨克斯坦"
   },
   "form": {
     "name": "姓名",
     "email": "邮箱",
     "phone": "电话",
-    "message": "留言",
-    "submit": "发送",
-    "success": "谢谢！您的消息已发送。",
-    "error": "错误。请稍后再试。"
+    "message": "描述您的项目",
+    "submit": "提交咨询",
+    "success": "谢谢！您的咨询已收到，我们会尽快与您联系。",
+    "error": "发送失败，请稍后重试。"
   },
   "contactInfo": {
     "addressValue": "050058, 阿拉木图市, 勒斯库洛夫大道, 103号",
     "phones": ["+7 (727) 377 91 88", "+7 (777) 215 32 28"],
     "emailValue": "alua_too@mail.ru",
-    "hoursValue": "09:00–18:00"
+    "hoursValue": "周一至周五 09:00–18:00"
   },
   "footer": {
     "license": "许可证 № 015231",
-    "desc": "桩基工程、灌注桩、CFA技术、顶管穿越。阿拉木图，哈萨克斯坦。",
+    "desc": "专业基础工程：CFA灌注桩、振动沉桩、非开挖管线铺设。阿拉木图，哈萨克斯坦。",
     "navTitle": "导航",
     "servicesTitle": "服务",
-    "service1": "灌注桩",
-    "service2": "CFA技术",
-    "service3": "顶管穿越",
+    "service1": "CFA灌注桩",
+    "service2": "振动沉桩",
+    "service3": "顶管与HDD",
     "contactTitle": "联系方式"
   }
 }

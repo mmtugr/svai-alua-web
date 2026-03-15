@@ -160,16 +160,59 @@
     }
   });
 
-  // Clients modal
+  // Clients modal — grouped by city
+  function parseProject(str) {
+    const cityMatch = str.match(/[—–-]\s*(?:г\.\s*|пос\.\s*|ст\.\s*)?([А-Яа-яЁёҚқҮүҰұІіӘәӨөҺһНңҒғ\w\s-]+?)(?:\s+\d{2}\.\d{2}\.\d{4}|\s*\(|\s*$)/);
+    const dateMatch = str.match(/(\d{2}\.\d{2}\.\d{4})/);
+    const nameMatch = str.match(/^(.+?)(?:\s*[—–-]\s*(?:г\.|пос\.|ст\.))/);
+    return {
+      name: nameMatch ? nameMatch[1].trim() : str.split('—')[0].split('–')[0].trim(),
+      city: cityMatch ? cityMatch[1].trim() : 'Другие',
+      date: dateMatch ? dateMatch[1] : '',
+      year: dateMatch ? dateMatch[1].split('.')[2] : ''
+    };
+  }
+
   document.querySelector('.clients-count')?.addEventListener('click', () => {
     const list = document.getElementById('projects-list');
     if (list) {
       const projects = getProjects();
+      const parsed = projects.map(parseProject);
+
+      // Group by city
+      const groups = {};
+      parsed.forEach((p) => {
+        const city = p.city || 'Другие';
+        if (!groups[city]) groups[city] = [];
+        groups[city].push(p);
+      });
+
+      // Sort groups by count (most projects first)
+      const sortedCities = Object.keys(groups).sort((a, b) => groups[b].length - groups[a].length);
+
       list.innerHTML = '';
-      projects.forEach((p) => {
-        const li = document.createElement('li');
-        li.textContent = p;
-        list.appendChild(li);
+      sortedCities.forEach((city) => {
+        const section = document.createElement('div');
+        section.className = 'projects-city-group';
+
+        const header = document.createElement('div');
+        header.className = 'projects-city-header';
+        header.innerHTML = '<span class="projects-city-name">' + city + '</span><span class="projects-city-count">' + groups[city].length + '</span>';
+        section.appendChild(header);
+
+        const ul = document.createElement('ul');
+        ul.className = 'projects-city-list';
+        groups[city].sort((a, b) => {
+          if (!a.year || !b.year) return 0;
+          return parseInt(b.year) - parseInt(a.year);
+        });
+        groups[city].forEach((p) => {
+          const li = document.createElement('li');
+          li.innerHTML = '<span class="project-name">' + p.name + '</span>' + (p.date ? '<span class="project-date">' + p.date + '</span>' : '');
+          ul.appendChild(li);
+        });
+        section.appendChild(ul);
+        list.appendChild(section);
       });
       openModal('clients-modal');
     }

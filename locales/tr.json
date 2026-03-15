@@ -8,96 +8,104 @@
     "contact": "İletişim"
   },
   "hero": {
-    "title": "Kazık işleri, yol altı delme",
-    "subtitle": "Fore kazıklar • CFA teknolojisi • Kazısız altyapı döşeme",
-    "cta": "Bize ulaşın",
+    "title": "Projenizin Sağlam Temeli",
+    "subtitle": "CFA Fore Kazıklar • Vibrasyonlu Kazık Çakma • Yatay Yönlendirmeli Delme",
+    "cta": "Projenizi Görüşelim",
     "scroll": "scroll"
   },
   "stats": {
     "years": "10+",
-    "yearsLabel": "yıllık deneyim",
+    "yearsLabel": "yıllık sektör deneyimi",
     "projects": "147+",
-    "projectsLabel": "proje",
+    "projectsLabel": "tamamlanan proje",
     "equipment": "8",
-    "equipmentLabel": "ekipman"
+    "equipmentLabel": "özel iş makinesi"
   },
   "about": {
     "title": "Hakkımızda",
-    "p1": "«Alua» LLP — Kazakistan'da kazık işleri ve kazısız altyapı döşeme alanında yıllarca deneyime sahip bir şirkettir. CFA teknolojisi ile fore kazıklar, vibrasyonlu kazık çakma, yollar ve demiryolları altında delme ve diğer uzman işleri gerçekleştiriyoruz.",
-    "p2": "Şirketimiz Soilmec, Liebherr, Delmag, MAIT ve diğer dünya lideri üreticilerin modern ekipmanlarıyla donatılmıştır. Bu, her karmaşıklıkta projeleri yüksek kalitede ve belirlenen sürelerde tamamlamamıza olanak tanır.",
-    "p3": "Kazakistan'ın en büyük inşaat firmaları ve yüklenicileriyle çalışıyoruz. 140'tan fazla şirket projelerini bize emanet etti."
+    "p1": "«Alua» LLP, Kazakistan genelinde kazık işleri ve kazısız altyapı döşeme alanında uzmanlaşmış bir mühendislik şirketidir. 2014 yılından bu yana konut kompleksi temellerinden endüstriyel ölçekli altyapı projelerine kadar her karmaşıklıkta işler gerçekleştirmekteyiz.",
+    "p2": "Soilmec, Liebherr, Delmag, MAIT gibi dünya liderlerinin ekipmanlarından oluşan kendi özel makine parkımız, taşeron bağımlılığını ortadan kaldırır ve sürelere uyumu garanti eder. Her proje, mühendislik denetimi ve kalite belgelendirmesi ile yürütülür.",
+    "p3": "Kazakistan'ın 140'tan fazla büyük inşaat firması, ana yüklenici ve kamu kuruluşu, kritik projelerinin hayata geçirilmesinde bizi güvenilir iş ortağı olarak seçmiştir.",
+    "missionTitle": "Misyon",
+    "mission": "İleri teknolojiyi, yüksek nitelikli profesyonelleri ve her aşamada taviz vermeyen kalite standartlarını uygulayarak Kazakistan'ın inşaat projeleri için güvenilir bir temel sağlamak.",
+    "visionTitle": "Vizyon",
+    "vision": "Güvenilirlik, güvenlik ve yenilikçi yaklaşımda sektör standartlarını belirleyerek Orta Asya'nın özel temel işleri alanında lider mühendislik şirketi olmak."
   },
   "services": {
     "title": "Hizmetlerimiz",
     "items": [
-      { "text": "CFA teknolojisi ile fore kazıklar (sürekli burgu)", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg", "desc": "CFA teknolojisi, hafriyat yapmadan 1,5 m çapında ve 35 m derinliğinde kazık imalatına olanak tanır." },
-      { "text": "Vibrasyonlu kazık çakma", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg", "desc": "Larssen palplanşları, çelik borular ve kazıkların ФИНАРОС-800 vibratör ile çakılması." },
-      { "text": "Yollar ve demiryolları altında delme", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg", "desc": "Yollar ve yapılar altında kazısız altyapı döşeme. Ditch Witch (ABD) ve УНП 100 (Rusya) ekipmanları." },
-      { "text": "Çelik borular ve metal yapılar", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg", "desc": "Çeşitli altyapılar için 1500 mm çapında çelik boru itme." },
-      { "text": "Anahtar teslim kazık işleri", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg", "desc": "Tasarımdan teslimata tam döngü. SHNELL Cage Making Machine hattında donatı kafesleri." }
+      { "text": "CFA Fore Kazıklar", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg", "desc": "Sürekli Helisel Burgu (Continuous Flight Auger) yöntemiyle kazık imalatı. Çap: 400–1.500 mm. Derinlik: 35 m'ye kadar. Ekipman: Soilmec CM 48 ve CM 70. Temel avantajları: minimum titreşim, hafriyatsız çalışma, yüksek taşıma kapasitesi (kazık başına 600 tona kadar). Dar kentsel alanlar ve sismik açıdan aktif bölgeler için idealdir." },
+      { "text": "Vibrasyonlu Kazık ve Palplanş Çakma", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg", "desc": "FINAROS-800 vibratör (statik moment: 35 kg·m, frekans: 38 Hz) ile Larssen palplanşları, çelik borular (Ø 630 mm'ye kadar) ve betonarme kazıkların çakılması. Uygulama alanları: kazı çevresi iksası, kıyı tahkimatı, geçici istinat duvarları. Avantajları: yüksek çakma hızı, sökülerek tekrar kullanılabilme imkânı." },
+      { "text": "Yol ve Demiryolu Altı Geçişler", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg", "desc": "Yönlendirmeli delme ve Yatay Yönlendirmeli Delme (YYD) yöntemiyle kazısız altyapı döşeme. Ekipman: Ditch Witch JT3020 (ABD) — 300 m'ye kadar delme, Ø 400 mm'ye kadar; UNP-100 (Rusya) — 1.000 kN itme kuvveti, Ø 1.500 mm'ye kadar. Avantajları: yol kaplaması açılmadan, trafik akışı kesilmeden, peyzaj korunarak çalışma." },
+      { "text": "Çelik Kılıf Boru İtme", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg", "desc": "Aktif karayolu ve demiryolları altında 325–1.500 mm çapında çelik kılıf boruların itilmesi. Amaç: su temini, evsel ve yağmur suyu kanalizasyonu, ısıtma şebekeleri ve enerji kablo hatlarının döşenmesi. Çalışmalar trafik akışı kesilmeden ve geçiş doğruluğunun tam jeodezik kontrolü ile gerçekleştirilir." },
+      { "text": "Anahtar Teslim Kazık Çözümleri", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg", "desc": "Kapsamlı anahtar teslim kazık hizmetleri: zemin etüdü, kazık alanı projelendirmesi, SHNELL Cage Making Machine otomatik hattında donatı kafesi üretimi (Ø 300–2.000 mm, uzunluk 14 m'ye kadar), sondaj, bütünlük kontrolü ile betonlama, kazık yükleme testleri ve tam uygulama dokümantasyonu paketi ile müşteriye teslim." }
     ]
   },
   "equipment": {
-    "title": "Ekipmanlarımız",
+    "title": "Makine Parkımız",
     "items": [
-      { "name": "Soilmec CM 48 / CM 70", "desc": "Sondaj makineleri", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
-      { "name": "Liebherr 921", "desc": "Kazık işleri", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg" },
-      { "name": "MAIT T80", "desc": "Sondaj makineleri", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
-      { "name": "Mini yükleyici", "desc": "Hafriyat", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" }
+      { "name": "Soilmec CM 48", "desc": "CFA sondaj makinesi. Maks. derinlik: 23 m • Maks. çap: 1.000 mm • Tork: 150 kNm", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
+      { "name": "Soilmec CM 70", "desc": "CFA sondaj makinesi. Maks. derinlik: 35 m • Maks. çap: 1.500 mm • Tork: 230 kNm", "img": "/thumb/2/TKwMgNbWUNwJtRXL-NlcLg/550c350/d/soilmec-r312hd-obr2.jpg" },
+      { "name": "Liebherr LRB 355", "desc": "Sondaj makinesi. Maks. derinlik: 65 m • Maks. çap: 2.400 mm • Ağırlık: 95 t", "img": "/thumb/2/Uda_fXtuNLDMsNgMkxSwgw/550c350/d/liebherr_921.jpg" },
+      { "name": "MAIT T80", "desc": "Sondaj makinesi. Maks. derinlik: 52 m • Maks. çap: 1.800 mm • Tork: 200 kNm", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
+      { "name": "FINAROS-800", "desc": "Vibratör. Statik moment: 35 kg·m • Frekans: 38 Hz • Maks. kuvvet: 800 kN", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" },
+      { "name": "Ditch Witch JT3020", "desc": "YYD makinesi. Maks. delme uzunluğu: 300 m • Çekme kuvveti: 133 kN • Çap: 400 mm'ye kadar", "img": "/thumb/2/O4VFTA1Pr_cFdfmluuouxA/550c350/d/minipogruzchik.jpg" },
+      { "name": "UNP-100", "desc": "Yönlendirmeli delme makinesi. İtme kuvveti: 1.000 kN • Çap: 1.500 mm'ye kadar", "img": "/thumb/2/F4Cmo10nY_NEhnxHB2NTcw/550c350/d/mait_t_80_04.jpg" },
+      { "name": "SHNELL Cage Making", "desc": "Donatı kafes üretim hattı. Çap: 300–2.000 mm • Uzunluk: 14 m'ye kadar • Kapasite: 20 kafes/vardiya", "img": "/thumb/2/Q9xIb4gpWzPvw0cyA62uXQ/550c350/d/img-20170426-wa0076.jpg" }
     ]
   },
   "gallery": {
-    "title": "Galeri"
+    "title": "Proje Galerisi"
   },
   "clients": {
-    "title": "Müşteriler",
-    "intro": "140'tan fazla şirket projelerini bize emanet etti",
+    "title": "Müşterilerimiz",
+    "intro": "Kazakistan'ın önde gelen inşaat firmaları ve ana yüklenicileri tarafından tercih ediliyoruz",
     "projects": "tamamlanan proje",
-    "modalTitle": "Tamamlanan projeler (147+)"
+    "modalTitle": "Tamamlanan Projeler (147+)"
   },
   "contact": {
-    "title": "Bize ulaşın",
+    "title": "Projenizi Görüşelim",
     "address": "Adres:",
     "phone": "Telefon:",
     "email": "E-posta:",
     "hours": "Çalışma saatleri:",
     "chatbotTitle": "Size nasıl yardımcı olabiliriz?",
-    "chatbotQ1": "Ne ile ilgileniyorsunuz?",
+    "chatbotQ1": "Bir kategori seçin:",
     "choicePiles": "Kazık işleri",
-    "choicePuncture": "Yol altı delme",
-    "choiceQuote": "Fiyat teklifi",
+    "choicePuncture": "Delme ve YYD",
+    "choiceQuote": "Teklif isteyin",
     "choiceOther": "Diğer",
-    "resultPiles": "Kazık işleri: CFA fore kazıklar, vibrasyonlu çakma. Danışmanlık için WhatsApp ile iletişime geçin.",
-    "resultPuncture": "Yollar ve demiryolları altında delme. Kazısız altyapı döşeme. WhatsApp'tan yazın.",
-    "resultQuote": "Fiyat teklifi için proje ve iş miktarını açıklayın. 24 saat içinde yanıt vereceğiz.",
-    "resultOther": "Herhangi bir sorunuz için bizimle iletişime geçin.",
-    "whatsappBtn": "WhatsApp ile yaz",
-    "formTitle": "Bize yazın",
+    "resultPiles": "CFA fore kazıklar, vibrasyonlu kazık ve palplanş çakma işleri yapıyoruz. Talep bırakın — mühendisimiz bir saat içinde sizinle iletişime geçecektir.",
+    "resultPuncture": "Yol ve demiryolu altı geçişler, YYD ve çelik kılıf boru itme. Maliyet hesabı için projenizi açıklayın.",
+    "resultQuote": "Teklif hazırlamak için proje detaylarını, iş kapsamını ve süreyi belirtin. 24 saat içinde yanıt veriyoruz.",
+    "resultOther": "Herhangi bir kanaldan bize ulaşın — sorularınızı yanıtlamaya hazırız.",
+    "whatsappBtn": "WhatsApp ile yazın",
+    "formTitle": "Talep Gönderin",
     "mapLabel": "Almatı, Kazakistan"
   },
   "form": {
     "name": "Ad Soyad",
     "email": "E-posta",
     "phone": "Telefon",
-    "message": "Mesaj",
-    "submit": "Gönder",
-    "success": "Teşekkürler! Mesajınız gönderildi.",
-    "error": "Hata. Lütfen daha sonra tekrar deneyin."
+    "message": "Projenizi açıklayın",
+    "submit": "Talep Gönder",
+    "success": "Teşekkürler! Talebiniz alındı. En kısa sürede sizinle iletişime geçeceğiz.",
+    "error": "Gönderilemedi. Lütfen daha sonra tekrar deneyin."
   },
   "contactInfo": {
     "addressValue": "050058, Almatı, Rıskulov Bulvarı, 103",
     "phones": ["+7 (727) 377 91 88", "+7 (777) 215 32 28"],
     "emailValue": "alua_too@mail.ru",
-    "hoursValue": "09:00–18:00"
+    "hoursValue": "Pzt–Cum 09:00–18:00"
   },
   "footer": {
     "license": "Lisans № 015231",
-    "desc": "Kazık çakma, fore kazık, CFA teknolojisi, yol altı delme. Almatı, Kazakistan.",
+    "desc": "Uzman temel mühendisliği: CFA fore kazıklar, vibrasyonlu çakma, kazısız altyapı döşeme. Almatı, Kazakistan.",
     "navTitle": "Navigasyon",
     "servicesTitle": "Hizmetler",
-    "service1": "Fore kazıklar",
-    "service2": "CFA teknolojisi",
-    "service3": "Yol altı delme",
+    "service1": "CFA Fore Kazıklar",
+    "service2": "Vibrasyonlu Çakma",
+    "service3": "Delme ve YYD",
     "contactTitle": "İletişim"
   }
 }
