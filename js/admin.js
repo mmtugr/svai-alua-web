@@ -30,8 +30,11 @@
       'auth.error': 'Yanlış şifre',
       'auth.login': 'Giriş',
       'auth.forgot': 'Şifremi unuttum',
-      'auth.forgotConfirm': 'Şifre varsayılana (alua2025) sıfırlansın mı?',
-      'auth.forgotDone': 'Şifre sıfırlandı. Varsayılan şifre: alua2025',
+      'auth.forgotConfirm': 'Yeni şifre e-posta adresinize gönderilecek. Devam edilsin mi?',
+      'auth.forgotDone': 'Yeni şifre e-posta adresinize gönderildi.',
+      'auth.forgotNoEmail': 'Önce Ayarlar bölümünden e-posta adresinizi kaydedin.',
+      'auth.forgotFailed': 'E-posta gönderilemedi. Lütfen tekrar deneyin.',
+      'auth.forgotNotConfigured': 'EmailJS henüz yapılandırılmamış. Ayarlar bölümünden yapılandırın.',
       // Header
       'header.viewSite': 'Siteyi Görüntüle',
       'header.export': 'Dışa Aktar',
@@ -150,6 +153,18 @@
       'contact.resultQuote': 'KP sonuç',
       'contact.resultOther': 'Diğer sonuç',
       'contact.whatsappBtn': 'WhatsApp butonu',
+      // Settings
+      'nav.settings': 'Ayarlar',
+      'settings.title': 'Ayarlar',
+      'settings.emailLabel': 'Admin e-posta adresi',
+      'settings.emailHint': 'Şifre sıfırlama e-postası bu adrese gönderilecektir.',
+      'settings.save': 'Kaydet',
+      'settings.saved': 'Ayarlar kaydedildi',
+      'settings.emailjsTitle': 'EmailJS Yapılandırması',
+      'settings.emailjsPublicKey': 'Public Key',
+      'settings.emailjsServiceId': 'Service ID',
+      'settings.emailjsTemplateId': 'Template ID',
+      'settings.emailjsHint': 'emailjs.com hesabınızdan alınan bilgileri girin. Şifre sıfırlama e-postaları bu servis üzerinden gönderilecektir.',
     },
     ru: {
       // Auth
@@ -158,8 +173,11 @@
       'auth.error': 'Неверный пароль',
       'auth.login': 'Войти',
       'auth.forgot': 'Забыли пароль?',
-      'auth.forgotConfirm': 'Сбросить пароль на стандартный (alua2025)?',
-      'auth.forgotDone': 'Пароль сброшен. Стандартный пароль: alua2025',
+      'auth.forgotConfirm': 'Новый пароль будет отправлен на ваш e-mail. Продолжить?',
+      'auth.forgotDone': 'Новый пароль отправлен на ваш e-mail.',
+      'auth.forgotNoEmail': 'Сначала укажите e-mail в разделе Настройки.',
+      'auth.forgotFailed': 'Не удалось отправить e-mail. Попробуйте ещё раз.',
+      'auth.forgotNotConfigured': 'EmailJS не настроен. Настройте в разделе Настройки.',
       // Header
       'header.viewSite': 'Открыть сайт',
       'header.export': 'Экспорт',
@@ -278,6 +296,18 @@
       'contact.resultQuote': 'Результат «КП»',
       'contact.resultOther': 'Результат «Другое»',
       'contact.whatsappBtn': 'Кнопка WhatsApp',
+      // Settings
+      'nav.settings': 'Настройки',
+      'settings.title': 'Настройки',
+      'settings.emailLabel': 'E-mail администратора',
+      'settings.emailHint': 'На этот адрес будет отправлен новый пароль при сбросе.',
+      'settings.save': 'Сохранить',
+      'settings.saved': 'Настройки сохранены',
+      'settings.emailjsTitle': 'Настройка EmailJS',
+      'settings.emailjsPublicKey': 'Public Key',
+      'settings.emailjsServiceId': 'Service ID',
+      'settings.emailjsTemplateId': 'Template ID',
+      'settings.emailjsHint': 'Введите данные из вашего аккаунта emailjs.com. Через этот сервис будут отправляться e-mail для сброса пароля.',
     },
   };
 
@@ -326,6 +356,7 @@
     { id: 'gallery', key: 'nav.gallery' },
     { id: 'clients', key: 'nav.clients' },
     { id: 'contact', key: 'nav.contact' },
+    { id: 'settings', key: 'nav.settings' },
   ];
 
   let currentLang = 'ru';
@@ -458,7 +489,7 @@
   // --- Lang tabs ---
   function renderLangTabs() {
     const container = document.getElementById('lang-tabs');
-    const isShared = currentSection === 'gallery' || currentSection === 'clients';
+    const isShared = currentSection === 'gallery' || currentSection === 'clients' || currentSection === 'settings';
     if (isShared) {
       container.innerHTML = `<span style="color:var(--color-text-muted);font-size:0.85rem;">${t('shared.langNote')}</span>`;
       return;
@@ -489,6 +520,7 @@
       case 'gallery': renderGalleryEditor(container); break;
       case 'clients': renderClientsEditor(container); break;
       case 'contact': await renderContactEditor(container); break;
+      case 'settings': renderSettingsEditor(container); break;
     }
   }
 
@@ -1041,13 +1073,117 @@
     showToast(t('pass.success'));
   });
 
-  // --- Forgot password (reset to default) ---
-  document.getElementById('forgot-pass-link')?.addEventListener('click', function () {
-    if (confirm(t('auth.forgotConfirm'))) {
-      localStorage.removeItem(PASS_HASH_KEY);
+  // --- EmailJS config keys ---
+  const EMAILJS_PUBLIC_KEY_STORAGE = 'svai_alua_emailjs_public_key';
+  const EMAILJS_SERVICE_ID_STORAGE = 'svai_alua_emailjs_service_id';
+  const EMAILJS_TEMPLATE_ID_STORAGE = 'svai_alua_emailjs_template_id';
+  const ADMIN_EMAIL_KEY = 'svai_alua_admin_email';
+
+  function getEmailJSConfig() {
+    return {
+      publicKey: localStorage.getItem(EMAILJS_PUBLIC_KEY_STORAGE) || '',
+      serviceId: localStorage.getItem(EMAILJS_SERVICE_ID_STORAGE) || '',
+      templateId: localStorage.getItem(EMAILJS_TEMPLATE_ID_STORAGE) || '',
+    };
+  }
+
+  function generateRandomPassword(length = 12) {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789!@#$%';
+    const arr = new Uint8Array(length);
+    crypto.getRandomValues(arr);
+    return Array.from(arr, b => chars[b % chars.length]).join('');
+  }
+
+  // --- Forgot password (email reset) ---
+  document.getElementById('forgot-pass-link')?.addEventListener('click', async function () {
+    const adminEmail = localStorage.getItem(ADMIN_EMAIL_KEY);
+    if (!adminEmail) {
+      alert(t('auth.forgotNoEmail'));
+      return;
+    }
+    const cfg = getEmailJSConfig();
+    if (!cfg.publicKey || !cfg.serviceId || !cfg.templateId) {
+      alert(t('auth.forgotNotConfigured'));
+      return;
+    }
+    if (!confirm(t('auth.forgotConfirm'))) return;
+
+    const newPass = generateRandomPassword();
+    const newHash = await hashPassword(newPass);
+
+    try {
+      await emailjs.send(cfg.serviceId, cfg.templateId, {
+        to_email: adminEmail,
+        new_password: newPass,
+        company_name: 'ТОО АЛУА',
+      }, cfg.publicKey);
+
+      localStorage.setItem(PASS_HASH_KEY, newHash);
       showToast(t('auth.forgotDone'));
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      alert(t('auth.forgotFailed'));
     }
   });
+
+  // --- Settings editor ---
+  function renderSettingsEditor(container) {
+    const adminEmail = localStorage.getItem(ADMIN_EMAIL_KEY) || '';
+    const cfg = getEmailJSConfig();
+
+    container.innerHTML = `
+      <h2>${escapeHTML(t('settings.title'))}</h2>
+
+      <div class="form-group">
+        <label>${escapeHTML(t('settings.emailLabel'))}</label>
+        <input class="form-input" type="email" id="settings-admin-email" value="${escapeHTML(adminEmail)}" placeholder="admin@example.com">
+        <small style="color:var(--color-text-muted);display:block;margin-top:4px">${escapeHTML(t('settings.emailHint'))}</small>
+      </div>
+
+      <hr style="border:none;border-top:1px solid var(--color-border);margin:24px 0">
+
+      <h3>${escapeHTML(t('settings.emailjsTitle'))}</h3>
+      <small style="color:var(--color-text-muted);display:block;margin-bottom:12px">${escapeHTML(t('settings.emailjsHint'))}</small>
+
+      <div class="form-group">
+        <label>${escapeHTML(t('settings.emailjsPublicKey'))}</label>
+        <input class="form-input" type="text" id="settings-emailjs-pk" value="${escapeHTML(cfg.publicKey)}" placeholder="xxxxxxxxxxxxxxx">
+      </div>
+      <div class="form-group">
+        <label>${escapeHTML(t('settings.emailjsServiceId'))}</label>
+        <input class="form-input" type="text" id="settings-emailjs-sid" value="${escapeHTML(cfg.serviceId)}" placeholder="service_xxxxxxx">
+      </div>
+      <div class="form-group">
+        <label>${escapeHTML(t('settings.emailjsTemplateId'))}</label>
+        <input class="form-input" type="text" id="settings-emailjs-tid" value="${escapeHTML(cfg.templateId)}" placeholder="template_xxxxxxx">
+      </div>
+
+      <div style="margin-top:16px">
+        <button class="admin-btn admin-btn-primary" id="settings-save">${escapeHTML(t('settings.save'))}</button>
+      </div>
+    `;
+
+    document.getElementById('settings-save').addEventListener('click', () => {
+      const email = document.getElementById('settings-admin-email').value.trim();
+      const pk = document.getElementById('settings-emailjs-pk').value.trim();
+      const sid = document.getElementById('settings-emailjs-sid').value.trim();
+      const tid = document.getElementById('settings-emailjs-tid').value.trim();
+
+      if (email) localStorage.setItem(ADMIN_EMAIL_KEY, email);
+      else localStorage.removeItem(ADMIN_EMAIL_KEY);
+
+      if (pk) localStorage.setItem(EMAILJS_PUBLIC_KEY_STORAGE, pk);
+      else localStorage.removeItem(EMAILJS_PUBLIC_KEY_STORAGE);
+
+      if (sid) localStorage.setItem(EMAILJS_SERVICE_ID_STORAGE, sid);
+      else localStorage.removeItem(EMAILJS_SERVICE_ID_STORAGE);
+
+      if (tid) localStorage.setItem(EMAILJS_TEMPLATE_ID_STORAGE, tid);
+      else localStorage.removeItem(EMAILJS_TEMPLATE_ID_STORAGE);
+
+      showToast(t('settings.saved'));
+    });
+  }
 
   // --- Unsaved changes warning ---
   window.addEventListener('beforeunload', (e) => {
