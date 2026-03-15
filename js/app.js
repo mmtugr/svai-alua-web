@@ -173,6 +173,10 @@
 
   function updateBalloonOpacity() {
     if (!balloon?.classList.contains('visible') || !contactSection) return;
+    if (balloonJustOpened) {
+      balloonJustOpened = false;
+      return;
+    }
     const rect = contactSection.getBoundingClientRect();
     const vh = window.innerHeight;
     const visibleHeight = Math.max(0, Math.min(rect.bottom, vh) - Math.max(rect.top, 0));
@@ -186,9 +190,12 @@
     if (balloon) balloon.style.opacity = String(opacity);
   }
 
+  let balloonJustOpened = false;
+
   function showBalloon() {
     balloon?.classList.add('visible');
-    updateBalloonOpacity();
+    if (balloon) balloon.style.opacity = '1';
+    balloonJustOpened = true;
   }
 
   function hideBalloon() {
