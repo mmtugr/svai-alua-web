@@ -51,9 +51,12 @@
       'pass.save': 'Kaydet',
       'pass.cancel': 'İptal',
       'pass.wrongCurrent': 'Mevcut şifre yanlış',
+      'pass.currentRequired': 'Mevcut şifreyi girin',
       'pass.mismatch': 'Yeni şifreler eşleşmiyor',
-      'pass.tooShort': 'Şifre en az 6 karakter olmalı',
+      'pass.tooShort': 'Şifre en az 8 karakter olmalı',
       'pass.success': 'Şifre başarıyla değiştirildi',
+      'pass.failed': 'Şifre değiştirilemedi',
+      'auth.rateLimited': 'Çok fazla deneme. {s} saniye bekleyin.',
       // Sidebar
       'nav.dashboard': 'Gösterge Paneli',
       'nav.hero': 'Hero',
@@ -218,9 +221,12 @@
       'pass.save': 'Сохранить',
       'pass.cancel': 'Отмена',
       'pass.wrongCurrent': 'Неверный текущий пароль',
+      'pass.currentRequired': 'Введите текущий пароль',
       'pass.mismatch': 'Новые пароли не совпадают',
-      'pass.tooShort': 'Пароль должен быть не менее 6 символов',
+      'pass.tooShort': 'Пароль должен быть не менее 8 символов',
       'pass.success': 'Пароль успешно изменён',
+      'pass.failed': 'Не удалось сменить пароль',
+      'auth.rateLimited': 'Слишком много попыток. Подождите {s} сек.',
       // Sidebar
       'nav.dashboard': 'Панель управления',
       'nav.hero': 'Главная',
@@ -431,18 +437,35 @@
     });
   }
 
+  // --- Login with rate limiting ---
+  var _loginAttempts = 0;
+  var _loginLockUntil = 0;
+
   document.getElementById('auth-form')?.addEventListener('submit', async function (e) {
     e.preventDefault();
     const email = document.getElementById('auth-email').value.trim();
     const password = document.getElementById('auth-password').value;
     const errorEl = document.getElementById('auth-error');
     if (!email || !password) { errorEl.style.display = 'block'; return; }
+    // Rate limiting
+    var now = Date.now();
+    if (now < _loginLockUntil) {
+      var secs = Math.ceil((_loginLockUntil - now) / 1000);
+      errorEl.textContent = t('auth.rateLimited').replace('{s}', secs);
+      errorEl.style.display = 'block';
+      return;
+    }
     try {
       await window.firebaseAuth.signInWithEmailAndPassword(email, password);
+      _loginAttempts = 0;
       errorEl.style.display = 'none';
       document.getElementById('auth-overlay').style.display = 'none';
       init();
     } catch (err) {
+      _loginAttempts++;
+      if (_loginAttempts >= 5) {
+        _loginLockUntil = Date.now() + Math.min(_loginAttempts * 5000, 60000);
+      }
       errorEl.style.display = 'block';
     }
   });
@@ -664,7 +687,7 @@
   // --- Image upload (base64) ---
   let _uploadCounter = 0;
   function imageField(label, value, id) {
-    const escaped = (value || '').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+    const escaped = escapeHTML(value || '');
     const uid = `upload-${_uploadCounter++}`;
     const isBase64 = value && value.startsWith('data:');
     const previewSrc = isBase64 ? value : (value ? IMG_BASE + value : '');
@@ -1243,18 +1266,26 @@
 
   passForm?.addEventListener('submit', async function (e) {
     e.preventDefault();
+    const currentPass = document.getElementById('pass-current').value;
     const newPass = document.getElementById('pass-new').value;
     const confirmVal = document.getElementById('pass-confirm').value;
     const errEl = document.getElementById('pass-error');
+    if (!currentPass) { errEl.textContent = t('pass.currentRequired'); errEl.style.display = 'block'; return; }
     if (newPass !== confirmVal) { errEl.textContent = t('pass.mismatch'); errEl.style.display = 'block'; return; }
-    if (newPass.length < 6) { errEl.textContent = t('pass.tooShort'); errEl.style.display = 'block'; return; }
+    if (newPass.length < 8) { errEl.textContent = t('pass.tooShort'); errEl.style.display = 'block'; return; }
     try {
-      await window.firebaseAuth.currentUser.updatePassword(newPass);
+      // Re-authenticate before password change
+      var user = window.firebaseAuth.currentUser;
+      var credential = firebase.auth.EmailAuthProvider.credential(user.email, currentPass);
+      await user.reauthenticateWithCredential(credential);
+      await user.updatePassword(newPass);
       errEl.style.display = 'none';
       document.getElementById('pass-modal').style.display = 'none';
       showToast(t('pass.success'));
     } catch (err) {
-      errEl.textContent = err.message;
+      var msg = t('pass.failed');
+      if (err.code === 'auth/wrong-password') msg = t('pass.wrongCurrent');
+      errEl.textContent = msg;
       errEl.style.display = 'block';
     }
   });

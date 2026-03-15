@@ -129,16 +129,21 @@
         <a href="#clients" data-i18n="nav.clients">Заказчики</a>
         <a href="#contact" data-i18n="nav.contact">Контакты</a>
       </nav>
-      <div class="lang-switcher">
-        <button data-lang="kk" class="lang-btn active" title="Қазақша">KZ</button>
-        <button data-lang="ru" class="lang-btn" title="Русский">RU</button>
-        <button data-lang="en" class="lang-btn" title="English">EN</button>
-        <button data-lang="zh" class="lang-btn" title="中文">ZH</button>
-        <button data-lang="tr" class="lang-btn" title="Türkçe">TR</button>
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <span class="theme-icon" id="theme-icon">☀</span>
+        </button>
+        <div class="lang-dropdown">
+          <button class="lang-dropdown-toggle" id="lang-toggle"><span class="lang-flag">🇰🇿</span> KZ <span class="lang-arrow">▾</span></button>
+          <div class="lang-dropdown-menu" id="lang-menu">
+            <button data-lang="kk" class="lang-btn active" title="Қазақша"><span class="lang-flag">🇰🇿</span> KZ</button>
+            <button data-lang="ru" class="lang-btn" title="Русский"><span class="lang-flag">🇷🇺</span> RU</button>
+            <button data-lang="en" class="lang-btn" title="English"><span class="lang-flag">🇬🇧</span> EN</button>
+            <button data-lang="zh" class="lang-btn" title="中文"><span class="lang-flag">🇨🇳</span> ZH</button>
+            <button data-lang="tr" class="lang-btn" title="Türkçe"><span class="lang-flag">🇹🇷</span> TR</button>
+          </div>
+        </div>
       </div>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-        <span class="theme-icon" id="theme-icon">☀</span>
-      </button>
       <button class="mobile-menu-btn" aria-label="Menu">☰</button>
     </div>
   </header>

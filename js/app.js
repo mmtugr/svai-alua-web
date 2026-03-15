@@ -412,7 +412,7 @@
       var langRow = document.createElement('div');
       langRow.className = 'mobile-lang-row';
       langRow.style.cssText = 'display:flex;gap:4px;padding:12px 0;';
-      document.querySelectorAll('.lang-switcher .lang-btn').forEach(function (btn) {
+      document.querySelectorAll('.lang-dropdown-menu .lang-btn').forEach(function (btn) {
         var clone = document.createElement('button');
         clone.className = btn.className;
         clone.textContent = btn.textContent;

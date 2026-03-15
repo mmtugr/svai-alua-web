@@ -241,6 +241,13 @@
     document.querySelectorAll('.lang-btn').forEach((btn) => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
+    // Update dropdown toggle text
+    const LANG_FLAGS = { kk: '\u{1F1F0}\u{1F1FF} KZ', ru: '\u{1F1F7}\u{1F1FA} RU', en: '\u{1F1EC}\u{1F1E7} EN', zh: '\u{1F1E8}\u{1F1F3} ZH', tr: '\u{1F1F9}\u{1F1F7} TR' };
+    const toggle = document.getElementById('lang-toggle');
+    if (toggle) toggle.innerHTML = '<span class="lang-flag">' + (LANG_FLAGS[lang] || lang.toUpperCase()).split(' ')[0] + '</span> ' + (LANG_FLAGS[lang] || lang.toUpperCase()).split(' ')[1] + ' <span class="lang-arrow">\u25BE</span>';
+    // Close dropdown
+    const menu = document.getElementById('lang-menu');
+    if (menu) menu.classList.remove('open');
     document.dispatchEvent(new Event('content-rendered'));
   }
 
@@ -252,6 +259,16 @@
     document.querySelectorAll('.lang-btn').forEach((btn) => {
       btn.addEventListener('click', () => setLang(btn.dataset.lang));
     });
+    // Lang dropdown toggle
+    const langToggle = document.getElementById('lang-toggle');
+    const langMenu = document.getElementById('lang-menu');
+    if (langToggle && langMenu) {
+      langToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langMenu.classList.toggle('open');
+      });
+      document.addEventListener('click', () => langMenu.classList.remove('open'));
+    }
   });
 
   window.i18n = { t, setLang, getLang: () => currentLang, get translations() { return translations; } };
