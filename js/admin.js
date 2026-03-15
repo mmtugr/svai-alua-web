@@ -365,8 +365,10 @@
   let dirty = false;
 
   // --- Auth (SHA-256 hashed password + brute-force protection) ---
-  const DEFAULT_PASS_HASH = '963a708fb5c3cbc8656e380ea1060f1476ec56801c8fef94c727e4c769148f9e'; // alua2025
+  const DEFAULT_PASS_HASH = '963a708fb5c3cbc8656e380ea1060f1476ec56801c8fef94c727e4c769148f9e';
   const PASS_HASH_KEY = 'svai_alua_admin_pass_hash';
+  const SESSION_TOKEN_KEY = 'admin_auth_token';
+  const SESSION_TIMEOUT = 30 * 60 * 1000; // 30 dakika oturum süresi
   function getPassHash() { return localStorage.getItem(PASS_HASH_KEY) || DEFAULT_PASS_HASH; }
   const MAX_ATTEMPTS = 5;
   const LOCKOUT_KEY = 'admin_lockout';
@@ -381,6 +383,30 @@
     return Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2, '0')).join('');
   }
 
+  // Güvenli oturum token'ı: şifre hash + zaman damgası ile HMAC benzeri doğrulama
+  async function generateSessionToken() {
+    const passHash = getPassHash();
+    const timestamp = Date.now().toString();
+    const tokenData = passHash + '|' + timestamp;
+    const hash = await hashPassword(tokenData);
+    return timestamp + '|' + hash;
+  }
+
+  async function validateSessionToken(token) {
+    if (!token) return false;
+    const parts = token.split('|');
+    if (parts.length !== 2) return false;
+    const [timestamp, hash] = parts;
+    const ts = parseInt(timestamp, 10);
+    if (isNaN(ts)) return false;
+    // Oturum zaman aşımı kontrolü
+    if (Date.now() - ts > SESSION_TIMEOUT) return false;
+    // Token doğrulama
+    const passHash = getPassHash();
+    const expected = await hashPassword(passHash + '|' + timestamp);
+    return hash === expected;
+  }
+
   function getLockoutState() {
     try {
       const raw = localStorage.getItem(LOCKOUT_KEY);
@@ -393,11 +419,13 @@
     localStorage.setItem(LOCKOUT_KEY, JSON.stringify(state));
   }
 
-  function checkAuth() {
-    if (sessionStorage.getItem('admin_auth') === 'true') {
+  async function checkAuth() {
+    const token = sessionStorage.getItem(SESSION_TOKEN_KEY);
+    if (await validateSessionToken(token)) {
       authOverlay.style.display = 'none';
       return true;
     }
+    sessionStorage.removeItem(SESSION_TOKEN_KEY);
     return false;
   }
 
@@ -419,7 +447,8 @@
 
       const hash = await hashPassword(authInput.value);
       if (hash === getPassHash()) {
-        sessionStorage.setItem('admin_auth', 'true');
+        const token = await generateSessionToken();
+        sessionStorage.setItem(SESSION_TOKEN_KEY, token);
         setLockoutState({ attempts: 0, lockedUntil: 0 });
         authOverlay.style.display = 'none';
         init();
@@ -731,7 +760,7 @@
       const gUploadId = `gallery-upload-${i}`;
       html += `<div class="gallery-editor-item">
         <img src="${previewSrc || 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22100%22><rect fill=%22%231a2035%22 width=%22200%22 height=%22100%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%2390a4ae%22 text-anchor=%22middle%22 dy=%22.3em%22>No Image</text></svg>'}" alt="" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22100%22><rect fill=%22%231a2035%22 width=%22200%22 height=%22100%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%2390a4ae%22 text-anchor=%22middle%22 dy=%22.3em%22>No Image</text></svg>'">
-        <input class="form-input" value="${src.replace(/"/g, '&quot;')}" data-gallery-idx="${i}" id="gallery-input-${i}" oninput="window._adminMarkDirty()">
+        <input class="form-input" value="${escapeHTML(src)}" data-gallery-idx="${i}" id="gallery-input-${i}" oninput="window._adminMarkDirty()">
         <div style="display:flex;gap:4px;margin-top:4px;">
           <label class="admin-btn admin-btn-secondary admin-btn-sm" for="${gUploadId}" style="cursor:pointer;flex:1;justify-content:center;">${t('btn.upload')}</label>
           <input type="file" accept="image/*" id="${gUploadId}" class="hidden-input" onchange="window._adminUploadImage(this,'gallery-input-${i}')">
@@ -791,7 +820,7 @@
       <div class="projects-editor" id="projects-editor">`;
     projects.forEach((p, i) => {
       html += `<div class="project-item" data-project-idx="${i}">
-        <input class="form-input" value="${p.replace(/"/g, '&quot;')}" data-project-input="${i}" oninput="window._adminMarkDirty()">
+        <input class="form-input" value="${escapeHTML(p)}" data-project-input="${i}" oninput="window._adminMarkDirty()">
         <button class="admin-btn admin-btn-danger admin-btn-sm" onclick="window._adminRemoveProject(${i})">×</button>
       </div>`;
     });
@@ -1016,7 +1045,7 @@
   // --- Logout ---
   document.getElementById('btn-logout')?.addEventListener('click', () => {
     if (!confirm(t('header.logoutConfirm'))) return;
-    sessionStorage.removeItem('admin_auth');
+    sessionStorage.removeItem(SESSION_TOKEN_KEY);
     dirty = false;
     window.location.reload();
   });
@@ -1095,8 +1124,30 @@
   }
 
   // --- Forgot password (email reset) ---
+  // Admin e-postası, hash ile korunarak saklanır (konsol müdahalesini zorlaştırır)
+  const ADMIN_EMAIL_HASH_KEY = 'svai_alua_admin_email_hash';
+
+  async function getVerifiedAdminEmail() {
+    const email = localStorage.getItem(ADMIN_EMAIL_KEY);
+    const storedHash = localStorage.getItem(ADMIN_EMAIL_HASH_KEY);
+    if (!email || !storedHash) return null;
+    const expectedHash = await hashPassword(email + '|alua_email_verify');
+    return expectedHash === storedHash ? email : null;
+  }
+
+  async function setVerifiedAdminEmail(email) {
+    if (email) {
+      const hash = await hashPassword(email + '|alua_email_verify');
+      localStorage.setItem(ADMIN_EMAIL_KEY, email);
+      localStorage.setItem(ADMIN_EMAIL_HASH_KEY, hash);
+    } else {
+      localStorage.removeItem(ADMIN_EMAIL_KEY);
+      localStorage.removeItem(ADMIN_EMAIL_HASH_KEY);
+    }
+  }
+
   document.getElementById('forgot-pass-link')?.addEventListener('click', async function () {
-    const adminEmail = localStorage.getItem(ADMIN_EMAIL_KEY);
+    const adminEmail = await getVerifiedAdminEmail();
     if (!adminEmail) {
       alert(t('auth.forgotNoEmail'));
       return;
@@ -1163,14 +1214,13 @@
       </div>
     `;
 
-    document.getElementById('settings-save').addEventListener('click', () => {
+    document.getElementById('settings-save').addEventListener('click', async () => {
       const email = document.getElementById('settings-admin-email').value.trim();
       const pk = document.getElementById('settings-emailjs-pk').value.trim();
       const sid = document.getElementById('settings-emailjs-sid').value.trim();
       const tid = document.getElementById('settings-emailjs-tid').value.trim();
 
-      if (email) localStorage.setItem(ADMIN_EMAIL_KEY, email);
-      else localStorage.removeItem(ADMIN_EMAIL_KEY);
+      await setVerifiedAdminEmail(email || null);
 
       if (pk) localStorage.setItem(EMAILJS_PUBLIC_KEY_STORAGE, pk);
       else localStorage.removeItem(EMAILJS_PUBLIC_KEY_STORAGE);
@@ -1199,7 +1249,14 @@
     await renderEditor();
   }
 
-  if (checkAuth()) {
-    document.addEventListener('DOMContentLoaded', init);
-  }
+  // Init: checkAuth async + DOMContentLoaded güvenli tetikleme
+  (async function startAdmin() {
+    if (await checkAuth()) {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    }
+  })();
 })();
