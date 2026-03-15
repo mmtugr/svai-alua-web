@@ -72,6 +72,10 @@
       'about.p1': 'Paragraf 1',
       'about.p2': 'Paragraf 2',
       'about.p3': 'Paragraf 3',
+      'about.missionTitle': 'Misyon başlığı',
+      'about.mission': 'Misyon metni',
+      'about.visionTitle': 'Vizyon başlığı',
+      'about.vision': 'Vizyon metni',
       // Services
       'services.title': 'Hizmetler',
       'services.sectionTitle': 'Bölüm başlığı',
@@ -181,6 +185,10 @@
       'about.p1': 'Абзац 1',
       'about.p2': 'Абзац 2',
       'about.p3': 'Абзац 3',
+      'about.missionTitle': 'Заголовок миссии',
+      'about.mission': 'Текст миссии',
+      'about.visionTitle': 'Заголовок видения',
+      'about.vision': 'Текст видения',
       // Services
       'services.title': 'Услуги',
       'services.sectionTitle': 'Заголовок раздела',
@@ -547,6 +555,10 @@
         ${inputField(t('about.p1'), about.p1, 'about-p1', 'textarea')}
         ${inputField(t('about.p2'), about.p2, 'about-p2', 'textarea')}
         ${inputField(t('about.p3'), about.p3, 'about-p3', 'textarea')}
+        ${inputField(t('about.missionTitle'), about.missionTitle, 'about-missionTitle')}
+        ${inputField(t('about.mission'), about.mission, 'about-mission', 'textarea')}
+        ${inputField(t('about.visionTitle'), about.visionTitle, 'about-visionTitle')}
+        ${inputField(t('about.vision'), about.vision, 'about-vision', 'textarea')}
         <div class="actions-bar">
           <button class="admin-btn admin-btn-primary" onclick="window._adminSave('about')">${t('btn.save')}</button>
           <button class="admin-btn admin-btn-secondary" onclick="window._adminReset('about')">${t('btn.reset')}</button>
@@ -821,6 +833,10 @@
         p1: tval('about-p1'),
         p2: tval('about-p2'),
         p3: tval('about-p3'),
+        missionTitle: val('about-missionTitle'),
+        mission: tval('about-mission'),
+        visionTitle: val('about-visionTitle'),
+        vision: tval('about-vision'),
       });
     } else if (section === 'services') {
       const items = [];
