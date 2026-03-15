@@ -10,7 +10,16 @@
   "hero": {
     "title": "Piling Works, Road Boring",
     "subtitle": "Bored Piles • CFA Technology • Trenchless Utility Installation",
-    "cta": "Contact Us"
+    "cta": "Contact Us",
+    "scroll": "scroll"
+  },
+  "stats": {
+    "years": "10+",
+    "yearsLabel": "years of experience",
+    "projects": "147+",
+    "projectsLabel": "projects",
+    "equipment": "8",
+    "equipmentLabel": "units of equipment"
   },
   "about": {
     "title": "About Us",
@@ -82,6 +91,13 @@
     "hoursValue": "09:00–18:00"
   },
   "footer": {
-    "license": "License No. 015231"
+    "license": "License No. 015231",
+    "desc": "Pile driving, bored piles, CFA technology, horizontal directional drilling. Almaty, Kazakhstan.",
+    "navTitle": "Navigation",
+    "servicesTitle": "Services",
+    "service1": "Bored piles",
+    "service2": "CFA technology",
+    "service3": "Horizontal drilling",
+    "contactTitle": "Contacts"
   }
 }

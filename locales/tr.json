@@ -10,7 +10,16 @@
   "hero": {
     "title": "Kazık işleri, yol altı delme",
     "subtitle": "Fore kazıklar • CFA teknolojisi • Kazısız altyapı döşeme",
-    "cta": "Bize ulaşın"
+    "cta": "Bize ulaşın",
+    "scroll": "scroll"
+  },
+  "stats": {
+    "years": "10+",
+    "yearsLabel": "yıllık deneyim",
+    "projects": "147+",
+    "projectsLabel": "proje",
+    "equipment": "8",
+    "equipmentLabel": "ekipman"
   },
   "about": {
     "title": "Hakkımızda",
@@ -82,6 +91,13 @@
     "hoursValue": "09:00–18:00"
   },
   "footer": {
-    "license": "Lisans № 015231"
+    "license": "Lisans № 015231",
+    "desc": "Kazık çakma, fore kazık, CFA teknolojisi, yol altı delme. Almatı, Kazakistan.",
+    "navTitle": "Navigasyon",
+    "servicesTitle": "Hizmetler",
+    "service1": "Fore kazıklar",
+    "service2": "CFA teknolojisi",
+    "service3": "Yol altı delme",
+    "contactTitle": "İletişim"
   }
 }

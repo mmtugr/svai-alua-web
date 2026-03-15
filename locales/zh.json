@@ -10,7 +10,16 @@
   "hero": {
     "title": "桩基工程、道路顶管",
     "subtitle": "灌注桩 • CFA技术 • 非开挖管线铺设",
-    "cta": "联系我们"
+    "cta": "联系我们",
+    "scroll": "scroll"
+  },
+  "stats": {
+    "years": "10+",
+    "yearsLabel": "年经验",
+    "projects": "147+",
+    "projectsLabel": "个项目",
+    "equipment": "8",
+    "equipmentLabel": "台设备"
   },
   "about": {
     "title": "关于公司",
@@ -82,6 +91,13 @@
     "hoursValue": "09:00–18:00"
   },
   "footer": {
-    "license": "许可证 № 015231"
+    "license": "许可证 № 015231",
+    "desc": "桩基工程、灌注桩、CFA技术、顶管穿越。阿拉木图，哈萨克斯坦。",
+    "navTitle": "导航",
+    "servicesTitle": "服务",
+    "service1": "灌注桩",
+    "service2": "CFA技术",
+    "service3": "顶管穿越",
+    "contactTitle": "联系方式"
   }
 }

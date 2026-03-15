@@ -50,6 +50,17 @@
 
   initTheme();
 
+  /* ===== Scroll progress bar ===== */
+  var progressBar = document.getElementById('scroll-progress');
+  if (progressBar) {
+    window.addEventListener('scroll', function () {
+      var scrollTop = window.scrollY;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+    }, { passive: true });
+  }
+
   /* ===== Scroll reveal ===== */
   function initScrollReveal() {
     var els = document.querySelectorAll('.scroll-reveal, .scroll-stagger');
@@ -290,6 +301,24 @@
   function openMenu() {
     menuOpen = true;
     nav.classList.add('mobile-open');
+    // Add lang switcher to mobile menu if not already there
+    if (!nav.querySelector('.mobile-lang-row')) {
+      var langRow = document.createElement('div');
+      langRow.className = 'mobile-lang-row';
+      langRow.style.cssText = 'display:flex;gap:4px;padding:12px 0;';
+      document.querySelectorAll('.lang-switcher .lang-btn').forEach(function (btn) {
+        var clone = document.createElement('button');
+        clone.className = btn.className;
+        clone.textContent = btn.textContent;
+        clone.dataset.lang = btn.dataset.lang;
+        clone.addEventListener('click', function () {
+          if (window.i18n) window.i18n.setLang(clone.dataset.lang);
+          closeMenu();
+        });
+        langRow.appendChild(clone);
+      });
+      nav.appendChild(langRow);
+    }
   }
 
   if (mobileBtn && nav) {

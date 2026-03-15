@@ -15,7 +15,11 @@
       "Bash(git remote:*)",
       "Bash(git branch:*)",
       "Bash(git push:*)",
-      "WebFetch(domain:www.qedgroup.cz)"
+      "WebFetch(domain:www.qedgroup.cz)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Bash(python3 -mjson.tool /Users/ugur/Projects/Project/svai_alua_web/locales/$f.json)",
+      "Bash(done)"
     ]
   }
 }
