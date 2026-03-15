@@ -171,12 +171,12 @@
   const balloonWa = document.getElementById('chatbot-balloon-wa');
   const contactSection = document.getElementById('contact');
 
+  let balloonOpenScrollY = null;
+
   function updateBalloonOpacity() {
     if (!balloon?.classList.contains('visible') || !contactSection) return;
-    if (balloonJustOpened) {
-      balloonJustOpened = false;
-      return;
-    }
+    if (balloonOpenScrollY !== null && Math.abs(window.scrollY - balloonOpenScrollY) < 50) return;
+    balloonOpenScrollY = null;
     const rect = contactSection.getBoundingClientRect();
     const vh = window.innerHeight;
     const visibleHeight = Math.max(0, Math.min(rect.bottom, vh) - Math.max(rect.top, 0));
@@ -190,12 +190,10 @@
     if (balloon) balloon.style.opacity = String(opacity);
   }
 
-  let balloonJustOpened = false;
-
   function showBalloon() {
     balloon?.classList.add('visible');
     if (balloon) balloon.style.opacity = '1';
-    balloonJustOpened = true;
+    balloonOpenScrollY = window.scrollY;
   }
 
   function hideBalloon() {
@@ -276,8 +274,14 @@
   const mobileBtn = document.querySelector('.mobile-menu-btn');
   const nav = document.querySelector('.nav');
   if (mobileBtn && nav) {
-    mobileBtn.addEventListener('click', function () {
+    mobileBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
       nav.classList.toggle('mobile-open');
+    });
+    document.addEventListener('click', function (e) {
+      if (nav.classList.contains('mobile-open') && !e.target.closest('.nav') && !e.target.closest('.mobile-menu-btn')) {
+        nav.classList.remove('mobile-open');
+      }
     });
   }
 })();
